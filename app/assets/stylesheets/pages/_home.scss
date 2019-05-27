@@ -1,1 +1,14 @@
 // Specific CSS for your home-page
+
+.home-container{
+  display: flex;
+  align-items: flex-end;
+  width: 90%;
+  border: 1px solid white;
+  margin: 0 auto;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+
