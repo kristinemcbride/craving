@@ -6,12 +6,12 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
-    resources :favorites, [:index, :new, :create] do
+    resources :favorites, only: [:index, :new, :create] do
       collection do
         get 'my_posted_dishes'
         end
       end
-    resources :reviews, [:new, :create]
-    resources :restaurants, [:new, :create, :show]
+    resources :reviews, only: [:new, :create]
+    resources :restaurants, only: [:new, :create, :show]
   end
 end
