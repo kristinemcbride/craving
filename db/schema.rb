@@ -10,10 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_072732) do
+ActiveRecord::Schema.define(version: 2019_05_27_163701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.string "photo"
+    t.integer "price"
+    t.integer "rating"
+    t.string "category"
+    t.bigint "restaurant_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+    t.index ["user_id"], name: "index_dishes_on_user_id"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "dish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_favorites_on_dish_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.integer "average_rating"
+    t.integer "price_range"
+    t.string "delivery_url"
+    t.string "booking_url"
+    t.float "longitude"
+    t.float "latitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "content"
+    t.string "rating"
+    t.date "date"
+    t.bigint "dish_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_reviews_on_dish_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +75,10 @@ ActiveRecord::Schema.define(version: 2019_05_27_072732) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "dishes", "restaurants"
+  add_foreign_key "dishes", "users"
+  add_foreign_key "favorites", "dishes"
+  add_foreign_key "favorites", "users"
+  add_foreign_key "reviews", "dishes"
+  add_foreign_key "reviews", "users"
 end
