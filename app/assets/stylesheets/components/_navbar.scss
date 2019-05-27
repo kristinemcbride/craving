@@ -1,12 +1,29 @@
-.navbar-lewagon {
+.navbar-craving {
   justify-content: space-between;
-  background: white;
+  background: $blue;
+  height: 50px;
+  margin-left: 16px;
+  margin-right: 16px;
+
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-craving .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-craving .navbar-brand img {
+  width: 90px;
+
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  a {
+    margin-right: 25px;
+    align-self: center;
+  }
+  .drop-link {
+    margin-right: 0;
+  }
 }
