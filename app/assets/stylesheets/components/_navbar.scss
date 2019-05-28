@@ -12,8 +12,18 @@
   button {
     margin-right: 16px;
   }
-
+  a {
+    color: $red;
+    text-decoration: none;
+  }
+  a:hover {
+    color: white;
+  }
+  .avatar-bordered {
+    margin-right: 16px;
+  }
 }
+
 .navbar-craving .navbar-collapse {
   flex-grow: 0;
 }
@@ -21,6 +31,29 @@
   width: 80px;
 
 }
+
+
+.dropdown-menu {
+  background: $blue;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  a {
+    margin-right: 25px;
+    align-self: center;
+  }
+  .drop-link {
+    margin-right: 0;
+  }
+}
+=======
 // .nav-links {
 //   display: flex;
 //   flex-direction: row;
@@ -32,3 +65,4 @@
 //     margin-right: 0;
 //   }
 // }
+>>>>>>> 4072f14601c41c7976782d544e25d5c4018917fd
