@@ -10,7 +10,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    PASTE YOUR NAVBAR HERE
+    <%= render 'shared/navbar' %>
     <%= yield %>
     <div class="pop-alerts">
       <p class=“notice”><%= notice %></p>
