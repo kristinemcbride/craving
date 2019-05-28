@@ -1,5 +1,4 @@
 class DishesController < ApplicationController
-  before_action :set_restaurant, only: [:search]
 
   def show
     @dish = Dish.find(params[:id])
@@ -20,16 +19,12 @@ class DishesController < ApplicationController
   end
 
   def search
-   raise
-    @dish.restaurant = @restaurant
-    @results = Dish.where("address = ?", params[:address])
+
+    @results = Dish.joins(:restaurant).where("restaurants.address = ?", params[:address])
   end
 
   private
 
-  def set_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
 
   def strong_dish_params
     params.require(:dish).permit(:name, :photo, :price, :rating, :category, :restaurant_id, :user_id)
