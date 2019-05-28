@@ -8,8 +8,8 @@
 puts "Destroying current DB"
 
 Favorite.destroy_all
-Restaurant.destroy_all
 Dish.destroy_all
+Restaurant.destroy_all
 User.destroy_all
 
 
@@ -44,9 +44,19 @@ ashley = User.create!(
   avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558625095/ashley_bm1krp.jpg")
   )
 
+puts "Creating RESTAURANTS..."
+
+koya = Restaurant.new(
+
+  )
+
 puts "Creating DISHES..."
 
 osaka = Dish.new(
   name: "Osaka Burger",
-  photo: open(""
+  photo: open("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/burgerbear-077-1515519914.jpg"),
+  price: 12,
+  rating: 4,
+  category: "Burger",
+
   )
