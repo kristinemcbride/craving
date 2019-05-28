@@ -1,3 +1,4 @@
+
 <div class="crave-container">
 
 <div class="craving-content" >
@@ -19,7 +20,14 @@
   </div>
 </div>
 
+<div
+  id="map"
+  style="width: 100%; height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
 
+<<<<<<< HEAD
 <div class="craving-content">
   <div class="row">
     <div class="col-xs-12 col-sm-8 offset-sm-2">
@@ -31,3 +39,22 @@
   </div>
 </div>
 </div>
+=======
+<!-- <h1><%= @count %> dishes in <%= @city %></h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 offset-sm-2">
+    <% @dishes.each #do |dish| %>
+      <div class="card">
+        <div class="card-image">
+          <%= cl_image_tag result.photo %>
+        </div>
+        <div class="card-info">
+          <h3><%= dish.#name %></h3>
+          <p><%= dish.rating %></p>
+        </div>
+      </div>
+    <% #end %>
+  </div>
+</div> -->
+
+>>>>>>> 5c9c2cc8ab659b2ebbd48bfe4e02a91d7198c1ae
