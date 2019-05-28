@@ -17,7 +17,7 @@ puts "Creating USERS..."
 
 meder = User.create!(
   email: "meder@meder.com",
-  name: "Meder"
+  name: "Meder",
   password: "password",
   avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558622915/ukezkpbjfxh6ensucpk0.jpg")
   )
@@ -155,7 +155,7 @@ steak_1 = Dish.new(
   rating: 4,
   category: "Steak",
   user_id: ricardo.id,
-  restaurant_id: apothaosik.id,
+  restaurant_id: apotheosik.id,
   )
 grilled_salmon.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
 grilled_salmon.save
