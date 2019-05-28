@@ -5,3 +5,48 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "Destroying current DB"
+
+Favorite.destroy_all
+Restaurant.destroy_all
+Dish.destroy_all
+User.destroy_all
+
+
+puts "Creating USERS..."
+
+meder = User.create!(
+  email: "meder@meder.com",
+  name: "Meder"
+  password: "password",
+  avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558622915/ukezkpbjfxh6ensucpk0.jpg")
+  )
+
+
+kristine = User.create!(
+  email: "kristine@kristine.com",
+  name: "Kristine",
+  password: "password",
+  avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558625747/kristine_hu9g6f.png")
+  )
+
+ricardo = User.create!(
+  email: "ricardo@ricardo.com",
+  name: "Ricardo",
+  password: "password",
+  avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558625527/ricardo_vbuhcm.jpg")
+  )
+
+ashley = User.create!(
+  email: "ashley@ashley.com",
+  name: "Ashley",
+  password: "password",
+  avatar: open("https://res.cloudinary.com/mike-asher/image/upload/v1558625095/ashley_bm1krp.jpg")
+  )
+
+puts "Creating DISHES..."
+
+osaka = Dish.new(
+  name: "Osaka Burger",
+  photo: open(""
+  )
