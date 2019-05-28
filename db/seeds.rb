@@ -46,4 +46,7 @@ ashley = User.create!(
 
 puts "Creating DISHES..."
 
-
+osaka = Dish.new(
+  name: "Osaka Burger",
+  photo: open(""
+  )
