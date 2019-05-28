@@ -7,13 +7,11 @@
 }
 // <--CARD DISH CONTAINER (search by dish)-->
 .craving-dish-search {
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-  padding-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  };
+ height: 200px;
+ width: 200px;
+ background-position: right bottom, left top;
+ background-repeat: no-repeat, repeat;
+ object-fit: cover;
 }
 
 .craving-dish-info h1 {
