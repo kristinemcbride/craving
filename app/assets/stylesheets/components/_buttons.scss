@@ -16,21 +16,24 @@
   width: 150px;
 }
 .crave-button-secondary-sm {
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: $blue;
   color: $red;
   border: 1px solid $red;
-  padding: 7px 10px;
-  width: 80px
+  height: 28px;
+  width: 65px;
+  text-size: 8px;
 }
 
 .crave-button-primary-sm {
-  font-weight: bold;
   background-color: $red;
   color: $blue;
   border: none;
-  padding: 7px 10px;
-  width: 80px
+  padding: 5px 5px;
+  width: 70px;
+  text-size: 10px;
 }
 
 .crave-button-primary-lg {

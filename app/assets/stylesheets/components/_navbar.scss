@@ -1,14 +1,22 @@
 .navbar-craving {
+  display: flex;
   justify-content: space-between;
   background: $blue;
   height: 50px;
   width: 100%;
+  flex-grow: 1;
+  align-items: center;
+  .header {
+    margin-left: 16px;
+  }
+  button {
+    margin-right: 16px;
+  }
 
 }
 
-.header {
-  margin-left: 16px;
-}
+
+
 
 .navbar-craving .navbar-collapse {
   flex-grow: 0;
