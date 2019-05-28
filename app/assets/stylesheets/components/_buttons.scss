@@ -1,0 +1,48 @@
+.crave-button-primary {
+  font-weight: bold;
+  background-color: $red;
+  color: $blue;
+  border: none;
+  padding: 10px 25px;
+  width: 150px;
+}
+
+.crave-button-secondary {
+  font-weight: bold;
+  background-color: $blue;
+  color: $red;
+  border: 1px solid $red;
+  padding: 10px 25px;
+  width: 150px;
+}
+.crave-button-secondary-sm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  color: $red;
+  border: 1px solid $red;
+  height: 28px;
+  width: 65px;
+  text-size: 8px;
+}
+
+.crave-button-primary-sm {
+  background-color: $red;
+  color: $blue;
+  border: none;
+  padding: 5px 5px;
+  width: 70px;
+  text-size: 10px;
+}
+
+.crave-button-primary-lg {
+  font-weight: bold;
+  background-color: $red;
+  color: $blue;
+  border: none;
+  padding: 10px 125px;
+  width: 100%;
+}
+
+
