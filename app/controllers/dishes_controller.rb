@@ -20,9 +20,19 @@ class DishesController < ApplicationController
   end
 
   def search
-    @dishes = Dish.joins(:restaurant).where("restaurants.address = ?", params[:address])
-    @city = params[:address]
-    @count = @dishes.count
+    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+    @markers = @restaurants.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude
+      }
+    end
+    if params[:address].present?
+      @dishes = Dish.joins(:restaurant).near(params[:address], 10)
+      @city = params[:address]
+      @count = @dishes.count
+    end
+    raise
   end
 
   private
