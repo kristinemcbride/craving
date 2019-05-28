@@ -1,7 +1,8 @@
 class DishesController < ApplicationController
-
   def show
     @dish = Dish.find(params[:id])
+    @reviews = Review.find_by(dish_id: params[:id])
+    @count = @reviews.count
   end
 
   def new
@@ -19,12 +20,12 @@ class DishesController < ApplicationController
   end
 
   def search
-
-    @results = Dish.joins(:restaurant).where("restaurants.address = ?", params[:address])
+    @dishes = Dish.joins(:restaurant).where("restaurants.address = ?", params[:address])
+    @city = params[:address]
+    @count = @dishes.count
   end
 
   private
-
 
   def strong_dish_params
     params.require(:dish).permit(:name, :photo, :price, :rating, :category, :restaurant_id, :user_id)
