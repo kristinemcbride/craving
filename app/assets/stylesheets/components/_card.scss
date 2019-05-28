@@ -1,16 +1,11 @@
-// <--CARD GRID CONTAINER (search by dish)-->
-.grid-container {
-  display: grid;
-  grid-template-columns: 0.3fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
-  grid-template-areas: "." "." "." ".";
-}
+
 // <--CARD DISH CONTAINER (search by dish)-->
 .craving-dish-search {
  height: 200px;
- width: 200px;
- background-position: right bottom, left top;
- background-repeat: no-repeat, repeat;
+ width: 100%;
+ background-size: cover;
+ background-position: center;
+ border-radius: 4px;
  object-fit: cover;
 }
 

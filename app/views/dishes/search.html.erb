@@ -1,52 +1,37 @@
 
 <!--BUTTON (search by dish) -->
-<div class="craving-content" style="padding-top: 12px; margin-bottom: 50px !important;">
+<div>
+<div class="craving-content" style= "border: 1px solid white;">
   <form action="">
-    <input type="text" placeholder="Search by dish" class="search-bar">
+    <input type="text" placeholder="Your location" class="search-bar" style="margin-bottom: 24px">
   </form>
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!--CARD (search by dish)-->
-<div class="grid-container">
+<div class="search-card">
   <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
+  </div>
+
+  <!--CARD (info of one dish)-->
+  <div class="craving-content">
+    <div class="craving-dish-info">
+      <p>Osaka Burger</p>
+      <p>Timesburg</p>
+      <p class="card-dish-km">0.5km</p>
+    </div>
+  </div>
 </div>
 
-<!--CARD (info of one dish)-->
-<div class="craving-dish-info">
-  <h1>Osaka Burger</h1>
-  <h2>Timesburg</h2>
-  <h3 class="card-dish-km">0.5km</h3>
-</div>
-</div>
-
-=======
-<h1>Dishes#search</h1>
-<p>Find me in app/views/dishes/search.html.erb</p>
 
 
-<div class="container">
+
+<div class="craving-content">
   <div class="row">
     <div class="col-xs-12 col-sm-8 offset-sm-2">
       <h1>Dishes</h1>
       <% @results.each do |result| %>
-        <h3><%= result %></h3>
+      <h3><%= result %></h3>
       <% end %>
     </div>
   </div>
 </div>
->>>>>>> 9cff97661e6942288c04204fc54ade2e6822a105
