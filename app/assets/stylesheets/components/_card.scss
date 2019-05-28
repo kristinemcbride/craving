@@ -1,11 +1,39 @@
-.craving-dish-card img {
-    border-radius: 10px;
-    height: 100px;
-    width: 100%;
-    -o-object-fit: cover;
-    object-fit: cover;
-  }
-img {
-    vertical-align: middle;
-    border-style: none;
+// <--CARD GRID CONTAINER (search by dish)-->
+.grid-container {
+  display: grid;
+  grid-template-columns: 0.3fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "." "." "." ".";
 }
+// <--CARD DISH CONTAINER (search by dish)-->
+.craving-dish-search {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  };
+}
+
+.craving-dish-info h1 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.craving-dish-info h2 {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-dish-km h3 {
+    font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+
+
