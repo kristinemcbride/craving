@@ -3,16 +3,14 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
+  resources :favorites, only: [:create, :destroy]
+
   resources :dishes, only: [:show, :new, :create] do
     collection do
       get 'search'
     end
-    resources :favorites, only: [:index, :new, :create] do
-      collection do
-        get 'my_posted_dishes'
-        end
-      end
-    resources :reviews, only: [:new, :create]
-    resources :restaurants, only: [:new, :create, :show]
+    resources :reviews, only: [:create]
   end
+
+  resources :restaurants, only: :show
 end
