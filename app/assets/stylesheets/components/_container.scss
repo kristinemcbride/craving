@@ -1,7 +1,6 @@
 .craving-content {
   margin-left: 16px;
   margin-right: 16px;
-  width: 100%;
   h1 {
     font-size: 32px;
     font-weight: bold;
@@ -10,3 +9,10 @@
     font-size: 16px;
   }
 }
+
+.crave-container {
+ height: calc(100vh - 50px);
+  width: 100%;
+  max-width: 1600px;
+}
+
