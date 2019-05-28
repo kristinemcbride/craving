@@ -46,17 +46,116 @@ ashley = User.create!(
 
 puts "Creating RESTAURANTS..."
 
-koya = Restaurant.new(
+koya = Restaurant.create!(
+  name: "Koya Grill",
+  address: "Carrer de Vic, 23, 08006 Barcelona",
+  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg"
+  )
 
+ninos = Restaurant.create!(
+  name: "Nino's Palace",
+  address: "Carrer del Rosselló, 217, 08008 Barcelona",
+  photo: "https://s3-eu-west-1.amazonaws.com/gr-cms/media/filer_public/cc/ec/ccecba57-fc3a-4b94-911a-966ab4265c40/1.jpg"
+  )
+
+ugarit = Restaurant.create!(
+  name: "Ugarit",
+  address: "Carrer de Bruniquer, 69, 08024 Barcelona",
+  photo: "https://tastet.ca/wp-content/uploads/2018/10/restaurant-lexpress-montreal-3-1024x684.jpg"
+  )
+
+apotheosik = Restaurant.create!(
+  name: "Apotheosik",
+  address: "Carrer de la Legalitat, 74, 08024 Barcelona",
+  photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg"
   )
 
 puts "Creating DISHES..."
 
 osaka = Dish.new(
   name: "Osaka Burger",
-  photo: open("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/burgerbear-077-1515519914.jpg"),
   price: 12,
   rating: 4,
   category: "Burger",
-
+  user_id: ashley.id,
+  restaurant_id: apotheosik.id,
   )
+osaka.remote_photo_url = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/burgerbear-077-1515519914.jpg"
+osaka.save
+
+tom_yum = Dish.new(
+  name: "Tom Yum Goong",
+  price: 8,
+  rating: 3,
+  category: "Thai Soup",
+  user_id: ashley.id,
+  restaurant_id: apotheosik.id,
+  )
+tom_yum.remote_photo_url = "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/best_and_worst_thai_dishes_slideshow/1800x1200_slideshow_best_and_worst_thai_dishes_for_your_health.jpg"
+tom_yum.save
+
+cheese_bacon = Dish.new(
+  name: "Cheese and Bacon Burger",
+  price: 14,
+  rating: 5,
+  category: "Burger",
+  user_id: ashley.id,
+  restaurant_id: koya.id,
+  )
+cheese_bacon.remote_photo_url = "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/best_and_worst_thai_dishes_slideshow/1800x1200_slideshow_best_and_worst_thai_dishes_for_your_health.jpg"
+cheese_bacon.save
+
+deluxe = Dish.new(
+  name: "Deluxe Burger",
+  price: 15,
+  rating: 4,
+  category: "Burger",
+  user_id: kristine.id,
+  restaurant_id: koya.id,
+  )
+deluxe.remote_photo_url = "https://sifu.unileversolutions.com/image/en-SA/recipe-topvisual/2/1260-709/steakhouse-burger-50391476.jpg"
+deluxe.save
+
+grilled_chicken = Dish.new(
+  name: "Grilled Chicken",
+  price: 10,
+  rating: 3,
+  category: "Chicken",
+  user_id: kristine.id,
+  restaurant_id: koya.id,
+  )
+grilled_chicken.remote_photo_url = "http://img.finedininglovers.com/?img=http%3A%2F%2Ffinedininglovers.cdn.crosscast-system.com%2FBlogPost%2FOriginal_10367_grilled-chicken.jpg&w=1200&h=660&lu=1430276710&ext=.jpg"
+grilled_chicken.save
+
+grilled_salmon = Dish.new(
+  name: "Grilled Salmon",
+  price: 16,
+  rating: 5,
+  category: "Salmon",
+  user_id: kristine.id,
+  restaurant_id: apotheosik.id,
+  )
+grilled_salmon.remote_photo_url = "https://www.seriouseats.com/recipes/images/2015/08/20150823-grilled-chicken-cutlet-recipe-kenji-01.jpg"
+grilled_salmon.save
+
+grilled_salmon_2 = Dish.new(
+  name: "Grilled Salmon",
+  price: 15,
+  rating: 4,
+  category: "Salmon",
+  user_id: ricardo.id,
+  restaurant_id: koya.id,
+  )
+grilled_salmon.remote_photo_url = "https://4.bp.blogspot.com/--92q6Bbi4Qw/XFIUhUMt2fI/AAAAAAAAABE/Om9MUeaV2mggiUC7gGiVxgDWigehfMMtwCLcBGAs/s1600/Webp.net-compress-image.jpg"
+grilled_salmon.save
+
+steak_1 = Dish.new(
+  name: "Grilled Steak",
+  price: 18,
+  rating: 4,
+  category: "Steak",
+  user_id: ricardo.id,
+  restaurant_id: apothaosik.id,
+  )
+grilled_salmon.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
+grilled_salmon.save
