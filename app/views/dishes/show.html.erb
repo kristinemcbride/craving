@@ -1,33 +1,16 @@
-<div class="show-background" style="background-image: asset-url(<%= image_path @dish.photo %>)">
-  <h1><%= @dish.name %></h1>
-  <h4><%= @dish.rating %></h4>
-</div>
-<div class="container">
-  <div class="small-restaurant-card">
-    <%= image_path @restaurant.photo %>
-    <h3><%= @restaurant.name %></h3>
-    <p><%= @restaurant.price_range %></p>
-    <button>
-      <%= link_to restaurant_path(@restaurant) %>
-    </button>
+
+<div class="craving-dish-search large-card" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
+
+<div class="dish-info-card">
+  <div>
+    <h5 class="dish-info"><strong><%= @dish.name %></strong></h5>
+    <p class="dish-info"><strong><%= @dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
   </div>
-  <div class="show-header">
-    <p>Reviews (<%= @count %>)</p>
-    <p><%= link_to new_review_path %></p>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 offset-sm-2">
-      <% @results.each do |result| %>
-        <div class="card">
-          <div class="card-image">
-            <%= cl_image_tag result.photo %>
-          </div>
-          <div class="card-info">
-            <h3><%= result.name %></h3>
-            <p><%= result.rating %></p>
-          </div>
-        </div>
-      <% end %>
-    </div>
+  <div>
+    <p><i class="far fa-bookmark"></i></p>
   </div>
 </div>
+</div>
+<%= link_to restaurant_path(@dish.restaurant_id) do %>
+  <p class= "name"><%= @dish.restaurant.name %></p>
+<% end %>
