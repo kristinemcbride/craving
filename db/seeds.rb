@@ -19,7 +19,7 @@ meder = User.new(
   name: "Meder",
   password: "password"
   )
-meder.remote_photo_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709647/nj18sssnzxnuh7rvfvlx.jpg"
+meder.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709647/nj18sssnzxnuh7rvfvlx.jpg"
 meder.save!
 
 kristine = User.new(
@@ -27,7 +27,7 @@ kristine = User.new(
   name: "Kristine",
   password: "password"
   )
-kristine.remote_photo_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709362/q0awjfu6e1eyjso3mknm.png"
+kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709362/q0awjfu6e1eyjso3mknm.png"
 kristine.save!
 
 ricardo = User.new(
@@ -35,7 +35,7 @@ ricardo = User.new(
   name: "Ricardo",
   password: "password"
   )
-ricardo.remote_photo_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709526/x59kmstmnwclothuw9dv.jpg"
+ricardo.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709526/x59kmstmnwclothuw9dv.jpg"
 ricardo.save!
 
 ashley = User.new(
@@ -43,7 +43,7 @@ ashley = User.new(
   name: "Ashley",
   password: "password"
   )
-ashley.remote_photo_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709460/l6uxxdeceq8bhb1zlvhh.jpg"
+ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709460/l6uxxdeceq8bhb1zlvhh.jpg"
 ashley.save!
 
 puts "Creating 6 RESTAURANTS..."

@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :dishes
   has_many :reviews, dependent: :destroy
   has_many :favorites
+
+  mount_uploader :avatar, PhotoUploader
 end
