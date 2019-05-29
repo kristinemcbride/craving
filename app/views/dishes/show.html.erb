@@ -1,2 +1,33 @@
-<h1>Dishes#show</h1>
-<p>Find me in app/views/dishes/show.html.erb</p>
+<div class="show-background" style="background-image: asset-url(<%= image_path @dish.photo %>)">
+  <h1><%= @dish.name %></h1>
+  <h4><%= @dish.rating %></h4>
+</div>
+<div class="container">
+  <div class="small-restaurant-card">
+    <%= image_path @restaurant.photo %>
+    <h3><%= @restaurant.name %></h3>
+    <p><%= @restaurant.price_range %></p>
+    <button>
+      <%= link_to restaurant_path(@restaurant) %>
+    </button>
+  </div>
+  <div class="show-header">
+    <p>Reviews (<%= @count %>)</p>
+    <p><%= link_to new_review_path %></p>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 offset-sm-2">
+      <% @results.each do |result| %>
+        <div class="card">
+          <div class="card-image">
+            <%= cl_image_tag result.photo %>
+          </div>
+          <div class="card-info">
+            <h3><%= result.name %></h3>
+            <p><%= result.rating %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

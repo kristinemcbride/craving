@@ -8,10 +8,39 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/navbar' %>
+    <div class="navbar-craving">
+      <a class="navbar-brand header" href="/">
+        <%= image_tag "cravinglogo.png" %>
+      </a>
+      <% if user_signed_in? %>
+        <div class="nav-item dropdown">
+          <% if current_user.avatar.nil? %>
+          <h3 class="avatar-bordered " id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user"></i></h3>
+          <% else %>
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_tag current_user.avatar %>" />
+          <% end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="drop-link"><%= link_to "View profile", favorites_path, class: "dropdown-item" %></a>
+            <a class="drop-link"><%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %></a>
+            <a class="drop-link"><%= link_to "Post a dish", new_dish_path, class: "dropdown-item" %></a>
+            <a class="drop-link"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %></a>
+          </div>
+        </div>
+      <% else %>
+      <% unless current_page?(user_session_path) %>
+         <button class="crave-button-secondary-sm"><%= link_to "Log in",  user_session_path %>
+      </button>
+      <% else %>
+       <button class="crave-button-primary-sm"><%= link_to "Sign up",  new_user_registration_path %>
+      </button>
+
+      <% end %>
+      <% end %>
+</div>
+
     <%= yield %>
     <div class="pop-alerts">
       <p class=“notice”><%= notice %></p>

@@ -4,3 +4,103 @@
   background-color: $gray;
   padding: 5px 16px;
 }
+
+.load-form {
+  margin-top: 48px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+
+  .crave-button-primary-lg {
+    margin-top: 20px;
+    float: center;
+  };
+
+}
+
+h2 {
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+.form-inputs {
+  margin-top: 24px;
+  color: $white;
+  font-weight: normal;
+  font-size: 12px;
+}
+
+.form-control {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+
+.form-links {
+  margin-top: 16px;
+  a {
+    color: $red;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $white;
+  }
+}
+
+#user_email {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+.form-control:focus {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+
+.form-control:focus-within {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+
+.form-control:visited {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+
+.form-control:active {
+  border: 1px solid $red;
+  color: $red;
+  background-color: $blue;
+}
+
+
+#user-input:-webkit-autofill:selected,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:selected,input:-internal-autofill-selected {
+  border: 1px solid $red;
+  color: $red !important;
+  background-color: $blue !important;
+}
+
+
+// .user-input {
+//   color: $red !important;
+//   background-color: $blue !important;
+// }
+
+// .user-input:focus {
+//   color: $red !important;
+//   background-color: $blue !important;
+// }
+
+
+
