@@ -22,22 +22,33 @@
 .craving-dish-info {
   display: flex;
   justify-content:  space-between;
-  border: 1px solid white;
+  margin-right: 16px;
+  margin-left: 16px;
 }
 
 .info {
-  border: 1px solid white;
+  margin-top: 8px;
+  p {
+    font-size: 12px;
+  }
+  h5 {
+    font-size: 13px;
+  }
+    .name {
+    margin-bottom: 4px;
+  }
+
+  .distance {
+    text-align: right;
+  }
+
+  .rating  {
+    margin-bottom: 4px;
+  }
 }
 
-.info {
-  border: 1px solid white;
-}
 
-// <--STAR RATING -->
 
-.card-dish-rating {
-    color: white;
-}
 
 .fa-star {
   color: $gray;
