@@ -25,6 +25,20 @@
   margin-left: 16px;
 }
 
+.large-card {
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.dish-info-card {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 16px;
+  margin-left: 16px;
+
+}
+
 .info {
   margin-top: 8px;
   p {
