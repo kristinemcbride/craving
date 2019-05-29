@@ -30,7 +30,7 @@ class DishesController < ApplicationController
     if params[:address].present?
       @dishes = Dish.joins(:restaurant).near(params[:address], 10)
       @city = params[:address]
-      @count = @dishes.count
+      # @count = @dishes.count
     end
   end
 
