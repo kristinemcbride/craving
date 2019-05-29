@@ -55,6 +55,10 @@
   .distance {
     text-align: right;
   }
+// 0.5km in restaurant page
+  .distance-rest{
+    text-align: left;
+  }
 
   .rating  {
     margin-bottom: 4px;
@@ -76,5 +80,19 @@
 }
 
 
+.card-category {
+ height: 100px;
+ width: 100px;
+ background-size: cover;
+ background-position: center;
+ object-fit: cover;
+}
 
+.cards {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 5vw);
+
+}
 
