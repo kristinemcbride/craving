@@ -1,5 +1,8 @@
-
 // <--CARD DISH CONTAINER (search by dish)-->
+section.craving-content {
+  background: #fff
+}
+
 .craving-dish-search {
  height: 200px;
  width: 100%;
@@ -9,10 +12,50 @@
  object-fit: cover;
 }
 
+.search-card {
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 273px;
+  height: 385px;
+  margin-right: 0‒;
+}
+
+.craving-dish-info {
+    width: 272px;
+    height: 95px;
+    padding-left: 5px;
+    font-size: 15px;
+}
+
+.card-dish-km {
+    color: white;
+ }
 
 
+.craving-content .craving-dish-info {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
 
 
+// <--STAR RATING -->
+
+.card-dish-rating {
+    color: white;
+}
+
+.fa {
+  font-size: 8px;
+}
+
+.checked {
+  color: orange;
+}
 
 
 
