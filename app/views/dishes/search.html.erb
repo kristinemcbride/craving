@@ -1,40 +1,33 @@
  <div class="craving-content">
  <form action="">
-    <input type="text" placeholder="Search by dish" class="search-bar" style="margin-bottom: 25px">
+    <input type="text" placeholder="Search by dish" class="search-bar" style="margin-bottom: 16px; margin-top: 16px;">
   </form>
 
   <p><strong><%= @count %> dishes in <%= @city %></strong></p>
-<% @dishes.each do |dish| %>
+  <% @dishes.each do |dish| %>
 </div>
 
 <!--CARD (search by dish)-->
 
-
-  <div class="crave-container">
     <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
     </div>
-
-    <div class="craving-content">
       <div class="craving-dish-info">
         <div class= "info">
-          <p><strong><%= dish.name %></strong></p>
-          <p><%= dish.restaurant.name %></p>
+          <h5 class= "name"><strong><%= dish.name %></strong></h5>
+          <p class= "name"><%= dish.restaurant.name %></p>
         </div>
         <div class= "info">
-          <p><%= dish.rating %><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
-          <p>0.5km</p>
+          <p class="rating"><strong><%= dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
+          <p class="distance">0.5km</p>
         </div>
         <% end %>
       </div>
       <div
       id="map"
-      style="width: 100%; height: 600px;"
+      style="margin-left: 16px; margin-right: 16px; height: 600px;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
       ></div>
-    </div>
-
-</div>
 </div>
 
 
