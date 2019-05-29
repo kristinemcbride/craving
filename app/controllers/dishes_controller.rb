@@ -28,9 +28,15 @@ class DishesController < ApplicationController
       }
     end
     if params[:address].present?
-      @dishes = Dish.joins(:restaurant).near(params[:address], 10)
+      near_restaurants = Restaurant.near(params[:address], 10)
+      @dishes = []
+      near_restaurants.each do |restaurant|
+        restaurant.dishes.each do |dish|
+          @dishes << dish
+        end
+      end
       @city = params[:address]
-      # @count = @dishes.count
+      @count = @dishes.count
     end
   end
 
