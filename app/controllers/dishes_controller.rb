@@ -27,7 +27,7 @@ class DishesController < ApplicationController
         lng: restaurant.longitude
       }
     end
-     if params[:address].present?
+    if params[:address].present?
       near_restaurants = Restaurant.near(params[:address], 10)
       @dishes = []
       near_restaurants.each do |restaurant|
