@@ -1,8 +1,8 @@
 class DishesController < ApplicationController
   def show
     @dish = Dish.find(params[:id])
-    @reviews = Review.find_by(dish_id: params[:id])
-    # @count = @reviews.count
+    @reviews = Review.select(dish_id: params[:id])
+    @count = @reviews.count
   end
 
   def new
