@@ -1,8 +1,8 @@
 class DishesController < ApplicationController
   def show
     @dish = Dish.find(params[:id])
-    @reviews = Review.find_by(dish_id: params[:id])
-    # @count = @reviews.count
+    @reviews = Review.select(dish_id: params[:id])
+    @count = @reviews.count
   end
 
   def new
@@ -10,13 +10,14 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.new(strong_dish_params)
-    @dish.user = current_user
-    if @dish.save
-      redirect_to dish_path(@dish)
-    else
-      render :new
-    end
+
+    # @dish = Dish.new(strong_dish_params)
+    # @dish.user = current_user
+    # if @dish.save
+    #   redirect_to dish_path(@dish)
+    # else
+    #   render :new
+    # end
   end
 
   def search
