@@ -1,0 +1,48 @@
+.review-head {
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  margin-top: 32px;
+  p{
+    font-size: 13px;
+  }
+  a {
+    color: $red;
+    font-size: 12px;
+  }
+  p {
+    font-size: 12px;
+  }
+
+}
+
+.top-review {
+  display: flex;
+}
+
+.top-right-review {
+  height: 40px;
+
+  margin-left: 12px;
+  .review-name {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+  .review-rate {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 0px;
+  }
+}
+
+.review-content {
+  p {
+    font-size: 12px;
+    font-weight: lighter;
+  }
+  margin-left: 52px;
+
+}
+
+

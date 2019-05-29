@@ -1,8 +1,8 @@
 class DishesController < ApplicationController
   def show
     @dish = Dish.find(params[:id])
-    @reviews = Review.find_by(dish_id: params[:id])
-    # @count = @reviews.count
+    @reviews = Review.where(dish_id: params[:id])
+    @count = @reviews.count
   end
 
   def new
@@ -10,17 +10,18 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.new(strong_dish_params)
-    @dish.user = current_user
-    if @dish.save
-      redirect_to dish_path(@dish)
-    else
-      render :new
-    end
+
+    # @dish = Dish.new(strong_dish_params)
+    # @dish.user = current_user
+    # if @dish.save
+    #   redirect_to dish_path(@dish)
+    # else
+    #   render :new
+    # end
   end
 
   def search
-    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+    @restaurants = Restaurant.near(params[:address], 20)
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -28,9 +29,8 @@ class DishesController < ApplicationController
       }
     end
     if params[:address].present?
-      near_restaurants = Restaurant.near(params[:address], 10)
       @dishes = []
-      near_restaurants.each do |restaurant|
+      @restaurants.each do |restaurant|
         restaurant.dishes.each do |dish|
           @dishes << dish
         end

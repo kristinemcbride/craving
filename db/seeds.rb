@@ -14,33 +14,37 @@ User.destroy_all
 
 
 puts "Creating 4 USERS..."
-meder = User.create!(
+meder = User.new(
   email: "meder@meder.com",
   name: "Meder",
-  password: "password",
-
+  password: "password"
   )
+meder.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709647/nj18sssnzxnuh7rvfvlx.jpg"
+meder.save!
 
-kristine = User.create!(
+kristine = User.new(
   email: "kristine@kristine.com",
   name: "Kristine",
-  password: "password",
-
+  password: "password"
   )
+kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709362/q0awjfu6e1eyjso3mknm.png"
+kristine.save!
 
-ricardo = User.create!(
+ricardo = User.new(
   email: "ricardo@ricardo.com",
   name: "Ricardo",
-  password: "password",
-
+  password: "password"
   )
+ricardo.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709526/x59kmstmnwclothuw9dv.jpg"
+ricardo.save!
 
-ashley = User.create!(
+ashley = User.new(
   email: "ashley@ashley.com",
   name: "Ashley",
-  password: "password",
-
+  password: "password"
   )
+ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709460/l6uxxdeceq8bhb1zlvhh.jpg"
+ashley.save!
 
 puts "Creating 6 RESTAURANTS..."
 koya = Restaurant.create!(
@@ -190,3 +194,60 @@ steak_2 = Dish.new(
   )
 steak_2.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
 steak_2.save!
+
+puts "Creating 4 REVIEWS"
+
+review_1 = Review.create!(
+  content: "This hamburger changed my life, im now a vegan.",
+  rating: 3,
+  date: "2018-05-25",
+  user_id: ashley.id,
+  dish_id: deluxe.id
+  )
+
+review_2 = Review.create!(
+  content: "I'm getting married here, thanks to this burger.",
+  rating: 5,
+  date: "2019-04-20",
+  user_id: ricardo.id,
+  dish_id: deluxe.id
+  )
+
+review_3 = Review.create!(
+  content: "The place could be burning down, and I would still finish this burger",
+  rating: 5,
+  date: "2018-12-31",
+  user_id: kristine.id,
+  dish_id: deluxe.id
+  )
+
+review_4 = Review.create!(
+  content: "Pleasant surprise, I was a vegan until I was tricked to try this burger, now I order one each day",
+  rating: 5,
+  date: "2019-05-29",
+  user_id: meder.id,
+  dish_id: deluxe.id
+  )
+
+puts "Creating 4 FAVORITES"
+
+favorite_1 = Favorite.create!(
+  user_id: kristine.id,
+  dish_id: deluxe.id
+  )
+
+favorite_2 = Favorite.create!(
+  user_id: kristine.id,
+  dish_id: steak_2.id
+  )
+
+favorite_3 = Favorite.create!(
+  user_id: kristine.id,
+  dish_id: grilled_chicken.id
+  )
+
+favorite_4 = Favorite.create!(
+  user_id: kristine.id,
+  dish_id: tom_yum.id
+  )
+
