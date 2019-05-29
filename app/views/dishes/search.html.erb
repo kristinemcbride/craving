@@ -9,6 +9,7 @@
 
 <!--CARD (search by dish)-->
 
+    <%= link_to dish_path(dish) do %>
     <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
     </div>
       <div class="craving-dish-info">
@@ -19,9 +20,12 @@
         <div class= "info">
           <p class="rating"><strong><%= dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
           <p class="distance">0.5km</p>
+          <% end %>
         </div>
         <% end %>
+
       </div>
+
       <div
       id="map"
       style="margin-left: 16px; margin-right: 16px; height: 600px;"
