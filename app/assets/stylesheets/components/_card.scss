@@ -9,15 +9,6 @@
  object-fit: cover;
 }
 
-.search-card {
-  padding-left: 0px;
-  padding-right: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  width: 273px;
-  height: 385px;
-  margin-right: 0;
-}
 
 .craving-dish-info {
   display: flex;
@@ -101,7 +92,9 @@
   .distance {
     text-align: right;
   }
-
+  .name {
+    margin-bottom: 4px;
+}
   .rating  {
     margin-bottom: 4px;
   }
@@ -114,9 +107,7 @@
     color: $red !important;
   }
 
-.checked {
-  color: orange;
-}
+
 
 
 
