@@ -37,8 +37,8 @@
     <p><strong>Reviews (<%= @count %>)</strong></p>
     <a href="/">Tried it? Rate it now!</a>
   </div>
+  <% @reviews.each do |review| %>
   <div class="top-review">
-    <% @reviews.each do |review| %>
     <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
     <div class= "top-right-review">
       <p class= "review-name"><%= review.user.name %></p>
@@ -48,4 +48,5 @@
   <div class="review-content">
   <p><%= review.content %></p>
   </div>
+  <% end %>
 </div>
