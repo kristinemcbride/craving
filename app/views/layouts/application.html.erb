@@ -10,8 +10,7 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
-  <body>
-    <div class="navbar-craving">
+  <div class="navbar-craving">
       <a class="navbar-brand header" href="/">
         <%= image_tag "cravinglogo.png" %>
       </a>
@@ -40,6 +39,8 @@
       <% end %>
       <% end %>
 </div>
+  <body>
+
 
     <%= yield %>
     <div class="pop-alerts">
