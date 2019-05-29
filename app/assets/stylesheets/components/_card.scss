@@ -16,7 +16,7 @@
   padding-bottom: 0px;
   width: 273px;
   height: 385px;
-  margin-right: 0‒;
+  margin-right: 0;
 }
 
 .craving-dish-info {
@@ -30,6 +30,10 @@
   display: flex;
   align-items: flex-end;
   flex-grow: 1;
+  height: 250px;
+  p {
+    font-size: 12px;
+  }
 }
 
 .dish-info-card {
@@ -37,7 +41,52 @@
   justify-content: space-between;
   margin-right: 16px;
   margin-left: 16px;
+  flex-grow: 1;
+}
 
+.resto{
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 16px;
+  button {
+    height: 40px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+}
+.resto-content {
+  display: flex;
+
+  p{
+    font-size: 14px;
+  }
+}
+
+.fa-bookmark {
+  background-color: rgba(17, 20, 33, 0.8);
+  padding-right: 4px;
+  padding-left: 4px;
+
+}
+
+.dish-info {
+  background-color: rgba(17, 20, 33, 0.8);
+  padding-right: 4px;
+  padding-left: 4px;
+}
+.dish-rate {
+  background-color: rgba(17, 20, 33, 0.8);
+  padding-right: 0px;
+  padding-left: 4px;
+}
+
+.name {
+    margin-bottom: 4px;
+}
+.resto-name {
+  margin-bottom: 0px;
 }
 
 .info {
@@ -48,9 +97,6 @@
   h5 {
     font-size: 13px;
   }
-    .name {
-    margin-bottom: 4px;
-  }
 
   .distance {
     text-align: right;
@@ -60,9 +106,6 @@
     margin-bottom: 4px;
   }
 }
-
-
-
 
 .fa-star {
   color: $gray;

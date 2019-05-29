@@ -5,6 +5,14 @@
   border: none;
   padding: 10px 15px;
   width: 100px;
+    a {
+    color: $blue;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $white;
+
+  }
 }
 
 .crave-button-secondary {
