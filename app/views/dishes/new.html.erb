@@ -1,7 +1,7 @@
 <div class="crave-container">
   <div class="craving-content">
     <div class="load-form">
-    <h2></h2>
+    <h2>Upload  dish</h2>
 
     <!-- new dish form -->
     <%= simple_form_for(@dish) do |f| %>
@@ -17,6 +17,8 @@
         <%= f.input :category,
                     required: true
         %>
+        <%= f.input :photos %>
+        <%= f.input :photos_cache, as: :hidden %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "", class: "crave-button-primary-lg" %>
@@ -31,10 +33,7 @@
         <%= f.input :name,
                     required: true
         %>
-        <%= f.input :price,
-                    required: true
-        %>
-        <%= f.input :category,
+        <%= f.input :address,
                     required: true
         %>
       </div>
@@ -44,17 +43,14 @@
     <% end %>
 
     <!-- new review form -->
-    <%= simple_form_for(@dish) do |f| %>
+    <%= simple_form_for(@reviews) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :name,
+        <%= f.input :content,
                     required: true
         %>
-        <%= f.input :price,
-                    required: true
-        %>
-        <%= f.input :category,
+        <%= f.input :rating,
                     required: true
         %>
       </div>
