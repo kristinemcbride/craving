@@ -21,7 +21,7 @@ class DishesController < ApplicationController
   end
 
   def search
-    @restaurants = Restaurant.where.not(latitude: nil, longitude: nil)
+    @restaurants = Restaurant.near(params[:address], 20)
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
@@ -29,9 +29,8 @@ class DishesController < ApplicationController
       }
     end
     if params[:address].present?
-      near_restaurants = Restaurant.near(params[:address], 10)
       @dishes = []
-      near_restaurants.each do |restaurant|
+      @restaurants.each do |restaurant|
         restaurant.dishes.each do |dish|
           @dishes << dish
         end
