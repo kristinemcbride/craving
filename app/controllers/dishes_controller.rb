@@ -10,13 +10,14 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.new(strong_dish_params)
-    @dish.user = current_user
-    if @dish.save
-      redirect_to dish_path(@dish)
-    else
-      render :new
-    end
+
+    # @dish = Dish.new(strong_dish_params)
+    # @dish.user = current_user
+    # if @dish.save
+    #   redirect_to dish_path(@dish)
+    # else
+    #   render :new
+    # end
   end
 
   def search
