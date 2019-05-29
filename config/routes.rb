@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :favorites, only: [:create, :destroy]
-
   resources :dishes, only: [:show, :new, :create] do
     collection do
       get 'search'
