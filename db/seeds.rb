@@ -13,15 +13,13 @@ Restaurant.destroy_all
 User.destroy_all
 
 
-puts "Creating USERS..."
-
+puts "Creating 4 USERS..."
 meder = User.create!(
   email: "meder@meder.com",
   name: "Meder",
   password: "password",
 
   )
-
 
 kristine = User.create!(
   email: "kristine@kristine.com",
@@ -44,8 +42,7 @@ ashley = User.create!(
 
   )
 
-puts "Creating RESTAURANTS..."
-
+puts "Creating 6 RESTAURANTS..."
 koya = Restaurant.create!(
   name: "Koya Grill",
   address: "Carrer de Vic, 23, 08006 Barcelona",
@@ -70,8 +67,20 @@ apotheosik = Restaurant.create!(
   photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg"
   )
 
-puts "Creating DISHES..."
+barco = Restaurant.create!(
+  name: "El Barco",
+  address: "Av. Ricardo Soriano, 32, 29601 Marbella, Málaga",
+  photo: "https://i.imgur.com/NBBtwTj.jpg"
+  )
 
+meder_place = Restaurant.create!(
+  name: "Meder's Corner",
+  address: "Av Calderón de la Barca, 29660 Marbella, Málaga",
+  photo: "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+  )
+
+
+puts "Creating 10 DISHES..."
 osaka = Dish.new(
   name: "Osaka Burger",
   price: 12,
@@ -81,7 +90,7 @@ osaka = Dish.new(
   restaurant_id: apotheosik.id,
   )
 osaka.remote_photo_url = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/burgerbear-077-1515519914.jpg"
-osaka.save
+osaka.save!
 
 tom_yum = Dish.new(
   name: "Tom Yum Goong",
@@ -92,10 +101,10 @@ tom_yum = Dish.new(
   restaurant_id: apotheosik.id,
   )
 tom_yum.remote_photo_url = "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/best_and_worst_thai_dishes_slideshow/1800x1200_slideshow_best_and_worst_thai_dishes_for_your_health.jpg"
-tom_yum.save
+tom_yum.save!
 
 cheese_bacon = Dish.new(
-  name: "Cheese and Bacon Burger",
+  name: "Bacon Cheeseburger",
   price: 14,
   rating: 5,
   category: "Burger",
@@ -103,7 +112,7 @@ cheese_bacon = Dish.new(
   restaurant_id: koya.id,
   )
 cheese_bacon.remote_photo_url = "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/best_and_worst_thai_dishes_slideshow/1800x1200_slideshow_best_and_worst_thai_dishes_for_your_health.jpg"
-cheese_bacon.save
+cheese_bacon.save!
 
 deluxe = Dish.new(
   name: "Deluxe Burger",
@@ -114,7 +123,7 @@ deluxe = Dish.new(
   restaurant_id: koya.id,
   )
 deluxe.remote_photo_url = "https://sifu.unileversolutions.com/image/en-SA/recipe-topvisual/2/1260-709/steakhouse-burger-50391476.jpg"
-deluxe.save
+deluxe.save!
 
 grilled_chicken = Dish.new(
   name: "Grilled Chicken",
@@ -122,10 +131,10 @@ grilled_chicken = Dish.new(
   rating: 3,
   category: "Chicken",
   user_id: kristine.id,
-  restaurant_id: koya.id,
+  restaurant_id: ninos.id,
   )
 grilled_chicken.remote_photo_url = "http://img.finedininglovers.com/?img=http%3A%2F%2Ffinedininglovers.cdn.crosscast-system.com%2FBlogPost%2FOriginal_10367_grilled-chicken.jpg&w=1200&h=660&lu=1430276710&ext=.jpg"
-grilled_chicken.save
+grilled_chicken.save!
 
 grilled_salmon = Dish.new(
   name: "Grilled Salmon",
@@ -136,7 +145,7 @@ grilled_salmon = Dish.new(
   restaurant_id: apotheosik.id,
   )
 grilled_salmon.remote_photo_url = "https://www.seriouseats.com/recipes/images/2015/08/20150823-grilled-chicken-cutlet-recipe-kenji-01.jpg"
-grilled_salmon.save
+grilled_salmon.save!
 
 grilled_salmon_2 = Dish.new(
   name: "Grilled Salmon",
@@ -146,8 +155,8 @@ grilled_salmon_2 = Dish.new(
   user_id: ricardo.id,
   restaurant_id: koya.id,
   )
-grilled_salmon.remote_photo_url = "https://4.bp.blogspot.com/--92q6Bbi4Qw/XFIUhUMt2fI/AAAAAAAAABE/Om9MUeaV2mggiUC7gGiVxgDWigehfMMtwCLcBGAs/s1600/Webp.net-compress-image.jpg"
-grilled_salmon.save
+grilled_salmon_2.remote_photo_url = "https://4.bp.blogspot.com/--92q6Bbi4Qw/XFIUhUMt2fI/AAAAAAAAABE/Om9MUeaV2mggiUC7gGiVxgDWigehfMMtwCLcBGAs/s1600/Webp.net-compress-image.jpg"
+grilled_salmon_2.save!
 
 steak_1 = Dish.new(
   name: "Grilled Steak",
@@ -155,7 +164,29 @@ steak_1 = Dish.new(
   rating: 4,
   category: "Steak",
   user_id: ricardo.id,
-  restaurant_id: apotheosik.id,
+  restaurant_id: ugarit.id,
   )
-grilled_salmon.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
-grilled_salmon.save
+steak_1.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
+steak_1.save!
+
+grilled_salmon_3 = Dish.new(
+  name: "Grilled Salmon",
+  price: 15,
+  rating: 5,
+  category: "Salmon",
+  user_id: meder.id,
+  restaurant_id: meder_place.id,
+  )
+grilled_salmon_3.remote_photo_url = "https://hips.hearstapps.com/delish/assets/17/39/1506456157-delish-honey-garlic-glazed-salmon-1.jpg"
+grilled_salmon_3.save!
+
+steak_2 = Dish.new(
+  name: "Grilled Steak",
+  price: 18,
+  rating: 4,
+  category: "Steak",
+  user_id: meder.id,
+  restaurant_id: barco.id,
+  )
+steak_2.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
+steak_2.save!
