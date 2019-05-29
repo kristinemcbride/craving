@@ -1,4 +1,16 @@
 
+<!--BUTTON (search by dish) -->
+<div class="craving-content">
+
+  <form action="">
+    <input type="text" placeholder="Search by dish" class="search-bar" style="margin-bottom: 25px">
+  </form>
+
+  <!--CARD (search by dish)-->
+  <div class="search-card">
+    <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)"></div>
+
+    <!--craving-dish-info (info of the dish)-->
 <div class="crave-container">
 
 <div class="craving-content" >
@@ -10,9 +22,11 @@
   <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
   </div>
 
-  <!--CARD (info of one dish)-->
-  <div class="craving-content">
     <div class="craving-dish-info">
+
+     <ul style="padding-left: 0px;">
+      <span><h5 style="height: 22px; width: 143px; margin-bottom: 0px;"
+      >Osaka Burger</h5></span>
       <p>Osaka Burger</p>
       <p>Timesburg</p>
       <p>0.5km</p>
@@ -27,8 +41,29 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
+      <span><h6>Timesburg</h6></span>
+    </ul>
 
 
+    <!--card-dish-km (km of the dish)-->
+
+    <ul class="card-dish-km">
+
+     <h5 style="
+     margin-bottom: 0px;
+     height: 30px;
+     ">0.5km</h5>
+
+   </ul>
+ </div>
+
+ <!--card-dish-rating (rating of the dish)-->
+  <span class="card-dish-rating">4</span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star checked"></span>
+  <span class="fa fa-star"></span>
 </div>
 
 <h1><%= @count %> dishes in <%= @city %></h1>
@@ -49,3 +84,6 @@
     </div>
   </div>
 </div>
+</div>
+</div>
+
