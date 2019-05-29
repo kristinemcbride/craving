@@ -1,9 +1,9 @@
-<%= image_tag current_user.avatar, alt: "avatar", class="avatar-large" %>
-<h2><%= current_user.name %></h2>
+<%= image_tag @user.avatar, alt: "avatar", class="avatar-large" %>
+<h2><%= @user.name %></h2>
 
-<h3><%= current_user.dishes.count %> favorited dishes</h3>
+<h3><%= @user.dishes.count %> favorited dishes</h3>
 
-<%= current_user.favorites.each do |dish| %>
+<%= @user.favorites.each do |dish| %>
   <%= link_to dish_path(dish) do %>
   <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
   </div>
@@ -20,7 +20,7 @@
   <% end %>
   </div>
 
-<%= current_user.dishes.each do |dish| %>
+<%= @user.dishes.each do |dish| %>
   <%= link_to dish_path(dish) do %>
   <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
   </div>
@@ -36,4 +36,3 @@
   <% end %>
   <% end %>
   </div>
-
