@@ -14,33 +14,37 @@ User.destroy_all
 
 
 puts "Creating 4 USERS..."
-meder = User.create!(
+meder = User.new(
   email: "meder@meder.com",
   name: "Meder",
-  password: "password",
-
+  password: "password"
   )
+meder.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709647/nj18sssnzxnuh7rvfvlx.jpg"
+meder.save!
 
-kristine = User.create!(
+kristine = User.new(
   email: "kristine@kristine.com",
   name: "Kristine",
-  password: "password",
-
+  password: "password"
   )
+kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709362/q0awjfu6e1eyjso3mknm.png"
+kristine.save!
 
-ricardo = User.create!(
+ricardo = User.new(
   email: "ricardo@ricardo.com",
   name: "Ricardo",
-  password: "password",
-
+  password: "password"
   )
+ricardo.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709526/x59kmstmnwclothuw9dv.jpg"
+ricardo.save!
 
-ashley = User.create!(
+ashley = User.new(
   email: "ashley@ashley.com",
   name: "Ashley",
-  password: "password",
-
+  password: "password"
   )
+ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709460/l6uxxdeceq8bhb1zlvhh.jpg"
+ashley.save!
 
 puts "Creating 6 RESTAURANTS..."
 koya = Restaurant.create!(
