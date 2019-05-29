@@ -32,7 +32,6 @@ class DishesController < ApplicationController
       @city = params[:address]
       @count = @dishes.count
     end
-    raise
   end
 
   private
