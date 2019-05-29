@@ -8,7 +8,7 @@
         <%= f.input :email,
                     required: false,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }, id: "user-input"; %>
+                    input_html: { autocomplete: "email", class: 'ui-autocomplete-input'}, id: "user-input"; %>
         <%= f.input :password,
                     required: false,
                     input_html: { autocomplete: "current-password" }, id: "user-input";  %>
