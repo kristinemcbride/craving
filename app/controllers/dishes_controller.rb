@@ -21,13 +21,14 @@ class DishesController < ApplicationController
 
   def search
     if params[:address].present?
-      @address = "near #{params[:address]}"
-      filter_dishes = Dish.joins(:restaurant).near(@address, 20)
-      # filter_dishes = filter_dishes.select
-      @dishes = filter_dishes.to_a
+      @address = params[:address]
+      filter_dishes = Dish.joins(:restaurant).order("rating DESC").near(@address, 20)
+      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
     else
-      @dishes = Dish.all
+      filter_dishes = Dish.order("rating DESC").all
+      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
     end
+    @dishes = filter_dishes.to_a
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
     @markers = @restaurants.map do |restaurant|
