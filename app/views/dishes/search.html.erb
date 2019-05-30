@@ -3,11 +3,13 @@
     <%= text_field_tag :address,
       params[:address],
       value: @address,
-      hidden: true
+      hidden: true,
+      id: "dish"
     %>
     <%= text_field_tag :dish,
       params[:dish],
       class: "search-bar",
+      id: "dish",
       placeholder: "Search by dish"
     %>
     <%= button_tag hidden:true
