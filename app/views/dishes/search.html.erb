@@ -3,7 +3,7 @@
     <input type="text" placeholder="Search by dish" class="search-bar" style="margin-bottom: 16px; margin-top: 16px;">
   </form>
 
-  <p><strong><%= @count %> dishes in <%= @city %></strong></p>
+  <p><strong><%= @count %> dishes near <%= @city %></strong></p>
   <% @dishes.each do |dish| %>
 </div>
 
@@ -18,7 +18,19 @@
           <p class= "name"><%= dish.restaurant.name %></p>
         </div>
         <div class= "info">
-          <p class="rating"><strong><%= dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
+          <p class="rating"><strong><%= dish.rating %></strong>
+        <% if dish.rating == 5 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+        <% elsif dish.rating == 4 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
+        <% elsif dish.rating == 3 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif dish.rating == 2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% else %>
+           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% end %>
+          </p>
           <p class="distance">0.5km</p>
           <% end %>
         </div>
