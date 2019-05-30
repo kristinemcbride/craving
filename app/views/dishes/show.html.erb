@@ -74,3 +74,18 @@
   </div>
   <% end %>
 </div>
+<div class="craving-content">
+<div class="load-form">
+  <h2>Add a review</h2>
+  <%= simple_form_for [@dish, @new_review] do |f| %>
+  <div class="form-inputs inline-form-checks">
+    <% star_collection = (1..5).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
+     <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
+    <%= f.input :content, placeholder: "Add your comments here.", label: false, as: :text %>
+    <%= f.button :submit,  class: "crave-button-primary-lg" %>
+  </div>
+  <% end %>
+</div>
+</div>
+
+

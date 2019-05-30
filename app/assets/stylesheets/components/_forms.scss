@@ -38,6 +38,23 @@ h2 {
     font-weight: normal;
   }
 
+.inline-form-checks {
+  .form-check {
+        display: inline;
+        padding: 8px;
+
+    }
+  .col-form-label {
+    display: none;
+    }
+    i {
+      color: $red;
+    }
+    h1 {
+      font-size: 30px;
+    }
+  }
+
 .form-inputs {
   margin-top: 24px;
   color: $white;
@@ -45,6 +62,13 @@ h2 {
   font-size: 12px;
 }
 
+.star-inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
 .form-control {
   border: 1px solid $red;
   color: $red;
