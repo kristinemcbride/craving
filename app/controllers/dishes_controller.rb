@@ -11,7 +11,6 @@ class DishesController < ApplicationController
   end
 
   def create
-
     # @dish = Dish.new(strong_dish_params)
     # @dish.user = current_user
     # if @dish.save
@@ -22,22 +21,17 @@ class DishesController < ApplicationController
   end
 
   def search
-    @restaurants = Restaurant.near(params[:address], 20)
+    @address = params[:address]
+    filter_dishes = Dish.joins(:restaurant).near(@address, 20)
+    # filter_dishes = filter_dishes.select
+    @dishes = filter_dishes.to_a
+    @count = @dishes.count
+    @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude
       }
-    end
-    if params[:address].present?
-      @dishes = []
-      @restaurants.each do |restaurant|
-        restaurant.dishes.each do |dish|
-          @dishes << dish
-        end
-      end
-      @city = params[:address]
-      @count = @dishes.count
     end
   end
 
