@@ -35,7 +35,9 @@ class DishesController < ApplicationController
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
-        lng: restaurant.longitude
+        lng: restaurant.longitude,
+        infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
+        image_url: helpers.asset_url('cravingpin.png')
       }
     end
   end
