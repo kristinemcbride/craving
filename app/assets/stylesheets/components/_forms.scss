@@ -7,19 +7,11 @@
 
 .search-form {
   background-color: $blue;
-  position: fixed;
   width: 100%;
-  padding-right: 16px;
-  padding-left: 16px;
+  position: fixed;
+  padding: 16px;
   z-index: 2;
-
 }
-
-#dish-search {
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
-
 .load-form {
   margin-top: 82px;
   border-radius: 4px;
@@ -38,6 +30,23 @@ h2 {
     font-weight: normal;
   }
 
+.inline-form-checks {
+  .form-check {
+        display: inline;
+        padding: 8px;
+
+    }
+  .col-form-label {
+    display: none;
+    }
+    i {
+      color: $red;
+    }
+    h1 {
+      font-size: 30px;
+    }
+  }
+
 .form-inputs {
   margin-top: 24px;
   color: $white;
@@ -45,6 +54,13 @@ h2 {
   font-size: 12px;
 }
 
+.star-inline {
+  display: inline;
+}
+
+.hidden {
+  display: none;
+}
 .form-control {
   border: 1px solid $red;
   color: $red;
