@@ -47,7 +47,7 @@
 <div class="craving-content">
   <div class="review-head">
     <p><strong>Reviews (<%= @count %>)</strong></p>
-    <a href="/">Tried it? Rate it now!</a>
+    <a href="#review-form">Tried it? Rate it now!</a>
   </div>
   <% @reviews.each do |review| %>
   <div class="top-review">
@@ -75,14 +75,14 @@
   <% end %>
 </div>
 <div class="craving-content">
-<div class="load-form">
+<div class="load-form" id="review-form">
   <h2>Add a review</h2>
   <%= simple_form_for [@dish, @new_review] do |f| %>
   <div class="form-inputs inline-form-checks">
     <% star_collection = (1..5).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
      <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
-    <%= f.input :content, placeholder: "Add your comments here.", label: false, as: :text %>
-    <%= f.button :submit,  class: "crave-button-primary-lg" %>
+    <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
+    <%= f.button :submit, class: "crave-button-primary-lg" %>
   </div>
   <% end %>
 </div>
