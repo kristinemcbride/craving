@@ -20,10 +20,14 @@ class DishesController < ApplicationController
   end
 
   def search
-    @address = params[:address]
-    filter_dishes = Dish.joins(:restaurant).near(@address, 20)
-    # filter_dishes = filter_dishes.select
-    @dishes = filter_dishes.to_a
+    if params[:address].present?
+      @address = "near #{params[:address]}"
+      filter_dishes = Dish.joins(:restaurant).near(@address, 20)
+      # filter_dishes = filter_dishes.select
+      @dishes = filter_dishes.to_a
+    else
+      @dishes = Dish.all
+    end
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
     @markers = @restaurants.map do |restaurant|
