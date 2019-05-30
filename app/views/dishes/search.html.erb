@@ -1,10 +1,21 @@
 <div class="search-form">
-    <form action="/search">
-      <input type="text" name="dish" id="dish" placeholder="Search by dish" class="search-bar " id= "dish-search">
-    </form>
+  <%= form_tag search_dishes_path, method: :get do %>
+    <%= text_field_tag :address,
+      params[:address],
+      value: @address,
+      hidden: true
+    %>
+    <%= text_field_tag :dish,
+      params[:dish],
+      class: "search-bar",
+      placeholder: "Search by dish"
+    %>
+    <%= button_tag hidden:true
+    %>
+  <% end %>
 </div>
  <div class="craving-content" style="padding-top: 88px;">
-  <p><strong><%= @count %> dishes near <%= @city %></strong></p>
+  <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
   <a href="#map">
     <div class="map-av">
       <div>
