@@ -31,11 +31,11 @@
   <div class="resto">
     <div class="resto-content">
      <%= link_to restaurant_path(@dish.restaurant_id) do %>
-    <img src="<%= image_path 'wafles.jpg' %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
+    <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
     <div>
         <p class="resto-name"><strong><%= @dish.restaurant.name %></strong></p>
       <% end %>
-        <p class="resto-name">$$</p>
+        <p class="resto-name"><%= @dish.restaurant.price_range %></p>
     </div>
     </div>
     <div>

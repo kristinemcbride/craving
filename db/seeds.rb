@@ -50,37 +50,43 @@ puts "Creating 6 RESTAURANTS..."
 koya = Restaurant.create!(
   name: "Koya Grill",
   address: "Carrer de Vic, 23, 08006 Barcelona",
-  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg"
+  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
+  price_range: "$"
   )
 
 ninos = Restaurant.create!(
   name: "Nino's Palace",
   address: "Carrer del Rosselló, 217, 08008 Barcelona",
-  photo: "https://s3-eu-west-1.amazonaws.com/gr-cms/media/filer_public/cc/ec/ccecba57-fc3a-4b94-911a-966ab4265c40/1.jpg"
+  photo: "https://s3-eu-west-1.amazonaws.com/gr-cms/media/filer_public/cc/ec/ccecba57-fc3a-4b94-911a-966ab4265c40/1.jpg",
+  price_range: "$$"
   )
 
 ugarit = Restaurant.create!(
   name: "Ugarit",
   address: "Carrer de Bruniquer, 69, 08024 Barcelona",
-  photo: "https://tastet.ca/wp-content/uploads/2018/10/restaurant-lexpress-montreal-3-1024x684.jpg"
+  photo: "https://tastet.ca/wp-content/uploads/2018/10/restaurant-lexpress-montreal-3-1024x684.jpg",
+  price_range: "$$"
   )
 
 apotheosik = Restaurant.create!(
   name: "Apotheosik",
   address: "Carrer de la Legalitat, 74, 08024 Barcelona",
-  photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg"
+  photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg",
+  price_range: "$$$"
   )
 
 barco = Restaurant.create!(
   name: "El Barco",
   address: "Av. Ricardo Soriano, 32, 29601 Marbella, Málaga",
-  photo: "https://i.imgur.com/NBBtwTj.jpg"
+  photo: "https://i.imgur.com/NBBtwTj.jpg",
+  price_range: "$$"
   )
 
 meder_place = Restaurant.create!(
   name: "Meder's Corner",
   address: "Av Calderón de la Barca, 29660 Marbella, Málaga",
-  photo: "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+  photo: "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg",
+  price_range: "$$$$"
   )
 
 

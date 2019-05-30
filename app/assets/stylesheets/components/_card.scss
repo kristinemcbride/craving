@@ -11,7 +11,7 @@
 
 .craving-dish-info {
   display: flex;
-  justify-content:  space-between;
+  justify-content: space-between;
   margin-right: 16px;
   margin-left: 16px;
 }
@@ -24,6 +24,12 @@
   p {
     font-size: 12px;
   }
+}
+
+.resto-name {
+  padding-bottom: 12px;
+  font-size: 16px;
+
 }
 
 .dish-info-card {
@@ -70,6 +76,10 @@
   background-color: rgba(17, 20, 33, 0.8);
   padding-right: 0px;
   padding-left: 4px;
+}
+.resto-rate {
+  background-color: rgba(17, 20, 33, 0.8);
+
 }
 
 .name {
@@ -120,12 +130,12 @@
   display: grid;
   grid-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 16px;
 }
 
 .card-category {
- height: 80px;
- width: 80px;
+ height: 100px;
+
  background-size: cover;
  background-position: center;
- object-fit: cover;
 }
