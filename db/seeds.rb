@@ -135,6 +135,39 @@ deluxe = Dish.new(
 deluxe.remote_photo_url = "https://sifu.unileversolutions.com/image/en-SA/recipe-topvisual/2/1260-709/steakhouse-burger-50391476.jpg"
 deluxe.save!
 
+pasta = Dish.new(
+  name: "Spagetti & Meatballs",
+  price: 16,
+  rating: 3,
+  category: "Pasta",
+  user_id: kristine.id,
+  restaurant_id: koya.id,
+  )
+pasta.remote_photo_url = "https://hips.hearstapps.com/delish/assets/17/39/1506456062-delish-spaghetti-meatballs.jpg"
+pasta.save!
+
+fries = Dish.new(
+  name: "French Fries",
+  price: 6,
+  rating: 5,
+  category: "Fries",
+  user_id: kristine.id,
+  restaurant_id: koya.id,
+  )
+fries.remote_photo_url = "https://static.olocdn.net/menu/applebees/d5d7db22de398d29f1d444cc550d8f58.jpg"
+fries.save!
+
+wings = Dish.new(
+  name: "Seasame Wings",
+  price: 10,
+  rating: 4,
+  category: "Wings",
+  user_id: kristine.id,
+  restaurant_id: koya.id,
+  )
+wings.remote_photo_url = "https://www.simplyrecipes.com/wp-content/uploads/2019/01/PC-Teriyaki-Chicken-LEAD-3.jpg"
+wings.save!
+
 grilled_chicken = Dish.new(
   name: "Grilled Chicken",
   price: 10,
