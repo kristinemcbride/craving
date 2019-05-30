@@ -3,9 +3,13 @@
     <h1 style= "margin-bottom: 50px">Crave it.<br>Discover it.<br>Taste it.</h1>
 
     <p>Discover the best dishes near you.</p>
-    <form action="/dishes/search">
-
-      <input type="text" name='address' id='address' placeholder="Your location" class="search-bar" style="margin-bottom: 24px">
-    </form>
+    <%= form_tag search_dishes_path, method: :get do %>
+      <%= text_field_tag :address,
+        params[:address],
+        class: "search-bar",
+        placeholder: "Type your location",
+        value: "Barcelona"
+      %>
+      <% end %>
   </div>
 </div>
