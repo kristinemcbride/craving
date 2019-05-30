@@ -2,67 +2,66 @@
 </div>
 
 
-<div class="craving-dish-info">
-
-  <div class= "info">
-   <div class= "info">
-    <h5 class= "name">Timesburg  $$</h5>
-    <br>
-    <p class= "name">Carrer de Pallars, 235, 08005</p>
-    <p class="distance-rest">0.5km</p>
-  </div>
-</div>
+<div class="craving-dish-info" style="margin-top: 10px;">
+ <div class= "info">
+  <h5 class= "name">Timesburg  $$</h5>
+  <p class= "name" style="margin-top: 12px;">Carrer de Pallars, 235, 08005</p>
+  <p class= "name">Barcelona</p>
+  <p class="distance-rest">0.5km</p>
+ </div>
 
 
-<div class= "info" style="">
-  <p class="rating" class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
-  <div
+<div class= "info">
+  <p class="rating"
+    class="fas fa-star checked"> 4.7 </i><i
+    class="fas fa-star checked"></i><i
+    class="fas fa-star checked"></i><i
+    class="fas fa-star checked"></i><i
+    class="fas fa-star checked"></i><i
+    class="fas fa-star "></i>
+  </p>
 
-  id="map"
-  style="margin-left: 16px; margin-right: 14px; margin-top: 18px; height: 90px; width: 90px;"
+  <div id="map" style="margin-top: 10px; height: 80px; width: 80px; float: right;"
   data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
 </div>
 
-<div class="craving-content"
+<div class="craving-content" style=" padding-top: 20px;">
   <div class="cards">
+
     <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
     </div>
+
     <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
     </div>
+
     <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
-      Breakfast
-    </div>
-    </div>
+      </div>
+
+      <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
+      </div>
+
+      <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
+      </div>
+
+      <div class="card-category" style="background-image: url(<%= image_path 'pizza.jpg' %>)">
+      </div>
+
 
   </div>
-
-</div>
 </div>
 
 
+<div class="craving-content"  style="display: flex; justify-content: space-around; margin-top: 10px;">
+  <div class="crave-button-primary">
+    <div class="logo-el-tenedor" style="background-image: url(<%= image_path 'tenedor.jpg' %>)">
+    </div>
+  </div>
 
-
+  <div class="crave-button-secondary">
+    <div class="logo-deliveroo" style="background-image: url(<%= image_path 'deliveroo.jpg' %>)">
+    </div>
+  </div>
+</div>
 
