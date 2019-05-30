@@ -1,7 +1,6 @@
 .avatar {
   width: 40px;
   border-radius: 50%;
-
 }
 .avatar-large {
   width: 56px;
@@ -9,15 +8,15 @@
 }
 .avatar-bordered {
   display: flex;
-  align-items: center;
+  align-self: center;
   justify-content: center;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: $red 1px solid;
+  border: rgba(255, 90, 95, 0.6) 1px solid;
   color: $red;
-  margin-top: 7px;
+  // margin-top: 7px;
 }
 .avatar-square {
   width: 40px;

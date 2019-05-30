@@ -1,16 +1,76 @@
 
-<div class="craving-dish-search large-card" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
+<div class="craving-dish-search large-card" style=" background-image: url(<%= cl_image_path @dish.photo %>)">
 
 <div class="dish-info-card">
   <div>
-    <h5 class="dish-info"><strong><%= @dish.name %></strong></h5>
-    <p class="dish-info"><strong><%= @dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
+    <div>
+      <h5 class="dish-info"><strong><%= @dish.name %></strong></h5>
+    </div>
+    <div>
+      <p class="dish-rate"><strong><%= @dish.rating %></strong>
+        <% if @dish.rating == 5 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+        <% elsif @dish.rating == 4 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
+        <% elsif @dish.rating == 3 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif @dish.rating == 2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% else %>
+           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% end %>
+      </p>
+    </div>
   </div>
   <div>
-    <p><i class="far fa-bookmark"></i></p>
+    <h5><strong><i class="far fa-bookmark"></i></strong></h5>
   </div>
 </div>
 </div>
-<%= link_to restaurant_path(@dish.restaurant_id) do %>
-  <p class= "name"><%= @dish.restaurant.name %></p>
-<% end %>
+<div class="craving-content">
+  <div class="resto">
+    <div class="resto-content">
+     <%= link_to restaurant_path(@dish.restaurant_id) do %>
+    <img src="<%= image_path 'wafles.jpg' %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
+    <div>
+        <p class="resto-name"><strong><%= @dish.restaurant.name %></strong></p>
+      <% end %>
+        <p class="resto-name">$$</p>
+    </div>
+    </div>
+    <div>
+      <button class="crave-button-primary"><%= link_to "Get the dish", restaurant_path(@dish.restaurant_id) %></button>
+    </div>
+  </div>
+</div>
+
+<div class="craving-content">
+  <div class="review-head">
+    <p><strong>Reviews (<%= @count %>)</strong></p>
+    <a href="/">Tried it? Rate it now!</a>
+  </div>
+  <% @reviews.each do |review| %>
+  <div class="top-review">
+    <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
+    <div class= "top-right-review">
+      <p class= "review-name"><%= review.user.name %></p>
+      <p class="review-rate"><strong><%= review.rating %></strong>
+          <% if review.rating == 5 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+        <% elsif review.rating == 4 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
+        <% elsif review.rating == 3 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif review.rating == 2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% else %>
+           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="review-content">
+  <p><%= review.content %></p>
+  </div>
+  <% end %>
+</div>

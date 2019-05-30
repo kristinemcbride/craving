@@ -1,0 +1,65 @@
+<div class="crave-container">
+  <div class="craving-content">
+    <div class="load-form">
+    <h2>Upload  dish</h2>
+
+    <!-- new dish form -->
+    <%= simple_form_for(@dish) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name,
+                    required: true
+        %>
+        <%= f.input :price,
+                    required: true
+        %>
+        <%= f.input :category,
+                    required: true
+        %>
+        <%= f.input :photos %>
+        <%= f.input :photos_cache, as: :hidden %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "", class: "crave-button-primary-lg" %>
+      </div>
+    <% end %>
+
+<!-- new restaurant form -->
+    <%= simple_form_for(@restaurant) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :name,
+                    required: true
+        %>
+        <%= f.input :address,
+                    required: true
+        %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "", class: "crave-button-primary-lg" %>
+      </div>
+    <% end %>
+
+    <!-- new review form -->
+    <%= simple_form_for(@reviews) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :content,
+                    required: true
+        %>
+        <%= f.input :rating,
+                    required: true
+        %>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit, "", class: "crave-button-primary-lg" %>
+      </div>
+    <% end %>
+
+    <p class='form-links'><%= link_to "Already have an account?", user_session_path%></p>
+  </div>
+  </div>
+</div>
