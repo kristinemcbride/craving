@@ -14,7 +14,8 @@ const initMapbox = () => {
    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
    const map = new mapboxgl.Map({
      container: 'map',
-     style: 'mapbox://styles/mapbox/streets-v10'
+     style: 'mapbox://styles/kristinelmcbride/cjwas8nj80apq1cpizsf5l6r5'
+
    });
    const markers = JSON.parse(mapElement.dataset.markers);
    console.log(markers, "These are the parsed markers");
