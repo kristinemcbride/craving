@@ -14,6 +14,7 @@ class Dish < ApplicationRecord
   validates :user_id, presence: true
   validates :restaurant_id, presence: true
 
-  geocoded_by :address
+  # geocoded_by :address
+  reverse_geocoded_by 'restaurants.latitude', 'restaurants.longitude'
   # after_validation :geocode, if: :will_save_change_to_address?
 end
