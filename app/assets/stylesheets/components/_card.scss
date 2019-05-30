@@ -26,6 +26,12 @@
   }
 }
 
+.resto-dish-name {
+  font-size: 15px;
+  margin-bottom: 0px;
+
+}
+
 .resto-name {
   padding-bottom: 12px;
   font-size: 16px;
@@ -131,11 +137,11 @@
   grid-gap: 8px;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 16px;
+  margin-bottom: 72px;
 }
 
 .card-category {
  height: 100px;
-
  background-size: cover;
  background-position: center;
 }
