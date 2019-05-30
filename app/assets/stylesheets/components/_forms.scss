@@ -12,6 +12,12 @@
   padding: 16px;
   z-index: 2;
 }
+
+#review-form {
+  margin-top: 40px;
+  margin-bottom: 24px;
+}
+
 .load-form {
   margin-top: 82px;
   border-radius: 4px;
@@ -31,10 +37,10 @@ h2 {
   }
 
 .inline-form-checks {
+  text-align: center;
   .form-check {
         display: inline;
         padding: 8px;
-
     }
   .col-form-label {
     display: none;
