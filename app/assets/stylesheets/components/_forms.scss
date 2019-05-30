@@ -5,6 +5,21 @@
   padding: 5px 16px;
 }
 
+.search-form {
+  background-color: $blue;
+  position: fixed;
+  width: 100%;
+  padding-right: 16px;
+  padding-left: 16px;
+  z-index: 2;
+
+}
+
+#dish-search {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
 .load-form {
   margin-top: 82px;
   border-radius: 4px;
