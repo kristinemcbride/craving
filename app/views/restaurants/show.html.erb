@@ -14,17 +14,6 @@
   <h5 class="distance-rest"><strong>0.5km</strong></h5>
 </div>
 
-<% @counter = 0 %>
-<% @total_rating = 0 %>
-<% @restaurant.dishes.each do |dish| %>
-<% @rating = dish.rating %>
-  <% @total_rating += @rating %>
-  <% @counter += 1 %>
-<% end %>
-
-<% @restaurant.average_rating = @total_rating / @counter %>
-
-
 <div class= "info">
   <p class="resto-name"><%= @restaurant.average_rating %> <% if @restaurant.average_rating == 5 %>
           <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
