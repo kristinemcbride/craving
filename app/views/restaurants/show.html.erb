@@ -40,9 +40,6 @@
     <% @restaurant.dishes.each do |dish| %>
     <%= link_to dish_path(dish) do %>
     <div class="card-category" style="background-image: url(<%= cl_image_path dish.photo %>)">
-      <div id="dish-name">
-        <p><%= dish.name %></p>
-      </div>
     </div>
     <% end %>
     <% end %>
