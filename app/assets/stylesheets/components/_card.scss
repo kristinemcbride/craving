@@ -141,7 +141,24 @@
 }
 
 .card-category {
- height: 100px;
- background-size: cover;
- background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-size: cover;
+  background-position: center;
+ .dish-name {
+  display: none;
+  font-size: 8px;
+  background-color: $blue;
+  padding: 2px;
+ }
 }
+
+.card-category:hover {
+  .dish-name {
+    display: block;
+  }
+}
+
+

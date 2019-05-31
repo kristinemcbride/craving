@@ -35,11 +35,12 @@
 </div>
 
 <div class="craving-content" style=" padding-top: 20px;">
-  <p style="font-size: 12px;"><strong>Full menu</strong></p>
+  <p style="font-size: 12px;"><strong>Other dishes available at <%= @restaurant.name %></strong></p>
   <div class="cards">
     <% @restaurant.dishes.each do |dish| %>
     <%= link_to dish_path(dish) do %>
     <div class="card-category" style="background-image: url(<%= cl_image_path dish.photo %>)">
+      <p class="dish-name"><%= dish.name %></p>
     </div>
     <% end %>
     <% end %>
