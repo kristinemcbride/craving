@@ -1,71 +1,67 @@
 <div class="search-form">
   <%= form_tag search_dishes_path, method: :get do %>
-    <%= text_field_tag :address,
-      params[:address],
-      value: @address,
-      hidden: true,
-      id: "dish"
-    %>
-    <%= text_field_tag :dish,
-      params[:dish],
-      class: "search-bar",
-      id: "dish",
-      placeholder: "Search by dish"
+  <%= text_field_tag :address,
+  params[:address],
+  value: @address,
+  hidden: true,
+  id: "dish"
+  %>
+  <%= text_field_tag :dish,
+  params[:dish],
+  class: "search-bar",
+    id: "dish",
+    placeholder: "Search by dish"
     %>
     <%= button_tag hidden:true
     %>
-  <% end %>
+    <% end %>
 </div>
- <div class="craving-content" style="padding-top: 88px;">
-  <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
-  <a href="#map">
-    <div class="map-av">
-      <div>
-        <h3><i class="fas fa-map-marker-alt"></i></h3>
-      </div>
-    </div>
-  </a>
-  <% @dishes.each do |dish| %>
-</div>
-
-<!--CARD (search by dish)-->
-
-    <%= link_to dish_path(dish) do %>
-    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
-    </div>
-      <div class="craving-dish-info">
-        <div class= "info">
-          <h5 class= "name"><strong><%= dish.name %></strong></h5>
-          <p class= "name"><%= dish.restaurant.name %></p>
+  <div class="craving-content" style="padding-top: 88px;">
+    <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
+    <a href="#map">
+      <div class="map-av">
+        <div>
+          <h3><i class="fas fa-map-marker-alt"></i></h3>
         </div>
-        <div class= "info">
-          <p class="rating"><strong><%= dish.rating %></strong>
+      </div>
+    </a>
+    <% @dishes.each do |dish| %>
+  </div>
+
+  <%= link_to dish_path(dish) do %>
+  <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
+  </div>
+  <div class="craving-dish-info">
+    <div class= "info">
+      <h5 class= "name"><strong><%= dish.name %></strong></h5>
+      <p class= "name"><%= dish.restaurant.name %></p>
+    </div>
+    <div class= "info">
+      <p class="rating"><strong><%= dish.rating %></strong>
         <% if dish.rating == 5 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
         <% elsif dish.rating == 4 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
+        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
         <% elsif dish.rating == 3 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         <% elsif dish.rating == 2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         <% else %>
-           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
         <% end %>
-          </p>
-          <p class="distance">0.5km</p>
-          <% end %>
-        </div>
-        <% end %>
+      </p>
+      <p class="distance">0.5km</p>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
 
-      </div>
-
-      <div
-      id="map"
-      style="margin-left: 16px; margin-right: 16px; height: 600px; z-index: 0;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-
-      ></div>
+<div
+  id="map"
+  style="margin-left: 16px; margin-right: 16px; height: 600px; z-index: 0;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+  ></div>
 </div>
 
 

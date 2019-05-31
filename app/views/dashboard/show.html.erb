@@ -1,44 +1,59 @@
 <div class="craving-content">
   <div class="profile-container">
-    <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+    <%= cl_image_tag @user.avatar, class: "avatar-large"  %>
     <h2><%= @user.name %></h2>
   </div>
-  <p><%= @user.dishes.count %> favorited dishes</p>
+  <p><strong><%= @dishes.count %> dishes posted</strong></p>
+  <% @dishes.each do |dish| %>
 </div>
-
-<%= @user.favorites.each do |dish| %>
-  <%= link_to dish_path(dish) do %>
-  <div class="craving-dish-search" style="background-image: url(<%= image_path 'wafles.jpeg' %>)">
-  </div>
-  <div class="craving-dish-info">
-    <div class="info">
-      <h5 class="name"><strong><%= dish.name %></strong></h5>
-      <p class="name"><%= dish.restaurant.name %></p>
+   <%= link_to dish_path(dish) do %>
+    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
     </div>
-    <div class= "info">
-      <p class="rating"><strong><%= dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
-      <p class="distance">0.5km</p>
-    </div>
-  <% end %>
-  <% end %>
-  </div>
-
-<%= @user.dishes.each do |dish| %>
-  <%= link_to dish_path(dish) do %>
-  <div class="craving-dish-search" style="background-image: url(<%= image_path 'cafe.jpeg' %>)">
-  </div>
-
-  <div class="craving-dish-info">
-    <div class= "info">
-      <h5 class= "name"><strong><%= dish.name %></strong></h5>
-      <p class= "name"><%= dish.restaurant.name %></p>
-    </div>
-    <div class= "info">
-      <p class="rating"><strong><%= dish.rating %></strong>  <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star "></i></p>
+    <div class="craving-dish-info">
+      <div class= "info">
+        <h5 class= "name">
+          <strong><%= dish.name %></strong>
+        </h5>
+        <p class= "name"><%= dish.restaurant.name %></p>
+      </div>
+      <div class= "info">
+        <p class="rating">
+          <strong><%= dish.rating %></strong>
+          <% if dish.rating == 5 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+          <% elsif dish.rating == 4 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+          <% elsif dish.rating == 3 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% elsif dish.rating == 2 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </p>
         <p class="distance">0.5km</p>
-    </div>
-  <% end %>
-  <% end %>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-
-
+</div>
