@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts "Destroying current DB"
 
 Favorite.destroy_all
@@ -14,6 +7,7 @@ User.destroy_all
 
 
 puts "Creating 4 USERS..."
+
 meder = User.new(
   email: "meder@meder.com",
   name: "Meder",
@@ -46,7 +40,9 @@ ashley = User.new(
 ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1558709460/l6uxxdeceq8bhb1zlvhh.jpg"
 ashley.save!
 
-puts "Creating 6 RESTAURANTS..."
+
+puts "Creating 7 RESTAURANTS..."
+
 koya = Restaurant.create!(
   name: "Koya Grill",
   address: "Carrer de Vic, 23, 08006 Barcelona",
@@ -89,8 +85,16 @@ meder_place = Restaurant.create!(
   price_range: "$$$$"
   )
 
+koya_2 = Restaurant.create!(
+  name: "Koya Grill",
+  address: "Calle Gran Vía, 44, 28013 Madrid",
+  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
+  price_range: "$"
+  )
 
-puts "Creating 13 DISHES..."
+
+puts "Creating 15 DISHES..."
+
 osaka = Dish.new(
   name: "Osaka Burger",
   price: 12,
@@ -121,7 +125,7 @@ cheese_bacon = Dish.new(
   user_id: ashley.id,
   restaurant_id: koya.id,
   )
-cheese_bacon.remote_photo_url = "https://5i0b63wqszy3rogfx27pxco1-wpengine.netdna-ssl.com/wp-content/uploads/the-ultimate-bacon-cheeseburgers-2-600x458.jpg"
+cheese_bacon.remote_photo_url = "https://static.olocdn.net/menu/applebees/ddb39d62e3eae203731d24da8c5ded7c.jpg"
 cheese_bacon.save!
 
 deluxe = Dish.new(
@@ -158,7 +162,7 @@ fries.remote_photo_url = "https://static.olocdn.net/menu/applebees/d5d7db22de398
 fries.save!
 
 wings = Dish.new(
-  name: "Seasame Wings",
+  name: "Sesame Wings",
   price: 10,
   rating: 4,
   category: "Wings",
@@ -231,13 +235,36 @@ steak_2 = Dish.new(
   user_id: meder.id,
   restaurant_id: barco.id,
   )
-steak_2.remote_photo_url = "https://cdn.therockpoolfiles.com/therockpoolfiles/wp-content/uploads/sites/4/2017/01/27000243/Rockpool-Bar-Grill-signature-steak.jpg"
+steak_2.remote_photo_url = "https://d1doqjmisr497k.cloudfront.net/-/media/ducrosfr-2016/recipes/2000/steak_au_vin_rouge_et_aux_echalotes_2000.ashx?vd=20180616T221321Z&hash=7E38BEBBD02FF8A73CDD064FA5868EA6E45DFA82"
 steak_2.save!
+
+cheese_bacon_2 = Dish.new(
+  name: "Bacon Cheeseburger",
+  price: 14,
+  rating: 5,
+  category: "Burger",
+  user_id: kristine.id,
+  restaurant_id: koya_2.id,
+  )
+cheese_bacon_2.remote_photo_url = "https://img.taste.com.au/JDdC7799/taste/2016/11/spiced-lamb-burgers-with-blue-cheese-and-bacon-110697-1.jpg"
+cheese_bacon_2.save!
+
+deluxe_2 = Dish.new(
+  name: "Deluxe Burger",
+  price: 15,
+  rating: 4,
+  category: "Burger",
+  user_id: meder.id,
+  restaurant_id: koya_2.id,
+  )
+deluxe_2.remote_photo_url = "https://www.cscassets.com/ca/recipes/medium/medium_774.jpg"
+deluxe_2.save!
+
 
 puts "Creating 4 REVIEWS"
 
 review_1 = Review.create!(
-  content: "This hamburger changed my life, im now a vegan.",
+  content: "This hamburger changed my life, i'm now a vegan.",
   rating: 3,
   date: "2018-05-25",
   user_id: ashley.id,
