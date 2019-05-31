@@ -147,23 +147,8 @@
   height: 100px;
   background-size: cover;
   background-position: center;
-  .overlay {
-    display: none;
-  }
- #dish-name {
-  display: none;
-  font-size: 8px;
-  padding: 2px;
- }
+
 }
 
-.card-category:hover {
-  background: linear-gradient(rgba(17,20,33,1), rgba(17,20,33,1), rgba(17,20,33,1));
-  background-size: cover;
-
-  #dish-name {
-    display: block;
-  }
-}
 
 
