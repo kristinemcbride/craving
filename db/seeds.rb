@@ -125,7 +125,7 @@ cheese_bacon = Dish.new(
   user_id: ashley.id,
   restaurant_id: koya.id,
   )
-cheese_bacon.remote_photo_url = "https://static.olocdn.net/menu/applebees/ddb39d62e3eae203731d24da8c5ded7c.jpg"
+cheese_bacon.remote_photo_url = "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/burgerbear-077-1515519914.jpg"
 cheese_bacon.save!
 
 deluxe = Dish.new(
