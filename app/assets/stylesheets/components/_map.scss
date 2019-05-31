@@ -1,8 +1,16 @@
 .mapboxgl-popup {
   // max-width: 200px;
-
+}
+.mapboxgl-user-location-dot {
+  background: #FF6464 !important;
+}
+.mapboxgl-user-location-dot::after {
+  background: #FF6464 !important;
 }
 
+.mapboxgl-ctrl-group::after > button {
+  background: #FF6464 !important;
+}
 .mapboxgl-popup-content {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
