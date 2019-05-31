@@ -246,7 +246,7 @@ cheese_bacon_2 = Dish.new(
   user_id: kristine.id,
   restaurant_id: koya_2.id,
   )
-cheese_bacon_2.remote_photo_url = "https://img.taste.com.au/JDdC7799/taste/2016/11/spiced-lamb-burgers-with-blue-cheese-and-bacon-110697-1.jpg"
+cheese_bacon_2.remote_photo_url = "https://logansroadhouse.com/wp-content/uploads/2017/01/Website-Carousel_FriedCheeseburger.jpg"
 cheese_bacon_2.save!
 
 deluxe_2 = Dish.new(
