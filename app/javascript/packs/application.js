@@ -8,9 +8,11 @@ import { initMapbox } from '../plugins/init_mapbox';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
-initAutocomplete();
-
 import {animateStarReview}  from '../components/star_review';
 
+initAutocomplete();
+
 initMapbox();
+
 animateStarReview();
+
