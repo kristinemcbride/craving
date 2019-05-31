@@ -17,12 +17,20 @@ const initMapbox = () => {
       style: 'mapbox://styles/kristinelmcbride/cjwashb7c0att1cp541r38wtf',
       zoom: 3
   });
-    map.addControl(new mapboxgl.GeolocateControl({
-    positionOptions: {
-    enableHighAccuracy: true
-    },
-    trackUserLocation: true
-    }));
+    const geolocate = new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    });
+
+    map.addControl(geolocate);
+
+    map.on('load', function()
+    {
+      geolocate.trigger();
+    });
+
    const markers = JSON.parse(mapElement.dataset.markers);
    console.log(markers, "These are the parsed markers");
     markers.forEach((marker) => {
