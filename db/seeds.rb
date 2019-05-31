@@ -90,7 +90,7 @@ meder_place = Restaurant.create!(
   )
 
 
-puts "Creating 10 DISHES..."
+puts "Creating 13 DISHES..."
 osaka = Dish.new(
   name: "Osaka Burger",
   price: 12,
@@ -121,7 +121,7 @@ cheese_bacon = Dish.new(
   user_id: ashley.id,
   restaurant_id: koya.id,
   )
-cheese_bacon.remote_photo_url = "https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/best_and_worst_thai_dishes_slideshow/1800x1200_slideshow_best_and_worst_thai_dishes_for_your_health.jpg"
+cheese_bacon.remote_photo_url = "https://5i0b63wqszy3rogfx27pxco1-wpengine.netdna-ssl.com/wp-content/uploads/the-ultimate-bacon-cheeseburgers-2-600x458.jpg"
 cheese_bacon.save!
 
 deluxe = Dish.new(
