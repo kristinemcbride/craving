@@ -2,7 +2,7 @@ class Restaurant < ApplicationRecord
   has_many :dishes, dependent: :destroy
 
   validates :name, presence: true, uniqueness: false
-  validates :photo, presence: true
+  validates :photo, presence: true, uniqueness: false
   validates :address, presence: true
 
   geocoded_by :address
