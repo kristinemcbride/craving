@@ -8,15 +8,21 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
- const mapElement = document.getElementById('map');
+  const mapElement = document.getElementById('map');
 
- if (mapElement) {
-   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
-   const map = new mapboxgl.Map({
-     container: 'map',
-     style: 'mapbox://styles/kristinelmcbride/cjwashb7c0att1cp541r38wtf'
-
-   });
+  if (mapElement) {
+    mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
+    const map = new mapboxgl.Map({
+      container: 'map',
+      style: 'mapbox://styles/kristinelmcbride/cjwashb7c0att1cp541r38wtf',
+      zoom: 3
+  });
+    map.addControl(new mapboxgl.GeolocateControl({
+    positionOptions: {
+    enableHighAccuracy: true
+    },
+    trackUserLocation: true
+    }));
    const markers = JSON.parse(mapElement.dataset.markers);
    console.log(markers, "These are the parsed markers");
     markers.forEach((marker) => {
@@ -35,6 +41,7 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
+
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
  }
 };
