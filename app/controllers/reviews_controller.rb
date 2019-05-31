@@ -5,13 +5,16 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.dish = @dish
     @review.user = current_user
-    @review.save
-    @dish.restaurant = @restaurant
-    @dish.rating = dish_rating
-    @dish.update
-    @restaurant.rating = restaurant_rating
-    @restaurant.update
-    redirect_to dish_path(@dish)
+    if @review.save
+      @restaurant = @dish.restaurant
+      @dish.rating = dish_rating
+      @dish.save
+      @restaurant.average_rating = restaurant_rating
+      @restaurant.save
+      redirect_to dish_path(@dish)
+    else
+      redirect_to dish_path(@dish)
+    end
   end
 
   private
@@ -25,9 +28,9 @@ class ReviewsController < ApplicationController
   end
 
   def dish_rating
-    counter = 1
+    counter = 0
     total_rating = 0
-    @dish.review.each do |review|
+    @dish.reviews.each do |review|
       rating = review.rating
       total_rating += rating
       counter += 1
@@ -36,7 +39,7 @@ class ReviewsController < ApplicationController
   end
 
   def restaurant_rating
-    counter = 1
+    counter = 0
     total_rating = 0
     @restaurant.dishes.each do |dish|
       rating = dish.rating

@@ -295,6 +295,7 @@ review_4 = Review.create!(
   dish_id: deluxe.id
   )
 
+
 puts "Creating 4 FAVORITES"
 
 favorite_1 = Favorite.create!(
