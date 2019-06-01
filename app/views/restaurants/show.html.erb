@@ -16,16 +16,24 @@
 </div>
 
 <div class= "info">
-  <p class="resto-name"><%= @restaurant.average_rating %> <% if @restaurant.average_rating == 5 %>
+  <p class="resto-name"><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %><% if @restaurant.average_rating > 4.7 %>
           <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif @restaurant.average_rating == 4 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
-        <% elsif @restaurant.average_rating == 3 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% elsif @restaurant.average_rating == 2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif @restaurant.average_rating > 4.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+        <% elsif @restaurant.average_rating > 3.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 3.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 2.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 2.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 1.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 1.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% else %>
-           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% end %>
   </p>
   <div>
