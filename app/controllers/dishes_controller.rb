@@ -1,4 +1,5 @@
 class DishesController < ApplicationController
+  skip_before_action :authenticate_user!
   def show
     @dish = Dish.find(params[:id])
     @reviews = Review.where(dish_id: params[:id])
