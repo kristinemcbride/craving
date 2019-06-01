@@ -8,17 +8,25 @@
     </div>
     <div>
 
-      <p class="dish-rate"><strong><%= @dish.rating %></strong>
-        <% if @dish.rating == 5 %>
+      <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
+        <% if @dish.rating > 4.7 %>
           <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif @dish.rating == 4 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
-        <% elsif @dish.rating == 3 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% elsif @dish.rating == 2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif @dish.rating > 4.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+        <% elsif @dish.rating > 3.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+        <% elsif @dish.rating > 3.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+        <% elsif @dish.rating > 2.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @dish.rating > 2.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @dish.rating > 1.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @dish.rating > 1.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% else %>
-           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% end %>
       </p>
     </div>
@@ -56,17 +64,25 @@
     <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
     <div class= "top-right-review">
       <p class= "review-name"><%= review.user.name %></p>
-      <p class="review-rate"><strong><%= review.rating %></strong>
-          <% if review.rating == 5 %>
+      <p class="review-rate"><strong><%= review.rating.to_d.round(2, :truncate).to_f %></strong>
+          <% if review.rating > 4.7 %>
           <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif review.rating == 4 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
-        <% elsif review.rating == 3 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% elsif review.rating == 2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif review.rating > 4.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+        <% elsif review.rating > 3.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+        <% elsif review.rating > 3.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+        <% elsif review.rating > 2.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif review.rating > 2.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif review.rating > 1.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif review.rating > 1.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% else %>
-           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% end %>
       </p>
     </div>
@@ -81,7 +97,7 @@
   <h2>Add a review</h2>
   <%= simple_form_for [@dish, @new_review] do |f| %>
   <div class="form-inputs inline-form-checks">
-    <% star_collection = (1..5).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
+    <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
      <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
     <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
     <%= f.button :submit, class: "crave-button-primary-lg" %>

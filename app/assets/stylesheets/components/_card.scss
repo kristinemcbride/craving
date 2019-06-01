@@ -126,8 +126,14 @@
 }
 
 .fa-star {
-  color: $gray;
+
+  color: $red;
 }
+
+.fa-star-half-alt{
+  color: $red;
+}
+
 .checked {
     color: $red !important;
   }
