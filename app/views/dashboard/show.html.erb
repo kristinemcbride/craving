@@ -3,7 +3,13 @@
     <%= cl_image_tag @user.avatar, class: "avatar-large"  %>
     <h2><%= @user.name %></h2>
   </div>
-  <p><strong><%= @dishes.count %> dishes posted</strong></p>
+
+  <p><%= @dishes.count %> <strong> dishes posted </strong> <br></p>
+
+<div class="saved-posts">
+  <p>All saved / My posts</p>
+</div>
+  </div>
   <% @dishes.each do |dish| %>
 </div>
    <%= link_to dish_path(dish) do %>
@@ -17,7 +23,7 @@
         <p class= "name"><%= dish.restaurant.name %></p>
       </div>
       <div class= "info">
-        <p class="rating">
+        <p class="rating" style="font-size: 9px; text-align: right;">
           <strong><%= dish.rating %></strong>
           <% if dish.rating == 5 %>
             <i class="fas fa-star checked"></i>
@@ -50,8 +56,46 @@
             <i class="fas fa-star"></i>
             <i class="fas fa-star"></i>
           <% end %>
+
+          <!-- YOUR RATING
+           -->
         </p>
-        <p class="distance">0.5km</p>
+        <div>
+          <p class="rating" style="font-size: 9px;">
+          <strong> Your rating: &nbsp; <%= dish.rating %></strong>
+          <% if dish.rating == 5 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+          <% elsif dish.rating == 4 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+          <% elsif dish.rating == 3 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% elsif dish.rating == 2 %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% else %>
+            <i class="fas fa-star checked"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </p>
+        </div>
         <% end %>
       </div>
     <% end %>

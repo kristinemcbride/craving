@@ -44,7 +44,7 @@ ashley.save!
 puts "Creating 7 RESTAURANTS..."
 
 koya = Restaurant.create!(
-  name: "Koya Grill",
+  name: "La Real Hamburguesería",
   address: "Carrer de Vic, 23, 08006 Barcelona",
   photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
   price_range: "$"
@@ -86,7 +86,7 @@ meder_place = Restaurant.create!(
   )
 
 koya_2 = Restaurant.create!(
-  name: "Koya Grill",
+  name: "La Real Hamburguesería",
   address: "Calle Gran Vía, 44, 28013 Madrid",
   photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
   price_range: "$"
