@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
   def dish_rating
     counter = 0
-    total_rating = 0
+    total_rating = 0.0
     @dish.reviews.each do |review|
       rating = review.rating
       total_rating += rating

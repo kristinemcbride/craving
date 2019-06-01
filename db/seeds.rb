@@ -98,7 +98,7 @@ puts "Creating 15 DISHES..."
 osaka = Dish.new(
   name: "Osaka Burger",
   price: 12,
-  rating: 4.0,
+  rating: 4.5,
   category: "Burger",
   user_id: ashley.id,
   restaurant_id: apotheosik.id,
@@ -109,7 +109,7 @@ osaka.save!
 tom_yum = Dish.new(
   name: "Tom Yum Goong",
   price: 8,
-  rating: 3.0,
+  rating: 3.1,
   category: "Thai Soup",
   user_id: ashley.id,
   restaurant_id: apotheosik.id,
@@ -120,7 +120,7 @@ tom_yum.save!
 cheese_bacon = Dish.new(
   name: "Bacon Cheeseburger",
   price: 14,
-  rating: 5.0,
+  rating: 4.8,
   category: "Burger",
   user_id: ashley.id,
   restaurant_id: koya.id,
@@ -131,7 +131,7 @@ cheese_bacon.save!
 deluxe = Dish.new(
   name: "Deluxe Burger",
   price: 15,
-  rating: 4.0,
+  rating: 4.3,
   category: "Burger",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -142,7 +142,7 @@ deluxe.save!
 pasta = Dish.new(
   name: "Spagetti & Meatballs",
   price: 16,
-  rating: 3.0,
+  rating: 3.5,
   category: "Pasta",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -164,7 +164,7 @@ fries.save!
 wings = Dish.new(
   name: "Sesame Wings",
   price: 10,
-  rating: 4.0,
+  rating: 4.7,
   category: "Wings",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -175,7 +175,7 @@ wings.save!
 grilled_chicken = Dish.new(
   name: "Grilled Chicken",
   price: 10,
-  rating: 3.0,
+  rating: 3.9,
   category: "Chicken",
   user_id: kristine.id,
   restaurant_id: ninos.id,
@@ -186,7 +186,7 @@ grilled_chicken.save!
 grilled_salmon = Dish.new(
   name: "Grilled Salmon",
   price: 16,
-  rating: 5.0,
+  rating: 4.9,
   category: "Salmon",
   user_id: kristine.id,
   restaurant_id: apotheosik.id,
@@ -197,7 +197,7 @@ grilled_salmon.save!
 grilled_salmon_2 = Dish.new(
   name: "Grilled Salmon",
   price: 15,
-  rating: 4.0,
+  rating: 4.4,
   category: "Salmon",
   user_id: ricardo.id,
   restaurant_id: koya.id,
@@ -208,7 +208,7 @@ grilled_salmon_2.save!
 steak_1 = Dish.new(
   name: "Grilled Steak",
   price: 18,
-  rating: 4.0,
+  rating: 4.1,
   category: "Steak",
   user_id: ricardo.id,
   restaurant_id: ugarit.id,
@@ -230,7 +230,7 @@ grilled_salmon_3.save!
 steak_2 = Dish.new(
   name: "Grilled Steak",
   price: 18,
-  rating: 4.0,
+  rating: 4.6,
   category: "Steak",
   user_id: meder.id,
   restaurant_id: barco.id,
@@ -241,7 +241,7 @@ steak_2.save!
 cheese_bacon_2 = Dish.new(
   name: "Bacon Cheeseburger",
   price: 14,
-  rating: 5.0,
+  rating: 4.7,
   category: "Burger",
   user_id: kristine.id,
   restaurant_id: koya_2.id,
@@ -252,7 +252,7 @@ cheese_bacon_2.save!
 deluxe_2 = Dish.new(
   name: "Deluxe Burger",
   price: 15,
-  rating: 4.0,
+  rating: 4.6,
   category: "Burger",
   user_id: meder.id,
   restaurant_id: koya_2.id,
