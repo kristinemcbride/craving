@@ -17,8 +17,8 @@
         <%= f.input :category,
                     required: true
         %>
-        <%= f.input :photos %>
-        <%= f.input :photos_cache, as: :hidden %>
+        <%= f.input :photo %>
+        <%= f.input :photo_cache, as: :hidden %>
       </div>
       <div class="form-actions">
         <%= f.button :submit, "", class: "crave-button-primary-lg" %>
@@ -59,7 +59,18 @@
       </div>
     <% end %>
 
-    <p class='form-links'><%= link_to "Already have an account?", user_session_path%></p>
+<div class="load-form" id="review-form">
+  <h2>Add a review</h2>
+  <%= simple_form_for [@dish, @new_review] do |f| %>
+  <div class="form-inputs inline-form-checks">
+    <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
+     <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
+    <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
+    <%= f.button :submit, class: "crave-button-primary-lg" %>
+  </div>
+  <% end %>
+</div>
+
   </div>
   </div>
 </div>
