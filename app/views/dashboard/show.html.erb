@@ -7,7 +7,14 @@
   <p><%= @dishes.count %> <strong> dishes posted </strong> <br></p>
 
 <div class="saved-posts">
-  <p>All saved / My posts</p>
+ <ul class="list-inline tabs-underlined">
+  <li>
+    <a href="#" class="tab-underlined active">All saved</a>
+  </li>
+  <li>
+    <a href="#" class="tab-underlined">My posts</a>
+  </li>
+</ul>
 </div>
   </div>
   <% @dishes.each do |dish| %>
@@ -23,79 +30,31 @@
         <p class= "name"><%= dish.restaurant.name %></p>
       </div>
       <div class= "info">
-        <p class="rating" style="font-size: 9px; text-align: right;">
+        <p class="rating" style="font-size: 12px; text-align: right;">
           <strong><%= dish.rating %></strong>
-          <% if dish.rating == 5 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-          <% elsif dish.rating == 4 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-          <% elsif dish.rating == 3 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% elsif dish.rating == 2 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% else %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% end %>
+         <% if dish.rating > 4.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+        <% elsif dish.rating > 4.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+        <% elsif dish.rating > 3.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+        <% elsif dish.rating > 3.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+        <% elsif dish.rating > 2.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif dish.rating > 2.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif dish.rating > 1.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif dish.rating > 1.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% else %>
+           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% end %>
 
           <!-- YOUR RATING
            -->
         </p>
-        <div>
-          <p class="rating" style="font-size: 9px;">
-          <strong> Your rating: &nbsp; <%= dish.rating %></strong>
-          <% if dish.rating == 5 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-          <% elsif dish.rating == 4 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-          <% elsif dish.rating == 3 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% elsif dish.rating == 2 %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% else %>
-            <i class="fas fa-star checked"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          <% end %>
-        </p>
-        </div>
         <% end %>
       </div>
     <% end %>
