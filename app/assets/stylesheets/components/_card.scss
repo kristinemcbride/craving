@@ -60,17 +60,18 @@
 }
 .resto-content {
   display: flex;
-
   p{
     font-size: 14px;
   }
 }
 
-.fa-bookmark {
-  background-color: rgba(17, 20, 33, 0.8);
-  padding-right: 4px;
-  padding-left: 4px;
-
+.favorite-button {
+  font-size: 50px;
+  .fa-heart {
+    padding-right: 4px;
+    padding-left: 4px;
+    color: white;
+  }
 }
 
 .dish-info {

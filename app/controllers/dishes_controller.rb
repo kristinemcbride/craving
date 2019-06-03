@@ -4,6 +4,11 @@ class DishesController < ApplicationController
     @reviews = Review.where(dish_id: params[:id])
     @new_review = Review.new
     @count = @reviews.count
+    if current_user.favorites.any? { |favorite| favorite.dish == @dish }
+      @favorite = Favorite.where(dish_id: params[:id])
+    else
+      @favorite = Favorite.new()
+    end
   end
 
   def new

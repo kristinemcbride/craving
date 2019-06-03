@@ -23,8 +23,16 @@
       </p>
     </div>
   </div>
-  <div>
-    <h5><strong><i class="far fa-bookmark"></i></strong></h5>
+  <div class="favorite-button">
+    <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
+        <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
+          <i class="fas fa-heart"></i>
+        <% end %>
+    <% else %>
+        <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+          <i class="far fa-heart"></i>
+        <% end %>
+    <% end %>
   </div>
 </div>
 </div>

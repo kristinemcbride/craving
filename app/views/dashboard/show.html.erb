@@ -4,10 +4,10 @@
     <h2><%= @user.name %></h2>
   </div>
   <p><strong><%= @dishes.count %> dishes posted</strong></p>
-  <% @dishes.each do |dish| %>
+  <% @favorites.each do |dish| %>
 </div>
    <%= link_to dish_path(dish) do %>
-    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
+    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path favorite.dish.photo %>)">
     </div>
     <div class="craving-dish-info">
       <div class= "info">
