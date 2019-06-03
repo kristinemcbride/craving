@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :dishes, only: [:show, :new, :create] do
     collection do
       get 'search'
+      get 'map'
     end
     resources :reviews, only: [:create]
   end

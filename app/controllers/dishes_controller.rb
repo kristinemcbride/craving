@@ -34,6 +34,33 @@ class DishesController < ApplicationController
     @dishes = filter_dishes.to_a
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
+    @user_location = [request.location.latitude, request.location.longitude]
+
+    @markers = @restaurants.map do |restaurant|
+      {
+        lat: restaurant.latitude,
+        lng: restaurant.longitude,
+        restaurant_id: restaurant.id,
+        infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
+        image_url: helpers.asset_url('cravingpin.png')
+      }
+    end
+  end
+
+   def map
+    if params[:address].present?
+      @address = params[:address]
+      filter_dishes = Dish.joins(:restaurant).order("rating DESC").near(@address, 20)
+      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
+    else
+      filter_dishes = Dish.order("rating DESC").all
+      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
+    end
+    @dishes = filter_dishes.to_a
+    @count = @dishes.count
+    @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
+    @user_location = [request.location.latitude, request.location.longitude]
+
     @markers = @restaurants.map do |restaurant|
       {
         lat: restaurant.latitude,
