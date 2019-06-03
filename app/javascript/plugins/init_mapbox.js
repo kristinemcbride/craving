@@ -51,8 +51,9 @@ const initMapbox = () => {
 
       element.addEventListener('click', (event) => {
           console.log("click click");
-          console.log(element);
+          fetch("")
       });
+
     });
     fitMapToMarkers(map, markers);
 

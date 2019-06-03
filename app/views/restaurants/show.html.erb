@@ -12,7 +12,6 @@
 <div class="craving-dish-info" style="margin-top: 32px;">
   <div class="info">
   <p class="resto-name"><strong><%= @restaurant.name %></strong></p>
-  <p class="resto-name"><strong><%= @restaurant.price_range %></strong></p>
   <p><%= @restaurant.address %></p>
   </div>
 <div class= "info">
@@ -24,7 +23,7 @@
 </div>
 
 <div class="craving-content" style=" padding-top: 12px;">
-  <p style="font-size: 12px;"><strong>Other dishes available at <%= @restaurant.name %></strong></p>
+  <p style="font-size: 13px;"><strong>Other dishes available at <%= @restaurant.name %></strong></p>
   <div class="cards">
     <% @restaurant.dishes.each do |dish| %>
     <%= link_to dish_path(dish) do %>
