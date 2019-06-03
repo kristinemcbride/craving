@@ -1,4 +1,7 @@
 <div class="search-form">
+  <h1>
+    <%= @user_location %>
+  </h1>
   <%= form_tag search_dishes_path, method: :get do %>
   <%= text_field_tag :address,
   params[:address],
