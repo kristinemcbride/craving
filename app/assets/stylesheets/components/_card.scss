@@ -14,6 +14,9 @@
   justify-content: space-between;
   margin-right: 16px;
   margin-left: 16px;
+  margin: 16px;
+  padding: 0px;
+
 }
 
 .large-card {
@@ -33,7 +36,6 @@
 }
 
 .resto-name {
-  padding-bottom: 12px;
   font-size: 16px;
 
 }
@@ -78,11 +80,14 @@
   padding-right: 4px;
   padding-left: 4px;
 }
+
 .dish-rate {
   background-color: rgba(17, 20, 33, 0.8);
   padding-right: 0px;
   padding-left: 4px;
+  width: 36%;
 }
+
 .resto-rate {
   background-color: rgba(17, 20, 33, 0.8);
 
@@ -90,23 +95,35 @@
 
 .name {
     margin-bottom: 4px;
+    font-size: 13px;
 }
 .resto-name {
-  margin-bottom: 0px;
-  padding-top: 10px;
+  margin-bottom: 6px;
+  padding-top: 0px;
+  font-size: 13px;
+  line-height: 13px;
 }
 
+.resto-rate {
+  margin-bottom: 4px;
+  padding-top: 10px;
+  font-size: 12px;
+
+}
+
+
 .info {
-  margin-top: 8px;
-  p {
-    font-size: 12px;
-  }
-  h5 {
-    font-size: 13px;
-  }
+ font-size: 13px;
+ // padding-right: 0px;
+ padding: 0px;
+ // margin-bottom: 12px;
+}
 
   .distance {
     text-align: right;
+    margin-top: 0px;
+    margin-bottom: 4px;
+    font-size: 13px;
   }
 
 // 0.5km in restaurant page
@@ -114,16 +131,21 @@
     text-align: left;
     margin-top: 20px;
   }
-
+    .distance-map{
+    text-align: right;
+    font-size: 13px;
+  }
 
   .name {
     margin-bottom: 4px;
 }
 
   .rating  {
+    margin: 0px;
+    font-size: 13px;
     margin-bottom: 4px;
   }
-}
+
 
 .fa-star {
 

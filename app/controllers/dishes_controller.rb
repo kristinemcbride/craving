@@ -46,6 +46,7 @@ class DishesController < ApplicationController
 
   private
 
+
   def strong_dish_params
     params.require(:dish).permit(:name, :photo, :price, :rating, :category, :restaurant_id, :user_id)
   end

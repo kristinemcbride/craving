@@ -147,31 +147,17 @@ h2 {
     display: none;
   }
 
-.avatar-btn {
- background-image: url("https://iconsplace.com/wp-content/uploads/_icons/ffffff/256/png/slr-camera-icon-18-256.png");
- background-position: center;
- background-size: cover;
- border-radius: 4px;
- margin-top: 16px;
- // cursor: pointer;
- width: 40px;
- height: 40px;
 
+.avatar-btn {
+  .user_avatar {
+    margin-bottom: 0px;
+  }
+  margin-top: 16px;
+  h5 {
+    font-size: 35px;
+  }
 }
 
-// label .file.optionial {
-//   display: nonel
-// }
-
-// .user-input {
-//   color: $red !important;
-//   background-color: $blue !important;
-// }
-
-// .user-input:focus {
-//   color: $red !important;
-//   background-color: $blue !important;
-// }
 
 
 
