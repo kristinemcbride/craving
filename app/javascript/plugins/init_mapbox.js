@@ -48,11 +48,21 @@ const initMapbox = () => {
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);
+
+      element.addEventListener('click', (event) => {
+          console.log("click click");
+          console.log(element);
+      });
     });
     fitMapToMarkers(map, markers);
 
     // map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
  }
-};
+ };
+
 
 export { initMapbox };
+
+
+
+
