@@ -5,7 +5,11 @@ class DishesController < ApplicationController
     @reviews = Review.where(dish_id: params[:id])
     @new_review = Review.new
     @count = @reviews.count
-
+    if current_user.favorites.any? { |favorite| favorite.dish == @dish }
+      @favorite = Favorite.where(dish_id: params[:id])
+    else
+      @favorite = Favorite.new()
+    end
   end
 
   def new
@@ -47,7 +51,7 @@ class DishesController < ApplicationController
     end
   end
 
-   def map
+  def map
     if params[:address].present?
       @address = params[:address]
       filter_dishes = Dish.joins(:restaurant).order("rating DESC").near(@address, 20)
@@ -72,7 +76,6 @@ class DishesController < ApplicationController
   end
 
   private
-
 
   def strong_dish_params
     params.require(:dish).permit(:name, :photo, :price, :rating, :category, :restaurant_id, :user_id)

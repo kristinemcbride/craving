@@ -20,7 +20,7 @@
   <% @dishes.each do |dish| %>
 </div>
    <%= link_to dish_path(dish) do %>
-    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
+    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path favorite.dish.photo %>)">
     </div>
     <div class="craving-dish-info">
       <div class= "info">
