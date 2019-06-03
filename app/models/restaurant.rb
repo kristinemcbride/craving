@@ -13,7 +13,10 @@ class Restaurant < ApplicationRecord
     if restaurant
       restaurant
     else
-      self.create(params)
+      restaurant = self.new(params)
+      restaurant.average_rating = 0
+      restaurant.save
+      restaurant
     end
   end
 end

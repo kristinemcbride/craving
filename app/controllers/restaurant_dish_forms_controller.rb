@@ -6,7 +6,7 @@ class RestaurantDishFormsController < ApplicationController
   def create
     @restaurant_dish_form = RestaurantDishForm.new(restaurant_dish_form_params)
     if @restaurant_dish_form.save
-      redirect_to dish_path(@restaurant_dish_form.dish)
+      redirect_to dish_path(@restaurant_dish_form.dish.id)
     else
       render :new
     end

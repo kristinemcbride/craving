@@ -8,17 +8,14 @@
 
       <div class="form-inputs">
         <%= f.input :restaurant_name,
-                    required: true,
-                    value: "La Real Hamburguesería"
+                    required: true
         %>
         <%= f.input :restaurant_address,
+                    # id: 'address',
                     required: true
         %>
 
         <%= f.input :dish_name,
-                    required: true
-        %>
-        <%= f.input :dish_rating,
                     required: true
         %>
         <%= f.input :dish_price,
@@ -31,7 +28,7 @@
         <%= f.input :dish_photo_cache, as: :hidden %>
       </div>
         <div class="form-actions">
-          <%= f.button :submit, "Upload Dish", class: "crave-button-primary-lg" %>
+          <%= f.button :submit, "Upload dish", class: "crave-button-primary-lg" %>
         </div>
       <% end %>
 
