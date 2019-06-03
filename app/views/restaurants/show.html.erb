@@ -1,30 +1,28 @@
-<div class="craving-dish-search" style="background-image: url(<%= @restaurant.photo %>)">
+<div class="craving-dish-search resto-rate-container" style="background-image: url(<%= @restaurant.photo %>)">
+    <p><strong><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %></strong>
+      <%= render 'dishes/rating', rating: @restaurant.average_rating %>
+    </p>
 </div>
-
 
 <div class="buttons-resto">
   <button class="crave-button-primary" id="button-resto">Book a table</button>
   <button class="crave-button-secondary" id="button-resto">Order in</button>
 </div>
 
-<div class="craving-dish-info" style="margin-top: 16px;">
- <div class= "info">
-  <p class="resto-name">
-    <br>
-    <strong><%= @restaurant.name %> ( <%= @restaurant.price_range %> ) </strong></p>
+<div class="craving-dish-info" style="margin-top: 32px;">
+  <div class="info">
+  <p class="resto-name"><strong><%= @restaurant.name %></strong></p>
+  <p class="resto-name"><strong><%= @restaurant.price_range %></strong></p>
   <p><%= @restaurant.address %></p>
-</div>
-
+  </div>
 <div class= "info">
-  <p class="resto-rate"><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %>
-    <%= render 'dishes/rating', rating: @restaurant.average_rating %>
-  </p>
-      <%= image_tag "map.png", align: "right", style: 'height: 40px; width:auto;' %>
-      <h5 class="distance-map"><strong>0.5 km</strong></h5>
+       <h5 class="distance">
+              <%= distance_to_user(@user_location, @restaurant) %>
+       </h5>
 </div>
 </div>
 
-<div class="craving-content" style=" padding-top: 20px;">
+<div class="craving-content" style=" padding-top: 12px;">
   <p style="font-size: 12px;"><strong>Other dishes available at <%= @restaurant.name %></strong></p>
   <div class="cards">
     <% @restaurant.dishes.each do |dish| %>

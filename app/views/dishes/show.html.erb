@@ -1,46 +1,51 @@
 
 <div class="craving-dish-search large-card" style=" background-image: url(<%= cl_image_path @dish.photo %>)">
 
-<div class="dish-info-card">
-  <div>
+  <div class="dish-info-card">
     <div>
-      <h5 class="dish-info"><strong><%= @dish.name %> ( $<%=@dish.price %> )</strong></h5>
+      <div>
+        <h5 class="dish-info"><strong><%= @dish.name %> ( $<%=@dish.price %> )</strong></h5>
+      </div>
+      <div>
+        <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
+          <%= render 'dishes/rating', rating: @dish.rating %>
+        </p>
+      </div>
     </div>
-    <div>
-      <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
-        <%= render 'dishes/rating', rating: @dish.rating %>
-      </p>
+    <div class="favorite-button">
+      <% if user_signed_in? %>
+      <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
+      <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
+      <i class="fas fa-heart"></i>
+      <% end %>
+      <% else %>
+      <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+      <i class="far fa-heart"></i>
+      <% end %>
+      <% end %>
+      <% else %>
+      <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+      <i class="far fa-heart"></i>
+      <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="favorite-button">
-    <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
-        <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
-          <i class="fas fa-heart"></i>
-        <% end %>
-    <% else %>
-        <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
-          <i class="far fa-heart"></i>
-        <% end %>
-    <% end %>
-  </div>
-</div>
 </div>
 <div class="craving-content">
   <div class="resto">
     <div class="resto-content">
      <%= link_to restaurant_path(@dish.restaurant_id) do %>
-    <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
-    <div>
-        <p class="resto-dish-name"><strong><%= @dish.restaurant.name %></strong></p>
-        <p class="resto-dish-name" ><%= @dish.restaurant.price_range %></p>
+     <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
+     <div>
+      <p class="resto-dish-name"><strong><%= @dish.restaurant.name %></strong></p>
+      <p class="resto-dish-name" ><%= @dish.restaurant.price_range %></p>
       <% end %>
-
-    </div>
-    </div>
-    <div>
-      <button class="crave-button-primary"><%= link_to "Get the dish", restaurant_path(@dish.restaurant_id) %></button>
     </div>
   </div>
+  <div>
+    <button class="crave-button-primary"><%= link_to "Get the dish", restaurant_path(@dish.restaurant_id) %></button>
+  </div>
+</div>
 </div>
 
 <div class="craving-content">
@@ -54,45 +59,27 @@
     <div class= "top-right-review">
       <p class= "review-name"><%= review.user.name %></p>
       <p class="review-rate"><strong><%= review.rating.to_d.round(2, :truncate).to_f %></strong>
-          <% if review.rating > 4.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif review.rating > 4.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
-        <% elsif review.rating > 3.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
-        <% elsif review.rating > 3.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-        <% elsif review.rating > 2.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif review.rating > 2.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif review.rating > 1.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif review.rating > 1.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% else %>
-           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% end %>
+        <%= render 'dishes/rating', rating: review.rating %>
       </p>
     </div>
   </div>
   <div class="review-content">
-  <p><%= review.content %></p>
+    <p><%= review.content %></p>
   </div>
   <% end %>
 </div>
 <div class="craving-content">
-<div class="load-form" id="review-form">
-  <h2>Add a review</h2>
-  <%= simple_form_for [@dish, @new_review] do |f| %>
-  <div class="form-inputs inline-form-checks">
-    <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
-     <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
-    <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
-    <%= f.button :submit, class: "crave-button-primary-lg" %>
+  <div class="load-form" id="review-form">
+    <h2>Add a review</h2>
+    <%= simple_form_for [@dish, @new_review] do |f| %>
+    <div class="form-inputs inline-form-checks">
+      <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
+      <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
+      <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
+      <%= f.button :submit, class: "crave-button-primary-lg" %>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
 </div>
 
 

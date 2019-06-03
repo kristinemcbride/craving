@@ -4,7 +4,6 @@ module ApplicationHelper
     # object.distance_to(user_location)
     distance = object.distance_to(user_location)
     if distance.nan?
-      'Turn on location'
     else
       "#{distance.truncate(2)} km"
     end
