@@ -1,5 +1,4 @@
 class FavoritesController < ApplicationController
-
   def create
     @favorite = Favorite.new()
     @favorite.dish = Dish.find(params[:dish_id])

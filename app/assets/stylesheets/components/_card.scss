@@ -88,13 +88,25 @@
   background-color: rgba(17, 20, 33, 0.8);
   padding-right: 0px;
   padding-left: 4px;
-  width: 45%;
-}
-
-.resto-rate {
-  background-color: rgba(17, 20, 33, 0.8);
+  width: 58%;
 
 }
+
+.resto-rate-container {
+  padding-right: 16px;
+  padding-top: 0px;
+  font-size: 13px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  p {
+    background-color: rgba(17, 20, 33, 0.8);
+    padding: 2px;
+    margin-bottom: 4px;
+  }
+
+}
+
 
 .name {
     margin-bottom: 4px;
