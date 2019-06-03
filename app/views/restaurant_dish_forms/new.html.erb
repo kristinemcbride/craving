@@ -3,29 +3,32 @@
     <div class="load-form">
     <h2>Upload dish</h2>
 <!-- new restaurant form -->
-    <%= simple_form_for (@dish, @restaurant) do |f| %>
+    <%= simple_form_for @restaurant_dish_form do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :name,
+        <%= f.input :restaurant_name,
                     required: true,
                     value: "La Real Hamburguesería"
         %>
-        <%= f.input :address,
+        <%= f.input :restaurant_address,
                     required: true
         %>
 
-        <%= f.input :name,
+        <%= f.input :dish_name,
                     required: true
         %>
-        <%= f.input :price,
+        <%= f.input :dish_rating,
                     required: true
         %>
-        <%= f.input :category,
+        <%= f.input :dish_price,
                     required: true
         %>
-        <%= f.input :photo %>
-        <%= f.input :photo_cache, as: :hidden %>
+        <%= f.input :dish_category,
+                    required: true
+        %>
+        <%= f.input :dish_photo, as: :file %>
+        <%= f.input :dish_photo_cache, as: :hidden %>
       </div>
         <div class="form-actions">
           <%= f.button :submit, "Upload Dish", class: "crave-button-primary-lg" %>
