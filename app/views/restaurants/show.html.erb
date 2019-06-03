@@ -16,6 +16,7 @@
   <p><%= @restaurant.address %></p>
   </div>
 <div class= "info">
+  <p class="resto-name"><strong><%= @restaurant.price_range %></strong></p>
        <h5 class="distance">
               <%= distance_to_user(@user_location, @restaurant) %>
        </h5>
