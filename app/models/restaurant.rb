@@ -14,7 +14,6 @@ class Restaurant < ApplicationRecord
       restaurant
     else
       restaurant = self.new(params)
-      restaurant.average_rating = 0
       restaurant.save
       restaurant
     end

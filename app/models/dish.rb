@@ -18,10 +18,9 @@ class Dish < ApplicationRecord
   # after_validation :geocode, if: :will_save_change_to_address?
 
   def self.rate_and_create(params)
-    dish = self.new(params)
-    dish.rating = 0
-    # dish.user.favorites << dish
-    dish.save
-    dish
+    new_dish = self.new(params)
+    new_dish.save
+    Favorite.create(user_id: new_dish.user.id, dish_id: new_dish.id)
+    new_dish
   end
 end

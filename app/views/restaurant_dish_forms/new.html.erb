@@ -10,11 +10,12 @@
         <%= f.input :restaurant_name,
                     required: true
         %>
-        <%= f.input :restaurant_address,
-                    # id: 'address',
-                    required: true
-        %>
-
+        <label for="restaurant_address">Restaurant address</label>
+          <%= f.text_field :restaurant_address,
+                      class: "form-control",
+                      id: "address",
+                      required: true
+          %>
         <%= f.input :dish_name,
                     required: true
         %>
@@ -24,8 +25,18 @@
         <%= f.input :dish_category,
                     required: true
         %>
-        <%= f.input :dish_photo, as: :file %>
-        <%= f.input :dish_photo_cache, as: :hidden %>
+
+        <div class= "avatar-btn">
+          <div class="form-group file optional user_avatar form-group-valid">
+             <label class="file optional" for="restaurant_dish_form_dish_photo">Choose photo</label> <br>
+            <label class="file optional" for="restaurant_dish_form_dish_photo"> <h5><i class="fas fa-camera"></i></h5></label>
+            <%= f.input :dish_photo,
+                        required: true, as: :file, label: false
+            %>
+            <%= f.input :dish_photo_cache,
+                        required: true, as: :hidden
+            %>
+        </div>
       </div>
         <div class="form-actions">
           <%= f.button :submit, "Upload dish", class: "crave-button-primary-lg" %>
