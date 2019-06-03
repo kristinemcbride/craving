@@ -46,6 +46,7 @@
   margin-right: 16px;
   margin-left: 16px;
   flex-grow: 1;
+
 }
 
 .resto{
@@ -68,11 +69,12 @@
 }
 
 .favorite-button {
-  font-size: 50px;
+  font-size: 30px;
   .fa-heart {
-    padding-right: 4px;
-    padding-left: 4px;
+    background-color: rgba(17, 20, 33, 0.8);
+    padding: 8px;
     color: white;
+    border-radius: 50%;
   }
 }
 

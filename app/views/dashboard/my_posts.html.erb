@@ -32,26 +32,7 @@
       <div class= "info">
         <p class="rating" style="font-size: 12px; text-align: right;">
           <strong><%= dish.rating %></strong>
-         <% if dish.rating > 4.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif dish.rating > 4.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
-        <% elsif dish.rating > 3.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 3.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 2.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 2.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 1.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 1.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% else %>
-           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% end %>
-
+        <%= render 'dishes/rating', rating: dish.rating %>
           <!-- YOUR RATING
            -->
         </p>

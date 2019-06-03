@@ -1,56 +1,59 @@
 
-<div class="search-form">
-  <%= form_tag map_dishes_path, method: :get do %>
-  <%= text_field_tag :address,
-  params[:address],
-  value: @address,
-  hidden: true,
-  id: "dish"
-  %>
-  <%= text_field_tag :dish,
-  params[:dish],
-  class: "search-bar",
-    id: "dish",
-    placeholder: "Search by dish"
-    %>
-    <%= button_tag hidden:true
-    %>
-    <% end %>
+<div
+id="map"
+style="margin-bottom: 16px; height: 300px; z-index: 0;"
+data-markers="<%= @markers.to_json %>"
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+<%= link_to search_dishes_path(address: params[:address], dish: params[:dish]) do %>
+<div class="list-av">
+  <div>
+    <h3><i class="far fa-times-circle"></i></h3>
+  </div>
 </div>
-  <div class="craving-content" style="padding-top: 88px;">
-    <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
-    <a href="/dishes/map">
-      <div class="map-av">
-        <div>
-          <h3><i class="fas fa-map-marker-alt"></i></h3>
+<% end %>
+
+
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <% @dishes.each_with_index do |dish, index| %>
+      <div data-slide-to="<%= index %>" class="carousel-item <%= 'active' if index.zero? %>">
+        <%= link_to dish_path(dish) do %>
+          <img class="craving-dish-search d-block w-100" src="<%= cl_image_path dish.photo %>" alt="">
+        <% end %>
+        <div class="craving-dish-info">
+          <div class= "info">
+            <h5 class= "name"><strong><%= dish.name %></strong></h5>
+            <p class= "name"><%= dish.restaurant.name %></p>
+          </div>
+          <div class= "info">
+            <h5 class="rating"><strong><%= dish.rating.to_d.round(1, :truncate).to_f %></strong>
+              <%= render 'dishes/rating', rating: dish.rating %>
+            </h5>
+            <h5 class="distance">
+              <%= distance_to_user(@user_location, dish.restaurant) %>
+            </h5>
+          </div>
         </div>
       </div>
-    </a>
-    <% @dishes.each do |dish| %>
-  </div>
-
-  <%= link_to dish_path(dish) do %>
-  <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
-  </div>
-  <div class="craving-dish-info">
-    <div class= "info">
-      <h5 class= "name"><strong><%= dish.name %></strong></h5>
-      <p class= "name"><%= dish.restaurant.name %></p>
-    </div>
-    <div class= "info">
-      <h5 class="rating"><strong><%= dish.rating.to_d.round(1, :truncate).to_f %></strong>
-        <%= render 'dishes/rating', rating: dish.rating %>
-      </h5>
-      <h5 class="distance">0.5km</h5>
-      <% end %>
-    </div>
-    </div>
     <% end %>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
-<div
-  id="map"
-  style="margin-left: 16px; margin-right: 16px; height: 600px; z-index: 0;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-  ></div>
 </div>
+
+
+
+
+
+
+
+
+
+
