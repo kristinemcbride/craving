@@ -18,7 +18,7 @@
 </div>
   <div class="craving-content" style="padding-top: 88px;">
     <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
-      <%= link_to map_dishes_path(address: params[:address]) do %>
+      <%= link_to map_dishes_path(address: params[:address], dish: params[:dish]) do %>
       <div class="map-av">
         <div>
           <h3><i class="fas fa-map-marker-alt"></i></h3>

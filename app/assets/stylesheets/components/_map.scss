@@ -24,6 +24,18 @@
 // .mapboxgl-ctrl-geocoder {
 //   display: hidden;
 // }
+.mapboxgl-ctrl-logo {
+  display: none !important;
+}
+
+.mapboxgl-ctrl {
+  display: none !important;
+}
+
+.mapboxgl-ctrl-icon{
+  display: none !important;
+}
+
 .card-map {
   overflow: hidden;
   height: 70px;
@@ -45,7 +57,7 @@
 }
 
 .card-map p {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.4;
   opacity: 1;
   margin-bottom: 0;
