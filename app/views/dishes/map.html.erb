@@ -39,25 +39,7 @@
     </div>
     <div class= "info">
       <h5 class="rating"><strong><%= dish.rating.to_d.round(1, :truncate).to_f %></strong>
-        <% if dish.rating > 4.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif dish.rating > 4.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
-        <% elsif dish.rating > 3.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 3.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 2.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 2.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 1.7 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% elsif dish.rating > 1.2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% else %>
-           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
-        <% end %>
+        <%= render 'dishes/rating', rating: dish.rating %>
       </h5>
       <h5 class="distance">0.5km</h5>
       <% end %>
