@@ -14,12 +14,9 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
-    @restaurant = Restaurant.where(name: "La Real Hamburguesería")
   end
 
   def create
-    raise
-    @restaurant = Restaurant.where(name: params[])
     @dish = Dish.new(strong_dish_params)
     @dish.user = current_user
     current_user.favorites << @dish
