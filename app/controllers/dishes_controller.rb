@@ -34,7 +34,8 @@ class DishesController < ApplicationController
     @dishes = filter_dishes.to_a
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
-    @user_location = Geocoder.search(request.ip).first
+    user = Geocoder.search(request.ip).first
+    @user_location = [user.latitude, user.longitude]
 
     @markers = @restaurants.map do |restaurant|
       {
