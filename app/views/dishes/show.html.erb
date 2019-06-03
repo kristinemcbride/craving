@@ -12,23 +12,23 @@
         </p>
       </div>
     </div>
-    <div class="favorite-button">
+  </div>
+   <div class="favorite-button">
       <% if user_signed_in? %>
-      <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
-      <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
-      <i class="fas fa-heart"></i>
-      <% end %>
+        <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
+            <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
+              <i class="fas fa-heart"></i>
+            <% end %>
+          <% else %>
+            <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+              <i class="far fa-heart"></i>
+            <% end %>
+          <% end %>
       <% else %>
-      <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
-      <i class="far fa-heart"></i>
+          <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+          <i class="far fa-heart"></i>
       <% end %>
-      <% end %>
-      <% else %>
-      <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
-      <i class="far fa-heart"></i>
-      <% end %>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>
 <div class="craving-content">
@@ -47,7 +47,6 @@
   </div>
 </div>
 </div>
-
 <div class="craving-content">
   <div class="review-head">
     <p><strong>Reviews (<%= @count %>)</strong></p>
