@@ -7,30 +7,37 @@
   <button class="crave-button-secondary" id="button-resto">Order in</button>
 </div>
 
-<div class="craving-dish-info" style="margin-top: 32px;">
+<div class="craving-dish-info" style="margin-top: 16px;">
  <div class= "info">
-  <h5 class="resto-name"><strong><%= @restaurant.name %> ( <%= @restaurant.price_range %> ) </strong></h5>
+  <p class="resto-name">
+    <br>
+    <strong><%= @restaurant.name %> ( <%= @restaurant.price_range %> ) </strong></p>
   <p><%= @restaurant.address %></p>
-  <h5 class="distance-rest"><strong>0.5km</strong></h5>
 </div>
 
 <div class= "info">
-  <p class="resto-name"><%= @restaurant.average_rating %> <% if @restaurant.average_rating == 5 %>
+  <p class="resto-rate"><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %><% if @restaurant.average_rating > 4.7 %>
           <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif @restaurant.average_rating == 4 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
-        <% elsif @restaurant.average_rating == 3 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% elsif @restaurant.average_rating == 2 %>
-          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        <% elsif @restaurant.average_rating > 4.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+        <% elsif @restaurant.average_rating > 3.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 3.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 2.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 2.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 1.7 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+        <% elsif @restaurant.average_rating > 1.2 %>
+          <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% else %>
-           <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+           <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
         <% end %>
   </p>
-  <div id="map" style="height: 80px; width: 80px; float: right; margin-top: 0px; padding-top: 0px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-  </div>
+      <%= image_tag "map.png", align: "right", style: 'height: 40px; width:auto;' %>
+      <h5 class="distance-map"><strong>0.5 km</strong></h5>
 </div>
 </div>
 

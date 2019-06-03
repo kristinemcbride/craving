@@ -18,44 +18,55 @@
 </div>
   <div class="craving-content" style="padding-top: 88px;">
     <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
-    <a href="#map">
+      <%= link_to map_dishes_path(address: params[:address]) do %>
       <div class="map-av">
         <div>
           <h3><i class="fas fa-map-marker-alt"></i></h3>
         </div>
       </div>
-    </a>
-    <% @dishes.each do |dish| %>
-  </div>
-
-  <%= link_to dish_path(dish) do %>
-  <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
-  </div>
-  <div class="craving-dish-info">
-    <div class= "info">
-      <h5 class= "name"><strong><%= dish.name %></strong></h5>
-      <p class= "name"><%= dish.restaurant.name %></p>
-    </div>
-    <div class= "info">
-      <p class="rating"><strong><%= dish.rating %></strong>
-        <% if dish.rating == 5 %>
-        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
-        <% elsif dish.rating == 4 %>
-        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i>
-        <% elsif dish.rating == 3 %>
-        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% elsif dish.rating == 2 %>
-        <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% else %>
-        <i class="fas fa-star checked"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-        <% end %>
-      </p>
-      <p class="distance">0.5km</p>
-      <% end %>
-    </div>
     <% end %>
   </div>
+  <% @dishes.each do |dish| %>
+    <%= link_to dish_path(dish) do %>
 
+    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
+    </div>
+    <div class="craving-dish-info">
+      <div class= "info">
+        <h5 class= "name"><strong><%= dish.name %></strong></h5>
+        <p class= "name"><%= dish.restaurant.name %></p>
+      </div>
+        <div class= "info">
+          <h5 class="rating"><strong><%= dish.rating.to_d.round(1, :truncate).to_f %></strong>
+            <% if dish.rating > 4.7 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i>
+            <% elsif dish.rating > 4.2 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i>
+            <% elsif dish.rating > 3.7 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i>
+            <% elsif dish.rating > 3.2 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+            <% elsif dish.rating > 2.7 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            <% elsif dish.rating > 2.2 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            <% elsif dish.rating > 1.7 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            <% elsif dish.rating > 1.2 %>
+              <i class="fas fa-star checked"></i><i class="fas fa-star-half-alt"></i><<i class="far fa-star"></i></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            <% else %>
+               <i class="fas fa-star checked"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+            <% end %>
+          </h5>
+            <h5 class="distance">
+              <%= distance_to_user(@user_location, dish.restaurant) %>
+            </h5>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 <div
   id="map"
   style="margin-left: 16px; margin-right: 16px; height: 600px; z-index: 0;"

@@ -24,6 +24,7 @@ const initMapbox = () => {
       trackUserLocation: true
     });
 
+    // debugger
     map.addControl(geolocate);
 
     map.on('load', function()
@@ -32,7 +33,7 @@ const initMapbox = () => {
     });
 
    const markers = JSON.parse(mapElement.dataset.markers);
-   console.log(markers, "These are the parsed markers");
+
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 

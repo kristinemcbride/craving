@@ -44,52 +44,59 @@ ashley.save!
 puts "Creating 7 RESTAURANTS..."
 
 koya = Restaurant.create!(
-  name: "Koya Grill",
+  name: "La Real Hamburguesería",
   address: "Carrer de Vic, 23, 08006 Barcelona",
   photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
-  price_range: "$"
+  price_range: "$",
+  average_rating: 4
   )
 
 ninos = Restaurant.create!(
   name: "Nino's Palace",
   address: "Carrer del Rosselló, 217, 08008 Barcelona",
   photo: "https://s3-eu-west-1.amazonaws.com/gr-cms/media/filer_public/cc/ec/ccecba57-fc3a-4b94-911a-966ab4265c40/1.jpg",
-  price_range: "$$"
+  price_range: "$$",
+  average_rating: 4
   )
 
 ugarit = Restaurant.create!(
   name: "Ugarit",
   address: "Carrer de Bruniquer, 69, 08024 Barcelona",
   photo: "https://tastet.ca/wp-content/uploads/2018/10/restaurant-lexpress-montreal-3-1024x684.jpg",
-  price_range: "$$"
+  price_range: "$$",
+  average_rating: 4
   )
 
 apotheosik = Restaurant.create!(
   name: "Apotheosik",
   address: "Carrer de la Legalitat, 74, 08024 Barcelona",
   photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg",
-  price_range: "$$$"
+  price_range: "$$$",
+  average_rating: 4
   )
 
 barco = Restaurant.create!(
   name: "El Barco",
   address: "Av. Ricardo Soriano, 32, 29601 Marbella, Málaga",
   photo: "https://i.imgur.com/NBBtwTj.jpg",
-  price_range: "$$"
+  price_range: "$$",
+  average_rating: 4
   )
 
 meder_place = Restaurant.create!(
   name: "Meder's Corner",
   address: "Av Calderón de la Barca, 29660 Marbella, Málaga",
   photo: "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg",
-  price_range: "$$$$"
+  price_range: "$$$$",
+  average_rating: 4
   )
 
 koya_2 = Restaurant.create!(
-  name: "Koya Grill",
+  name: "La Real Hamburguesería",
   address: "Calle Gran Vía, 44, 28013 Madrid",
   photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
-  price_range: "$"
+  price_range: "$",
+  average_rating: 4
   )
 
 
@@ -98,7 +105,7 @@ puts "Creating 15 DISHES..."
 osaka = Dish.new(
   name: "Osaka Burger",
   price: 12,
-  rating: 4,
+  rating: 4.5,
   category: "Burger",
   user_id: ashley.id,
   restaurant_id: apotheosik.id,
@@ -109,7 +116,7 @@ osaka.save!
 tom_yum = Dish.new(
   name: "Tom Yum Goong",
   price: 8,
-  rating: 3,
+  rating: 3.1,
   category: "Thai Soup",
   user_id: ashley.id,
   restaurant_id: apotheosik.id,
@@ -120,7 +127,7 @@ tom_yum.save!
 cheese_bacon = Dish.new(
   name: "Bacon Cheeseburger",
   price: 14,
-  rating: 5,
+  rating: 4.8,
   category: "Burger",
   user_id: ashley.id,
   restaurant_id: koya.id,
@@ -131,7 +138,7 @@ cheese_bacon.save!
 deluxe = Dish.new(
   name: "Deluxe Burger",
   price: 15,
-  rating: 4,
+  rating: 4.3,
   category: "Burger",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -142,7 +149,7 @@ deluxe.save!
 pasta = Dish.new(
   name: "Spagetti & Meatballs",
   price: 16,
-  rating: 3,
+  rating: 3.5,
   category: "Pasta",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -153,7 +160,7 @@ pasta.save!
 fries = Dish.new(
   name: "French Fries",
   price: 6,
-  rating: 5,
+  rating: 5.0,
   category: "Fries",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -164,7 +171,7 @@ fries.save!
 wings = Dish.new(
   name: "Sesame Wings",
   price: 10,
-  rating: 4,
+  rating: 4.7,
   category: "Wings",
   user_id: kristine.id,
   restaurant_id: koya.id,
@@ -175,7 +182,7 @@ wings.save!
 grilled_chicken = Dish.new(
   name: "Grilled Chicken",
   price: 10,
-  rating: 3,
+  rating: 3.9,
   category: "Chicken",
   user_id: kristine.id,
   restaurant_id: ninos.id,
@@ -186,7 +193,7 @@ grilled_chicken.save!
 grilled_salmon = Dish.new(
   name: "Grilled Salmon",
   price: 16,
-  rating: 5,
+  rating: 4.9,
   category: "Salmon",
   user_id: kristine.id,
   restaurant_id: apotheosik.id,
@@ -197,7 +204,7 @@ grilled_salmon.save!
 grilled_salmon_2 = Dish.new(
   name: "Grilled Salmon",
   price: 15,
-  rating: 4,
+  rating: 4.4,
   category: "Salmon",
   user_id: ricardo.id,
   restaurant_id: koya.id,
@@ -208,7 +215,7 @@ grilled_salmon_2.save!
 steak_1 = Dish.new(
   name: "Grilled Steak",
   price: 18,
-  rating: 4,
+  rating: 4.1,
   category: "Steak",
   user_id: ricardo.id,
   restaurant_id: ugarit.id,
@@ -219,7 +226,7 @@ steak_1.save!
 grilled_salmon_3 = Dish.new(
   name: "Grilled Salmon",
   price: 15,
-  rating: 5,
+  rating: 5.0,
   category: "Salmon",
   user_id: meder.id,
   restaurant_id: meder_place.id,
@@ -230,7 +237,7 @@ grilled_salmon_3.save!
 steak_2 = Dish.new(
   name: "Grilled Steak",
   price: 18,
-  rating: 4,
+  rating: 4.6,
   category: "Steak",
   user_id: meder.id,
   restaurant_id: barco.id,
@@ -241,7 +248,7 @@ steak_2.save!
 cheese_bacon_2 = Dish.new(
   name: "Bacon Cheeseburger",
   price: 14,
-  rating: 5,
+  rating: 4.7,
   category: "Burger",
   user_id: kristine.id,
   restaurant_id: koya_2.id,
@@ -252,7 +259,7 @@ cheese_bacon_2.save!
 deluxe_2 = Dish.new(
   name: "Deluxe Burger",
   price: 15,
-  rating: 4,
+  rating: 4.6,
   category: "Burger",
   user_id: meder.id,
   restaurant_id: koya_2.id,
@@ -265,7 +272,7 @@ puts "Creating 4 REVIEWS"
 
 review_1 = Review.create!(
   content: "This hamburger changed my life, i'm now a vegan.",
-  rating: 3,
+  rating: 3.0,
   date: "2018-05-25",
   user_id: ashley.id,
   dish_id: deluxe.id
@@ -273,7 +280,7 @@ review_1 = Review.create!(
 
 review_2 = Review.create!(
   content: "I'm getting married here, thanks to this burger.",
-  rating: 5,
+  rating: 5.0,
   date: "2019-04-20",
   user_id: ricardo.id,
   dish_id: deluxe.id
@@ -281,7 +288,7 @@ review_2 = Review.create!(
 
 review_3 = Review.create!(
   content: "The place could be burning down, and I would still finish this burger",
-  rating: 5,
+  rating: 5.0,
   date: "2018-12-31",
   user_id: kristine.id,
   dish_id: deluxe.id
@@ -289,7 +296,7 @@ review_3 = Review.create!(
 
 review_4 = Review.create!(
   content: "Pleasant surprise, I was a vegan until I was tricked to try this burger, now I order one each day",
-  rating: 5,
+  rating: 5.0,
   date: "2019-05-29",
   user_id: meder.id,
   dish_id: deluxe.id
