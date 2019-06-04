@@ -17,7 +17,18 @@
     <% end %>
 </div>
   <div class="craving-content" style="padding-top: 88px;">
-    <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
+      <div class="filter">
+        <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
+          <div class="nav-item dropdown">
+            <img data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="filter-image" src="<%= image_path 'filter.jpg' %>"/>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item">By rating</a>
+                <a class="dropdown-item">By price</a>
+                <a class="dropdown-item">By distance</a>
+              </div>
+          </div>
+       </div>
+    </div>
       <%= link_to map_dishes_path(address: params[:address], dish: params[:dish]) do %>
       <div class="map-av">
         <div>
