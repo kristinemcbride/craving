@@ -1,3 +1,20 @@
+<style>
+  #results {
+      background: white;
+      color: black;
+      list-style: none;
+      border-radius: 4px;
+      margin-top: -15px;
+      padding-left: 0px;
+  }
+  #results li {
+    padding: 2px 16px;
+    font-size: 1rem;
+  }
+  #results li:hover {
+    background: lightgrey;
+  }
+</style>
 <div id="places-api"></div>
 <div class="crave-container">
   <div class="craving-content">
@@ -11,6 +28,7 @@
         <%= f.input :restaurant_name,
                     required: true, input_html: { class: "resto-input" }
         %>
+        <input type="hidden" name="restaurant[place_id]" value="" id="restaurant_place_id">
         <ul id="results">
         </ul>
         <label for="restaurant_address">Restaurant address</label>

@@ -1,4 +1,25 @@
 // ES6
+import autocomplete from 'autocomplete.js';
+global.autocomplete = autocomplete;
+
+
+function setAutoCompleteList(list) {
+
+  autocomplete('#restaurant_dish_form_restaurant_name', { hint: false }, [
+    {
+      source: list,
+      displayKey: 'description',
+      templates: {
+        suggestion: function(suggestion) {
+          return suggestion._highlightResult.my_attribute.value;
+        }
+      }
+    }
+  ]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
+    console.log(event, suggestion, dataset, context);
+  });
+}
+
 var map;
 var service;
 var infowindow;
@@ -54,6 +75,20 @@ function searchResto() {
 //     console.log(results);
 //   });
 // }
+function setListenersOnListItems() {
+  const items = document.querySelectorAll('#results > li');
+  const formPlaceID = document.querySelector('#restaurant_place_id');
+  const formName = document.querySelector('#restaurant_dish_form_restaurant_name');
+
+  items.forEach(item => {
+    item.addEventListener('click', (event) => {
+      console.log(event.currentTarget)
+      formPlaceID.value = event.currentTarget.dataset.placeId;
+      formName.value = event.currentTarget.innerText
+      document.querySelector('#results').innerHTML = ''
+    })
+  })
+}
 
 function initService(finalWord) {
 
@@ -70,15 +105,19 @@ function initService(finalWord) {
 
     const results = document.getElementById('results');
     results.innerHTML = '';
+
     predictions.forEach(function(prediction) {
       if (!prediction.types) return;
+
       if (prediction.types.includes('food')) {
         console.log(prediction)
-        var li = document.createElement('li');
-        li.appendChild(document.createTextNode(prediction.description));
-        results.appendChild(li);
+        const template = `
+         <li data-place-id='${prediction.place_id}'> ${prediction.description} </li>
+        `
+        results.insertAdjacentHTML('afterBegin', template);
       }
     });
+    setListenersOnListItems()
   };
 
   var service = new google.maps.places.AutocompleteService();
