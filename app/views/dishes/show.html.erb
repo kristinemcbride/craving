@@ -4,7 +4,7 @@
   <div class="dish-info-card">
     <div>
       <div>
-        <h5 class="dish-info"><strong><%= @dish.name %> ( $<%=@dish.price %> )</strong></h5>
+        <h5 class="dish-info"><strong><%= @dish.name %> ( <%=@dish.price %> € )</strong></h5>
       </div>
       <div>
         <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
