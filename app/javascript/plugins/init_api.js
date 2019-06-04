@@ -4,9 +4,24 @@ var service;
 var infowindow;
 
 function searchResto() {
+  // var defaultBounds = new google.maps.LatLngBounds(
+  // new google.maps.LatLng(41.2851, 2.0734),
+  // new google.maps.LatLng(41.4851, 2.2734));
+
+  // var input = document.querySelector('.resto-input');
+  // console.log(input)
+  // var options = {
+  //   bounds: defaultBounds,
+  //   types: ['restaurant', 'food']
+  // };
+
+  // const autocomplete = new google.maps.places.Autocomplete(input, options);
+  // console.log(autocomplete)
   const restoSearch = document.querySelector(".resto-input");
   restoSearch.addEventListener("keyup", event => {
-      initService(restoSearch.value);
+      if (restoSearch.value.length > 0) {
+        initService(restoSearch.value);
+      }
   });
 }
 
@@ -43,7 +58,7 @@ function searchResto() {
 function initService(finalWord) {
 
   var request = {
-    locationBias: {radius: 2000, center: {lat: 41.3851, lng: 2.1734}},
+    locationBias: { radius: 2000, center: {lat: 41.3851, lng: 2.1734}},
     type: ['restaurant', 'food']
   };
 
@@ -56,14 +71,18 @@ function initService(finalWord) {
     const results = document.getElementById('results');
     results.innerHTML = '';
     predictions.forEach(function(prediction) {
-      var li = document.createElement('li');
-      li.appendChild(document.createTextNode(prediction.description));
-      results.appendChild(li);
+      if (!prediction.types) return;
+      if (prediction.types.includes('food')) {
+        console.log(prediction)
+        var li = document.createElement('li');
+        li.appendChild(document.createTextNode(prediction.description));
+        results.appendChild(li);
+      }
     });
   };
 
   var service = new google.maps.places.AutocompleteService();
-  service.getQueryPredictions({ input: finalWord }, displaySuggestions);
+  service.getQueryPredictions({ input: finalWord, radius: 2000, location: new google.maps.LatLng(41.3851, 2.1734)}, displaySuggestions);
 }
 
 export { searchResto };
