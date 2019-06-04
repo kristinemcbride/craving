@@ -1,6 +1,6 @@
 // ES6
 import autocomplete from 'autocomplete.js';
-global.autocomplete = autocomplete;
+// global.autocomplete = autocomplete;
 
 
 function setAutoCompleteList(list) {
@@ -18,6 +18,7 @@ function setAutoCompleteList(list) {
   ]).on('autocomplete:selected', function(event, suggestion, dataset, context) {
     console.log(event, suggestion, dataset, context);
   });
+
 }
 
 var map;
@@ -42,39 +43,40 @@ function searchResto() {
   restoSearch.addEventListener("keyup", event => {
       if (restoSearch.value.length > 0) {
         initService(restoSearch.value);
+
       }
   });
 }
 
-// function initMap(finalWord) {
-//   var barcelona = new google.maps.LatLng(41.3851, 2.1734);
+function initMap(finalWord) {
+  var barcelona = new google.maps.LatLng(41.3851, 2.1734);
 
-//   // infowindow = new google.maps.InfoWindow();
+  // infowindow = new google.maps.InfoWindow();
 
-//   map = new google.maps.Map(
-//       document.getElementById('places-api'), {center: barcelona, zoom: 15});
-
-
-
-//   var request = {
-//     query: finalWord,
-//     fields: ['formatted_address', 'geometry', 'name', 'photos' ,'place_id' , 'price_level', 'types']
-//   };
+  map = new google.maps.Map(
+      document.getElementById('places-api'), {center: barcelona, zoom: 15});
 
 
-//   var service = new google.maps.places.PlacesService(map);
-//   console.log(service);
 
-//   service.findPlaceFromQuery(request, function(results, status) {
-//     if (status === google.maps.places.PlacesServiceStatus.OK) {
-//       for (var i = 0; i < results.length; i++) {
-//         console.log(results[i]);
-//       }
-//       // map.setCenter(results[0].geometry.location);
-//     }
-//     console.log(results);
-//   });
-// }
+  var request = {
+    query: finalWord,
+    fields: ['formatted_address', 'name', 'photos' ,'place_id' , 'price_level']
+  };
+
+
+  var service = new google.maps.places.PlacesService(map);
+
+
+  service.findPlaceFromQuery(request, function(results, status) {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        console.log(results[i]);
+      }
+      // map.setCenter(results[0].geometry.location);
+    }
+    // console.log(results);
+  });
+}
 function setListenersOnListItems() {
   const items = document.querySelectorAll('#results > li');
   const formPlaceID = document.querySelector('#restaurant_place_id');
@@ -82,9 +84,10 @@ function setListenersOnListItems() {
 
   items.forEach(item => {
     item.addEventListener('click', (event) => {
-      console.log(event.currentTarget)
+      // console.log(event.currentTarget)
       formPlaceID.value = event.currentTarget.dataset.placeId;
       formName.value = event.currentTarget.innerText
+      initMap(formName.value);
       document.querySelector('#results').innerHTML = ''
     })
   })
@@ -110,7 +113,6 @@ function initService(finalWord) {
       if (!prediction.types) return;
 
       if (prediction.types.includes('food')) {
-        console.log(prediction)
         const template = `
          <li data-place-id='${prediction.place_id}'> ${prediction.description} </li>
         `

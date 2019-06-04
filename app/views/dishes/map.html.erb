@@ -23,7 +23,7 @@ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
         <% end %>
         <div class="craving-dish-info">
           <div class= "info">
-            <h5 class= "name"><strong><%= dish.name %></strong></h5>
+            <h5 class= "name"><strong><%= dish.name %> ( <%=dish.price %> € )</strong></h5>
             <p class= "name"><%= dish.restaurant.name %></p>
           </div>
           <div class= "info">
