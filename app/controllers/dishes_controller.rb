@@ -1,6 +1,7 @@
 class DishesController < ApplicationController
   skip_before_action :authenticate_user!
   before_action :filter_dishes, only: [:search, :map]
+
   def show
     @dish = Dish.find(params[:id])
     @reviews = Review.where(dish_id: params[:id])
@@ -38,16 +39,41 @@ class DishesController < ApplicationController
 
   private
 
+  # def filter_by_price
+  #   if params[:query].present?
+  #     @dishes = SearchProducts.new(params: params[:query]).call
+  #   else
+  #     @dishes = Product.all
+  #   end
+
+  #   @dishes = Dish.joins(:restaurant).all
+  #   @dishes = @dishes.to_a
+  #   @count = @dishes.count
+  #   @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
+  #   @user_location = [request.location.latitude, request.location.longitude]
+
+  #   @markers = @restaurants.map do |restaurant|
+  #     {
+  #       lat: restaurant.latitude,
+  #       lng: restaurant.longitude,
+  #       infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
+  #       image_url: helpers.asset_url('cravingpin.png')
+  #     }
+  #   end
+  # end
+
   def filter_dishes
-     if params[:address].present?
-      @address = params[:address]
-      filter_dishes = Dish.joins(:restaurant).order("rating DESC").near(@address, 20)
-      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
-    else
-      filter_dishes = Dish.order("rating DESC").all
-      filter_dishes = filter_dishes.where("dishes.name ILIKE ?", "%#{params[:dish]}%") if params[:dish].present?
-    end
-    @dishes = filter_dishes.to_a
+    @address = params[:address]
+    @dish = params[:dish]
+    @price = params[:price]
+    @distance = params[:distance]
+
+    @dishes = Dish.joins(:restaurant).order("rating DESC").all
+    @dishes = @dishes.near(@address, @distance) if @address.present?
+    @dishes = @dishes.where("dishes.name ILIKE ?", "#{@dish}") if @dish.present?
+    @dishes = @dishes.where("dishes.price <=", "#{@price}") if @price.present?
+
+    @dishes = @dishes.to_a
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
     @user_location = [request.location.latitude, request.location.longitude]
@@ -60,7 +86,6 @@ class DishesController < ApplicationController
         image_url: helpers.asset_url('cravingpin.png')
       }
     end
-
   end
 
   def strong_dish_params
