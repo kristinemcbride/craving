@@ -39,35 +39,12 @@ class DishesController < ApplicationController
 
   private
 
-  # def filter_by_price
-  #   if params[:query].present?
-  #     @dishes = SearchProducts.new(params: params[:query]).call
-  #   else
-  #     @dishes = Product.all
-  #   end
-
-  #   @dishes = Dish.joins(:restaurant).all
-  #   @dishes = @dishes.to_a
-  #   @count = @dishes.count
-  #   @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
-  #   @user_location = [request.location.latitude, request.location.longitude]
-
-  #   @markers = @restaurants.map do |restaurant|
-  #     {
-  #       lat: restaurant.latitude,
-  #       lng: restaurant.longitude,
-  #       infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
-  #       image_url: helpers.asset_url('cravingpin.png')
-  #     }
-  #   end
-  # end
-
   def filter_dishes
     @address = params[:address]
     @dish = params[:dish]
     @price = params[:price]
     @distance = params[:distance]
-
+# raise
     @dishes = Dish.joins(:restaurant).order("rating DESC").all
     @dishes = @dishes.near(@address, @distance) if @address.present?
     @dishes = @dishes.where("dishes.name ILIKE ?", "#{@dish}") if @dish.present?
@@ -92,3 +69,26 @@ class DishesController < ApplicationController
     params.require(:dish).permit(:name, :photo, :price, :rating, :category, :restaurant_id, :user_id)
   end
 end
+
+  # def filter_by_price
+  #   if params[:query].present?
+  #     @dishes = SearchProducts.new(params: params[:query]).call
+  #   else
+  #     @dishes = Product.all
+  #   end
+
+  #   @dishes = Dish.joins(:restaurant).all
+  #   @dishes = @dishes.to_a
+  #   @count = @dishes.count
+  #   @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
+  #   @user_location = [request.location.latitude, request.location.longitude]
+
+  #   @markers = @restaurants.map do |restaurant|
+  #     {
+  #       lat: restaurant.latitude,
+  #       lng: restaurant.longitude,
+  #       infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
+  #       image_url: helpers.asset_url('cravingpin.png')
+  #     }
+  #   end
+  # end
