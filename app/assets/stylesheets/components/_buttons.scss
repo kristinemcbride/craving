@@ -28,6 +28,7 @@
 }
 
 .crave-button-secondary {
+
   font-weight: bold;
   background-color: $blue;
   color: $red;
@@ -59,7 +60,6 @@
   }
   a:hover {
     color: $white;
-
   }
 }
 
@@ -102,6 +102,41 @@
   z-index: 3;
   background-color: $blue;
   width: 100%;
+}
+
+.book-table-button{
+  font-weight: bold;
+  background-color: $red;
+  color: $blue;
+  border: none;
+
+  width: 100px;
+    a {
+    color: $blue;
+    text-decoration: none;
+  }
+  a:hover {
+    color: $white;
+
+  }
+}
+
+.el-tenedor {
+
+  img {
+width: 30px;
+width: 30px;
+
+  }
+}
+
+.deliveroo {
+
+  img {
+    width: 30px;
+    height: 30px;
+
+  }
 }
 
 
