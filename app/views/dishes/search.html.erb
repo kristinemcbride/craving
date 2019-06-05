@@ -1,22 +1,22 @@
 <div class="search-form">
   <%= form_tag search_dishes_path, method: :get do %>
-  <%= text_field_tag :address,
-  params[:address],
-  value: @address,
-  hidden: true,
-  id: "dish"
-  %>
-  <%= text_field_tag :distance,
-  params[:distance],
-  value: @distance,
-  hidden: true,
-  id: "dish"
-  %>
-  <%= text_field_tag :dish,
-  params[:dish],
-  class: "search-bar",
-    id: "dish",
-    placeholder: "Search by dish"
+    <%= text_field_tag :address,
+      params[:address],
+      value: @address,
+      hidden: true,
+      id: "dish"
+    %>
+    <%= text_field_tag :distance,
+      params[:distance],
+      value: @distance,
+      hidden: true,
+      id: "dish"
+    %>
+    <%= text_field_tag :dish,
+      params[:dish],
+      class: "search-bar",
+      id: "dish",
+      placeholder: "Search by dish"
     %>
     <%= button_tag hidden:true
     %>
@@ -42,15 +42,19 @@
                   id: "dish",
                   hidden: true
                 %>
-                <%= label_tag 'Price'%>
-                  <input type="range" id="start" name="price"
-                  min="10" max="40">
-                <%= label_tag 'Distance'%>
-                  <input type="range" id="start" name="distance"
-                  min="10" max="40">
-                  <%#= range_field_tag(:distance, value: @distance, options = {5, 10, 20, 30, 50})
-                  # params[:distance],
-                  # id: "dish")
+                <%= label_tag 'Max price' %>
+                <%= text_field_tag :price,
+                  params[:price],
+                  value: 100,
+                  id: "dish",
+                  class: "search-bar"
+                %>
+                <%= label_tag 'Max distance' %>
+                <%= text_field_tag :distance,
+                  params[:distance],
+                  value: 20,
+                  id: "dish",
+                  class: "search-bar"
                 %>
                 <%= button_tag hidden:true %>
                 <% end %>
