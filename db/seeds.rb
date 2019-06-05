@@ -98,7 +98,7 @@ meder_place = Restaurant.new(
 meder_place.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
 meder_place.save!
 
-koya_2 = Restaurant.new(
+real = Restaurant.new(
   name: "La Real Hamburguesería",
   address: "Calle Gran Vía, 44, 28013 Madrid",
   price_range: "1",
