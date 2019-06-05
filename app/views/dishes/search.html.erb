@@ -41,13 +41,15 @@
                   id: "dish",
                   hidden: true
                 %>
-                <%= label_tag 'Max price' %>
-                <%= text_field_tag :price,
-                  params[:price],
-                  value: @price,
-                  id: "dish",
-                  class: "search-bar dropdown-link"
-                %>
+                <div class="dropdown-slider">
+                  <%= label_tag 'Max price' %>
+                  <%= text_field_tag :price,
+                    params[:price],
+                    value: @price,
+                    id: "dish",
+                    class: "search-bar-filter"
+                  %>
+                </div>
                 <%#= range_field_tag :price,
                   params[:price],
                   id: "dish",
@@ -55,13 +57,15 @@
                   in: 5..500,
                 class: "slider dropdown-menu dropdown-menu-right" %>
 
-                <%= label_tag 'Max distance' %>
-                <%= text_field_tag :distance,
-                  params[:distance],
-                  value: @distance,
-                  id: "dish",
-                  class: "search-bar dropdown-link"
-                %>
+                <div class="dropdown-slider">
+                  <%= label_tag 'Max distance' %>
+                  <%= text_field_tag :distance,
+                    params[:distance],
+                    value: @distance,
+                    id: "dish",
+                    class: "search-bar-filter"
+                  %>
+                </div>
                 <%#= range_field_tag :distance,
                   params[:distance],
                   value: @distance,
