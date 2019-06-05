@@ -33,7 +33,6 @@ const initMapbox = () => {
     });
 
    const markers = JSON.parse(mapElement.dataset.markers);
-
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
 
@@ -43,6 +42,7 @@ const initMapbox = () => {
       element.style.backgroundSize = 'contain';
       element.style.width = '35px';
       element.style.height = '35px';
+      element.setAttribute('data-resto-id', marker.resto_id)
 
       new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
@@ -50,8 +50,21 @@ const initMapbox = () => {
         .addTo(map);
 
       element.addEventListener('click', (event) => {
-          console.log("click click");
-          fetch("")
+          fetch("");
+          const clickedRestoId = event.currentTarget.dataset.restoId;
+          const dishes = Array.from(document.querySelectorAll('.dish-carousel-display'));
+          dishes.forEach((dish) => {
+            dish.classList.add('carousel-item-hidden');
+            dish.classList.remove('carousel-item', 'active');
+          });
+          const selectedDishes = dishes.filter((dish) => dish.dataset.restoId === clickedRestoId);
+          console.log(selectedDishes);
+          selectedDishes.forEach((selectedDish) => {
+            selectedDish.classList.add('carousel-item');
+            selectedDish.classList.remove('carousel-item-hidden');
+
+          });
+          selectedDishes[0].classList.add('active')
       });
 
     });
