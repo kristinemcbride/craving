@@ -6,39 +6,39 @@ Restaurant.destroy_all
 User.destroy_all
 
 
-puts "Creating 4 USERS..."
+# puts "Creating 4 USERS..."
 
-meder = User.new(
-  email: "meder@meder.com",
-  name: "Meder",
-  password: "password"
-  )
-meder.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570503/Avatars/dhlinyeh4hzm16rce75j.jpg"
-meder.save!
+# meder = User.new(
+#   email: "meder@meder.com",
+#   name: "Meder",
+#   password: "password"
+#   )
+# meder.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570503/Avatars/dhlinyeh4hzm16rce75j.jpg"
+# meder.save!
 
-kristine = User.new(
-  email: "kristine@kristine.com",
-  name: "Kristine",
-  password: "password"
-  )
-kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570504/Avatars/rosqoswrlaqeu8sbhx0c.png"
-kristine.save!
+# kristine = User.new(
+#   email: "kristine@kristine.com",
+#   name: "Kristine",
+#   password: "password"
+#   )
+# kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570504/Avatars/rosqoswrlaqeu8sbhx0c.png"
+# kristine.save!
 
-ricardo = User.new(
-  email: "ricardo@ricardo.com",
-  name: "Ricardo",
-  password: "password"
-  )
-ricardo.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570505/Avatars/b0anl7remc52hwvbipsc.jpg"
-ricardo.save!
+# ricardo = User.new(
+#   email: "ricardo@ricardo.com",
+#   name: "Ricardo",
+#   password: "password"
+#   )
+# ricardo.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570505/Avatars/b0anl7remc52hwvbipsc.jpg"
+# ricardo.save!
 
-ashley = User.new(
-  email: "ashley@ashley.com",
-  name: "Ashley",
-  password: "password"
-  )
-ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570507/Avatars/d8rk4lsajyauykl3xyud.jpg"
-ashley.save!
+# ashley = User.new(
+#   email: "ashley@ashley.com",
+#   name: "Ashley",
+#   password: "password"
+#   )
+# ashley.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570507/Avatars/d8rk4lsajyauykl3xyud.jpg"
+# ashley.save!
 
 
 # puts "Creating 7 RESTAURANTS..."
@@ -98,7 +98,7 @@ ashley.save!
 # meder_place.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
 # meder_place.save!
 
-# real = Restaurant.new(
+# koya_2 = Restaurant.new(
 #   name: "La Real Hamburguesería",
 #   address: "Calle Gran Vía, 44, 28013 Madrid",
 #   price_range: "1",
@@ -330,5 +330,5 @@ ashley.save!
 # favorite_4 = Favorite.create!(
 #   user_id: kristine.id,
 #   dish_id: tom_yum.id
-#   )
+  # )
 
