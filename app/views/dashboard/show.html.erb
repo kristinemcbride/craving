@@ -32,7 +32,7 @@
       </div>
       <div class= "info">
         <p class="rating" style="font-size: 12px; text-align: right;">
-          <strong><%= favorite.dish.rating %></strong>
+          <strong><%= favorite.dish.rating.to_d.round(1, :truncate).to_f %></strong>
            <%= render 'dishes/rating', rating: favorite.dish.rating %>
           <!-- YOUR RATING
            -->
