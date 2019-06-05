@@ -16,6 +16,12 @@
         hidden: true,
         id: "distance"
       %>
+      <%= text_field_tag :price,
+        params[:price],
+        value: 500,
+        hidden: true,
+        id: "price"
+      %>
       <%= button_tag hidden:true
       %>
       <% end %>

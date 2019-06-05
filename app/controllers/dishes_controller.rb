@@ -63,7 +63,7 @@ class DishesController < ApplicationController
       dishes = Dish.joins(:restaurant).order("rating DESC").all
     end
     dishes = dishes.where("dishes.name @@ ?", "#{dish}") if dish.present?
-    dishes = dishes.where("dishes.price <=", "#{price}") if price.present?
+    dishes = dishes.where("dishes.price <= ?", "#{price}") if price.present?
     dishes
   end
 
