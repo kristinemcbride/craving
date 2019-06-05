@@ -46,7 +46,9 @@
                   <input type="range" id="start" name="price"
                   min="10" max="40">
                 <%= label_tag 'Distance'%>
-                  <%= range_field_tag(:distance, value: @distance, options = {5, 10, 20, 30, 50})
+                  <input type="range" id="start" name="distance"
+                  min="10" max="40">
+                  <%#= range_field_tag(:distance, value: @distance, options = {5, 10, 20, 30, 50})
                   # params[:distance],
                   # id: "dish")
                 %>
