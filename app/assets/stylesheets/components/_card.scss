@@ -46,9 +46,14 @@
   margin-right: 16px;
   margin-left: 16px;
   flex-grow: 1;
-
 }
 
+.dish-info-info{
+  margin-top: 167px;
+      background-color: rgba(17, 20, 33, 0.8);
+    padding-right: 4px;
+    padding-left: 4px;
+}
 .resto{
   display: flex;
   justify-content: space-between;
@@ -90,7 +95,7 @@
   background-color: rgba(17, 20, 33, 0.8);
   padding-right: 0px;
   padding-left: 4px;
-  width: 58%;
+  width: 55%;
 
 }
 
@@ -191,6 +196,7 @@
   height: 100px;
   background-size: cover;
   background-position: center;
+
 
 }
 

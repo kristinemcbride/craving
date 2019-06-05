@@ -70,11 +70,13 @@
     <%= link_to dish_path(dish) do %>
 
     <div class="craving-dish-search" style="background-image: url(<%= cl_image_path dish.photo %>)">
-
+<div class="dish-info-card">
+ </div>
     </div>
+
     <div class="craving-dish-info">
       <div class= "info">
-        <h5 class= "name"><strong><%= dish.name %></strong></h5>
+        <h5 class= "name"><strong><%= dish.name %> ( <%=dish.price %> € )</strong></h5>
         <p class= "name"><%= dish.restaurant.name %></p>
       </div>
         <div class= "info">
