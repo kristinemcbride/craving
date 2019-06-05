@@ -38,7 +38,8 @@
 
 .card-map {
   overflow: hidden;
-  height: 70px;
+  border-radius: 2px;
+  height: 100px;
   background: #111422;
   display: flex;
   align-items: left;
@@ -46,22 +47,18 @@
   margin-right: -10px;
   margin-top: -10px;
   margin-bottom: -15px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5 10px rgba(0,0,0,0.8);
 }
 
-.card-map h4 {
-  font-size: 15px;
-  font-weight: bold;
-  color: black;
-  margin-top: 7px;
-}
-
-.card-map p {
-  font-size: 12px;
-  line-height: 1.4;
-  opacity: 1;
-  margin-bottom: 0;
-  margin-top: 8px;
+.card-map-infos {
+  padding: 8px;
+  text-align: left;
+  p {
+    font-size: 12px;
+    line-height: 1.4;
+    opacity: 1;
+    margin: 4px 0;
+  }
 }
 
 .map-av {
@@ -98,4 +95,8 @@
     color: $red;
     font-size: 30px;
   }
+}
+
+.carousel-item-hidden {
+  display: none;
 }
