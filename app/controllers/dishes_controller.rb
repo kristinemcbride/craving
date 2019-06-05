@@ -45,7 +45,8 @@ class DishesController < ApplicationController
         lat: restaurant.latitude,
         lng: restaurant.longitude,
         infoWindow: render_to_string(partial: "infowindow", locals: { restaurant: restaurant }),
-        image_url: helpers.asset_url('cravingpin.png')
+        image_url: helpers.asset_url('cravingpin.png'),
+        resto_id: restaurant.id
       }
     end
   end
