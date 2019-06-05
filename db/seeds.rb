@@ -1,8 +1,9 @@
 puts "Destroying current DB"
 
 Favorite.destroy_all
-Dish.destroy_all
+Review.destroy_all
 Restaurant.destroy_all
+Dish.destroy_all
 User.destroy_all
 
 
@@ -331,4 +332,3 @@ ninos = Restaurant.new(
    user_id: kristine.id,
    dish_id: tom_yum.id
    )
-
