@@ -43,62 +43,69 @@ ashley.save!
 
 puts "Creating 7 RESTAURANTS..."
 
-koya = Restaurant.create!(
+koya = Restaurant.new(
   name: "La Real Hamburguesería",
   address: "Carrer de Vic, 23, 08006 Barcelona",
-  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
   price_range: "€",
   average_rating: 4
   )
+koya.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+koya.save!
 
-ninos = Restaurant.create!(
+ninos = Restaurant.new(
   name: "Nino's Palace",
   address: "Carrer del Rosselló, 217, 08008 Barcelona",
-  photo: "https://s3-eu-west-1.amazonaws.com/gr-cms/media/filer_public/cc/ec/ccecba57-fc3a-4b94-911a-966ab4265c40/1.jpg",
   price_range: "€€",
   average_rating: 4
   )
+ninos.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+ninos.save!
 
-ugarit = Restaurant.create!(
+ugarit = Restaurant.new(
   name: "Ugarit",
   address: "Carrer de Bruniquer, 69, 08024 Barcelona",
-  photo: "https://tastet.ca/wp-content/uploads/2018/10/restaurant-lexpress-montreal-3-1024x684.jpg",
   price_range: "€€",
   average_rating: 4
   )
+ugarit.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+ugarit.save!
 
-apotheosik = Restaurant.create!(
+apotheosik = Restaurant.new(
   name: "Apotheosik",
   address: "Carrer de la Legalitat, 74, 08024 Barcelona",
-  photo: "https://naosusu.com/wp-content/uploads/2018/07/Popular-and-best-restaurants-in-Warri.jpg",
   price_range: "€€€",
   average_rating: 4
   )
+apotheosik.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+apotheosik.save!
 
-barco = Restaurant.create!(
+barco = Restaurant.new(
   name: "El Barco",
   address: "Av. Ricardo Soriano, 32, 29601 Marbella, Málaga",
-  photo: "https://i.imgur.com/NBBtwTj.jpg",
   price_range: "€€",
   average_rating: 4
   )
+barco.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+barco.save!
 
-meder_place = Restaurant.create!(
+
+meder_place = Restaurant.new(
   name: "Meder's Corner",
   address: "Av Calderón de la Barca, 29660 Marbella, Málaga",
-  photo: "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg",
   price_range: "€€€€",
   average_rating: 4
   )
+meder_place.remote_photo_url = "https://www.sanantonio-santorini.com/wp-content/uploads/2016/03/restaurant-top-image1.jpg"
+meder_place.save!
 
-koya_2 = Restaurant.create!(
+koya_2 = Restaurant.new(
   name: "La Real Hamburguesería",
   address: "Calle Gran Vía, 44, 28013 Madrid",
-  photo: "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg",
   price_range: "€",
   average_rating: 4
   )
-
+koya_2.remote_photo_url = "https://www.adlers-innsbruck.com/fileadmin/_processed_/6/4/csm_restaurant-img-02_d666f4932c.jpg"
+koya_2.save!
 
 puts "Creating 15 DISHES..."
 
