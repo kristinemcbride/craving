@@ -3,9 +3,13 @@
       <%= render 'dishes/rating', rating: @restaurant.average_rating %>
     </p>
 </div>
-<!-- LINK TO EL TENEDOR / DELIVEROO -->
-<div class="buttons-resto">
-  <button class="book-table-button" id="button-resto">
+
+  <div class="buttons-resto">
+    <button class="crave-button-primary" id="button-resto">Book a table</button>
+    <button class="crave-button-secondary book-table-button" id="button-resto">
+      <a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank">Order in</a>
+    </button>
+  </div>
 
     <a class="el-tenedor" href="/">
       <%= image_tag "eltenedor.png" %>
@@ -25,7 +29,7 @@
   <p><%= @restaurant.address %></p>
   </div>
 <div class= "info">
-  <p class="resto-name"><strong><%= @restaurant.price_range %></strong></p>
+   <%= render 'dishes/price_range', price_range:@restaurant.price_range %>
        <h5 class="distance">
               <%= distance_to_user(@user_location, @restaurant) %>
        </h5>

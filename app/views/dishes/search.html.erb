@@ -12,6 +12,12 @@
       hidden: true,
       id: "dish"
     %>
+    <%= text_field_tag :price,
+      params[:price],
+      value: @price,
+      hidden: true,
+      id: "dish"
+    %>
     <%= text_field_tag :dish,
       params[:dish],
       class: "search-bar",
@@ -28,8 +34,7 @@
           <div class="nav-item dropdown">
             <img data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="filter-image" src="<%= image_path 'filter.jpg' %>"/>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
-                <%= form_tag search_dishes_path, method: :get do %>
+                <%= form_tag search_dishes_path, class: "filter-form", method: :get do %>
                 <%= text_field_tag :address,
                   params[:address],
                   value: @address,
@@ -42,27 +47,46 @@
                   id: "dish",
                   hidden: true
                 %>
-                <%= label_tag 'Max price' %>
-                <%= text_field_tag :price,
+                <div class="dropdown-slider">
+                  <%= label_tag 'Max price' %>
+                  <%= text_field_tag :price,
+                    params[:price],
+                    value: @price,
+                    id: "dish",
+                    class: "search-bar-filter"
+                  %>
+                </div>
+                <%#= range_field_tag :price,
                   params[:price],
-                  value: 100,
                   id: "dish",
-                  class: "search-bar"
-                %>
-                <%= label_tag 'Max distance' %>
-                <%= text_field_tag :distance,
+                  value: @price,
+                  in: 5..500,
+                class: "slider dropdown-menu dropdown-menu-right" %>
+
+                <div class="dropdown-slider">
+                  <%= label_tag 'Max distance' %>
+                  <%= text_field_tag :distance,
+                    params[:distance],
+                    value: @distance,
+                    id: "dish",
+                    class: "search-bar-filter"
+                  %>
+                </div>
+                <%#= range_field_tag :distance,
                   params[:distance],
-                  value: 20,
+                  value: @distance,
                   id: "dish",
-                  class: "search-bar"
+                  in: 1..50,
+                  class: "dropdown-menu dropdown-menu-right"
                 %>
+
                 <%= button_tag hidden:true %>
                 <% end %>
               </div>
           </div>
        </div>
     </div>
-      <%= link_to map_dishes_path(address: params[:address], dish: params[:dish]) do %>
+      <%= link_to map_dishes_path(address: params[:address], dish: params[:dish], price: params[:price], distance: params[:distance]) do %>
       <div class="map-av">
         <div>
           <h3><i class="fas fa-map-marker-alt"></i></h3>

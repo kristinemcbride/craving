@@ -4,6 +4,12 @@
   background-color: $gray;
   padding: 5px 16px;
 }
+.search-bar-filter {
+  width: 100%;
+  border-radius: 32px;
+  background-color: $gray;
+  padding: 1px 10px;
+}
 
 .search-form {
   background-color: $blue;
@@ -174,5 +180,29 @@ h2 {
     background: $gray;
   }
 
+  #restaurant_dish_form_restaurant_name {
+    margin-bottom: 30px;
+  }
 
+.uneditable-input {
+  display: none;
+}
 
+.btn.btn-default.btn-file {
+  display: none;
+}
+
+.btn.btn-default.fileinput-exists {
+  display: none;
+}
+
+.filter-form {
+  padding: 0px 10px;
+  width: 300px;
+}
+.dropdown-slider {
+  margin: 20px;
+  label {
+    margin-left: 5px;
+   }
+}
