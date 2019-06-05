@@ -15,6 +15,6 @@ class RestaurantDishFormsController < ApplicationController
   private
 
   def restaurant_dish_form_params
-    params.require(:restaurant_dish_form).permit(:restaurant_name, :dish_name, :restaurant_address, :dish_photo, :dish_price, :dish_category, :dish_photo_cache, :dish_rating).merge({user_id: current_user.id})
+    params.require(:restaurant_dish_form).permit(:restaurant_name, :restaurant_data, :dish_name, :dish_photo, :dish_price, :dish_category, :dish_photo_cache, :dish_rating).merge({user_id: current_user.id})
   end
 end

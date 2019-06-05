@@ -12,15 +12,10 @@
         <%= f.input :restaurant_name,
                     required: true, input_html: { class: "resto-input" }
         %>
-        <input type="hidden" name="restaurant[place_id]" value="" id="restaurant_place_id">
+        <input type="hidden" name="restaurant_dish_form[restaurant_data]" value="" id="restaurant_api_data">
+
         <ul id="results">
         </ul>
-        <label for="restaurant_address">Restaurant address</label>
-          <%= f.text_field :restaurant_address,
-                      class: "form-control",
-                      id: "address",
-                      required: true
-          %>
         <%= f.input :dish_name,
                     required: true
         %>

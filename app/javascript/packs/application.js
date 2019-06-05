@@ -6,7 +6,7 @@ import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 
 import { initMapbox } from '../plugins/init_mapbox';
 
-import { searchResto }  from '../plugins/init_api';
+import { initRestaurantSearch }  from '../plugins/init_api';
 
 import { initAutocomplete } from '../plugins/init_autocomplete';
 
@@ -18,5 +18,5 @@ initMapbox();
 
 animateStarReview();
 
-searchResto();
+initRestaurantSearch();
 
