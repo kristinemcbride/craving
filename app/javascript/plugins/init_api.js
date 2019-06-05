@@ -1,5 +1,6 @@
 const initRestaurantSearch = () => {
   const restoSearch = document.querySelector(".resto-input");
+  if (!restoSearch) return;
   restoSearch.addEventListener("keyup", event => {
     if (restoSearch.value.length > 0) {
       initService(restoSearch.value);
