@@ -12,6 +12,12 @@
       hidden: true,
       id: "dish"
     %>
+    <%= text_field_tag :price,
+      params[:price],
+      value: @price,
+      hidden: true,
+      id: "dish"
+    %>
     <%= text_field_tag :dish,
       params[:dish],
       class: "search-bar",
@@ -80,7 +86,7 @@
           </div>
        </div>
     </div>
-      <%= link_to map_dishes_path(address: params[:address], dish: params[:dish]) do %>
+      <%= link_to map_dishes_path(address: params[:address], dish: params[:dish], price: params[:price], distance: params[:distance]) do %>
       <div class="map-av">
         <div>
           <h3><i class="fas fa-map-marker-alt"></i></h3>
