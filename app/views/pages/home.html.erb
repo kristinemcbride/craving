@@ -10,6 +10,14 @@
         placeholder: "Type your location",
         value: "Barcelona"
       %>
+      <%= text_field_tag :distance,
+        params[:distance],
+        value: 20,
+        hidden: true,
+        id: "distance"
+      %>
+      <%= button_tag hidden:true
+      %>
       <% end %>
   </div>
 </div>

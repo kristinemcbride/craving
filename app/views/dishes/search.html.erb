@@ -6,6 +6,12 @@
   hidden: true,
   id: "dish"
   %>
+  <%= text_field_tag :distance,
+  params[:distance],
+  value: @distance,
+  hidden: true,
+  id: "dish"
+  %>
   <%= text_field_tag :dish,
   params[:dish],
   class: "search-bar",
@@ -17,7 +23,41 @@
     <% end %>
 </div>
   <div class="craving-content" style="padding-top: 88px;">
-    <p><strong><%= @count %><%= @dish %> dishes near <%= @address %></strong></p>
+      <div class="filter">
+        <p><strong><%= @count %> dishes near <%= @address %></strong></p>
+          <div class="nav-item dropdown">
+            <img data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="filter-image" src="<%= image_path 'filter.jpg' %>"/>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+
+                <%= form_tag search_dishes_path, method: :get do %>
+                <%= text_field_tag :address,
+                  params[:address],
+                  value: @address,
+                  id: "dish",
+                  hidden: true
+                %>
+                <%= text_field_tag :dish,
+                  params[:dish],
+                  value: @dish,
+                  id: "dish",
+                  hidden: true
+                %>
+                <%= label_tag 'Price'%>
+                  <input type="range" id="start" name="price"
+                  min="10" max="40">
+                <%= label_tag 'Distance'%>
+                  <input type="range" id="start" name="distance"
+                  min="10" max="40">
+                  <%#= range_field_tag(:distance, value: @distance, options = {5, 10, 20, 30, 50})
+                  # params[:distance],
+                  # id: "dish")
+                %>
+                <%= button_tag hidden:true %>
+                <% end %>
+              </div>
+          </div>
+       </div>
+    </div>
       <%= link_to map_dishes_path(address: params[:address], dish: params[:dish]) do %>
       <div class="map-av">
         <div>
