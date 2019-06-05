@@ -1,11 +1,10 @@
-
 <div
 id="map"
 style="margin-bottom: 16px; height: 300px; z-index: 0;"
 data-markers="<%= @markers.to_json %>"
 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
-<%= link_to search_dishes_path(address: params[:address], dish: params[:dish]) do %>
+<%= link_to search_dishes_path(address: params[:address], dish: params[:dish], price: params[:price], distance: params[:distance]) do %>
 <div class="list-av">
   <div>
     <h3><i class="far fa-times-circle"></i></h3>

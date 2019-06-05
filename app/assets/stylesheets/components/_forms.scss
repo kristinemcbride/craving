@@ -174,5 +174,22 @@ h2 {
     background: $gray;
   }
 
+  #restaurant_dish_form_restaurant_name {
+    margin-bottom: 30px;
+  }
 
+.uneditable-input {
+  display: none;
+}
 
+.btn.btn-default.btn-file {
+  display: none;
+}
+
+.btn.btn-default.fileinput-exists {
+  display: none;
+}
+
+.filter-form {
+  padding: 10px;
+}
