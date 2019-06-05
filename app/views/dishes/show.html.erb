@@ -38,7 +38,7 @@
      <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
      <div>
       <p class="resto-dish-name"><strong><%= @dish.restaurant.name %></strong></p>
-      <p class="resto-dish-name" ><%= @dish.restaurant.price_range %></p>
+      <strong><%= render 'dishes/price_range', price_range: @dish.restaurant.price_range %></strong>
       <% end %>
     </div>
   </div>
