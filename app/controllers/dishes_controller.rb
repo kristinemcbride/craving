@@ -35,9 +35,9 @@ class DishesController < ApplicationController
     @distance = params[:distance]&.to_i || 20
     @dish = params[:dish]
     @price = params[:price]
-    @dishes = filter_dishes(@address, @distance, @dish, @price)
-
-    @count = @dishes.to_a.count
+    @dishes = filter_dishes(@address, @distance, @dish, @price).to_a
+# raise
+    @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
     @user_location = [request.location.latitude, request.location.longitude]
 
@@ -52,6 +52,7 @@ class DishesController < ApplicationController
   end
 
   def map
+    search
   end
 
   private
