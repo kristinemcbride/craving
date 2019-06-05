@@ -1,6 +1,6 @@
 <div class="card-map">
   <%= link_to restaurant_path(restaurant) do %>
-  <%= image_tag cl_image_path restaurant.photo, size: "84x84", alt: "rss feed" %>
+  <%= cl_image_tag restaurant.photo, size: "84x84", alt: "rss feed" %>
   <div class="card-map-infos">
     <p style="color: white"><strong><%= restaurant.name %></strong></p>
     <p style="color: white"><%= restaurant.address %></p>

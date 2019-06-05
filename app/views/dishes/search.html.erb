@@ -29,7 +29,7 @@
             <img data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="filter-image" src="<%= image_path 'filter.jpg' %>"/>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                <%= form_tag search_dishes_path, method: :get do %>
+                <%= form_tag search_dishes_path, class: "filter-form", method: :get do %>
                 <%= text_field_tag :address,
                   params[:address],
                   value: @address,
@@ -45,17 +45,32 @@
                 <%= label_tag 'Max price' %>
                 <%= text_field_tag :price,
                   params[:price],
-                  value: 100,
+                  value: @price,
                   id: "dish",
-                  class: "search-bar"
+                  class: "search-bar dropdown-link"
                 %>
+                <%#= range_field_tag :price,
+                  params[:price],
+                  id: "dish",
+                  value: @price,
+                  in: 5..500,
+                class: "slider dropdown-menu dropdown-menu-right" %>
+
                 <%= label_tag 'Max distance' %>
                 <%= text_field_tag :distance,
                   params[:distance],
-                  value: 20,
+                  value: @distance,
                   id: "dish",
-                  class: "search-bar"
+                  class: "search-bar dropdown-link"
                 %>
+                <%#= range_field_tag :distance,
+                  params[:distance],
+                  value: @distance,
+                  id: "dish",
+                  in: 1..50,
+                  class: "dropdown-menu dropdown-menu-right"
+                %>
+
                 <%= button_tag hidden:true %>
                 <% end %>
               </div>
