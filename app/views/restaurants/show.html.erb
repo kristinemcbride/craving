@@ -1,4 +1,4 @@
-<div class="craving-dish-search resto-rate-container" style="background-image: url(<%= @restaurant.photo %>)">
+<div class="craving-dish-search resto-rate-container" style="background-image: url(<%= cl_image_path @restaurant.photo %>)">
     <p><strong><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %></strong>
       <%= render 'dishes/rating', rating: @restaurant.average_rating %>
     </p>
