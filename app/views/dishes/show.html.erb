@@ -42,9 +42,11 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <button class="crave-button-primary"><%= link_to "Get the dish", restaurant_path(@dish.restaurant_id) %></button>
-  </div>
+    <div>
+      <%= link_to restaurant_path(@dish.restaurant_id) do %>
+        <button class="crave-button-primary">Get the dish</button>
+    <% end %>
+    </div>
 </div>
 </div>
 <div class="craving-content">
