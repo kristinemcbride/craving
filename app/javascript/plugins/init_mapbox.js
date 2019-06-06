@@ -30,6 +30,7 @@ const initMapbox = () => {
     map.on('load', function()
     {
       geolocate.trigger();
+      map.setCenter(geolocate);
     });
 
    const markers = JSON.parse(mapElement.dataset.markers);
