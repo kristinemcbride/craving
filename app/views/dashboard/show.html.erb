@@ -1,6 +1,10 @@
 <div class="craving-content">
   <div class="profile-container">
-    <%= cl_image_tag @user.avatar, class: "avatar-large"  %>
+    <% if current_user.avatar.url.nil? %>
+      <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
+    <% else %>
+      <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+    <% end %>
     <h2><%= @user.name %></h2>
   </div>
 
