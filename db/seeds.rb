@@ -20,7 +20,8 @@ meder.save!
 kristine = User.new(
   email: "kristine@kristine.com",
   name: "Kristine",
-  password: "password"
+  password: "password",
+  admin: true
   )
 kristine.remote_avatar_url = "https://res.cloudinary.com/mike-asher/image/upload/v1559570504/Avatars/rosqoswrlaqeu8sbhx0c.png"
 kristine.save!

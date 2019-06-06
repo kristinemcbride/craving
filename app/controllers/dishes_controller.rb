@@ -1,8 +1,8 @@
 class DishesController < ApplicationController
   skip_before_action :authenticate_user!
+  before_action :set_dish, only: [:show, :destroy]
 
   def show
-    @dish = Dish.find(params[:id])
     @reviews = Review.where(dish_id: params[:id])
     @new_review = Review.new
     @count = @reviews.count
@@ -55,14 +55,16 @@ class DishesController < ApplicationController
     search
   end
 
-
   def destroy
-    # favorite = Dish.find_by(dish_id: params[:dish_id])
-    # favorite.delete
-    # redirect_to dish_path(params[:dish_id])
+    @dish.destroy
+    redirect_to root_path
   end
 
   private
+
+  def set_dish
+    @dish = Dish.find(params[:id])
+  end
 
   def filter_dishes(address, distance, dish, price)
     if address.present?
