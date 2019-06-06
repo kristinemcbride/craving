@@ -183,10 +183,13 @@
 
 .cards {
   display: grid;
-  grid-gap: 8px;
+  grid-gap: 20px;
   grid-template-columns: 1fr 1fr 1fr;
   margin-top: 16px;
   margin-bottom: 72px;
+  :hover {
+  transform: scale(1.02);
+}
 }
 
 .card-category {
@@ -196,9 +199,8 @@
   height: 100px;
   background-size: cover;
   background-position: center;
-
-
 }
-
-
+:hover {
+  transition: transform 1s;
+}
 

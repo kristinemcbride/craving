@@ -4,16 +4,24 @@
     </p>
 </div>
 
-  <div class="buttons-resto">
-    <button class="crave-button-primary" id="button-resto"><a class="el-tenedor" href="/">
+<div class="buttons-resto">
+  <button class="crave-button-primary" id="button-resto">
+    <a class="el-tenedor" href="/">
       <%= image_tag "eltenedor.png" %>
-    </a> Book a table</button>
-    <button class="crave-button-secondary" id="button-resto">
-      <a class="deliveroo" href="/">
+    </a>
+    <a href=https://www.eltenedor.es/ciudad/barcelona/41710 target="_blank">
+      Book a table
+    </a>
+  </button>
+  <button class="crave-button-secondary" id="button-resto">
+    <a class="deliveroo" href="/">
       <%= image_tag "deliveroo.png" %>
-    </a><a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank">Order in</a>
-    </button>
-  </div>
+    </a>
+    <a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank">
+      Order in
+    </a>
+  </button>
+</div>
 </div>
 <!-- FIN LINK TO EL TENEDOR / DELIVEROO -->
 <div class="craving-dish-info" style="margin-top: 32px;">
@@ -34,7 +42,7 @@
   <div class="cards">
     <% @restaurant.dishes.each do |dish| %>
     <%= link_to dish_path(dish) do %>
-    <div class="card-category" style="background-image: url(<%= cl_image_path dish.photo %>)">
+    <div class="card-category" style="transition: all 300ms;background-image: url(<%= cl_image_path dish.photo %>)">
     </div>
     <% end %>
     <% end %>
