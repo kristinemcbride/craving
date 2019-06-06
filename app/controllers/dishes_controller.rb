@@ -38,7 +38,7 @@ class DishesController < ApplicationController
     @dishes = filter_dishes(@address, @distance, @dish, @price).to_a
     @count = @dishes.count
     @restaurants = @dishes.map { |dish| dish.restaurant }.uniq
-    @user_location = [request.location.latitude, request.location.longitude]
+    @user_location = [41.4039648, 2.1669883]
 
     @markers = @restaurants.map do |restaurant|
       {
