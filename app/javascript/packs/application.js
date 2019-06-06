@@ -12,6 +12,7 @@ import { initAutocomplete } from '../plugins/init_autocomplete';
 
 import {animateStarReview}  from '../components/star_review';
 
+
 initAutocomplete();
 
 initMapbox();
