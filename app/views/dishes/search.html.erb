@@ -48,7 +48,7 @@
                   hidden: true
                 %>
                 <div class="dropdown-slider">
-                  <%= label_tag 'Max price' %>
+                  <%= label_tag 'Max price ( € )' %>
                   <%= text_field_tag :price,
                     params[:price],
                     value: @price,
@@ -64,7 +64,7 @@
                 class: "slider dropdown-menu dropdown-menu-right" %>
 
                 <div class="dropdown-slider">
-                  <%= label_tag 'Max distance' %>
+                  <%= label_tag 'Max distance ( km )' %>
                   <%= text_field_tag :distance,
                     params[:distance],
                     value: @distance,
