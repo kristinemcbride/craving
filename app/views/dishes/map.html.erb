@@ -1,6 +1,6 @@
 <div
 id="map"
-style="margin-bottom: 16px; height: 300px; z-index: 0;"
+style="margin-bottom: 16px; height: 240px; z-index: 0;"
 data-markers="<%= @markers.to_json %>"
 data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 >
@@ -19,7 +19,7 @@ data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     <% @dishes.each_with_index do |dish, index| %>
       <div data-slide-to="<%= index %>" class="dish-carousel-display carousel-item <%= 'active' if index.zero? %>" data-resto-id="<%= dish.restaurant_id %>">
         <%= link_to dish_path(dish) do %>
-          <img class="craving-dish-search d-block w-100" src="<%= cl_image_path dish.photo %>" alt="">
+          <img class="craving-dish-search d-block w-100" src="<%= cl_image_path dish.photo %>" alt="" style="height: 190px;">
         <% end %>
         <div class="craving-dish-info">
           <div class= "info">
