@@ -1,3 +1,4 @@
+
 <div class="crave-container">
   <div class="craving-content">
     <div class="profile-container">
@@ -35,6 +36,7 @@
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
 
+
         <div class= "avatar-btn">
           <div class="form-group file optional user_avatar form-group-valid">
              <label class="file optional" for="user_avatar" style="margin-top: 16px;">Upload a profile picture</label> <br>
@@ -48,17 +50,19 @@
         </div>
       </div>
 
-        <div class= "avatar-btn">
-          <div class="form-group file optional user_avatar form-group-valid">
-            <label class="file optional" for="avatar-btn">Choose an avatar</label> <br>
-            <%= f.file_field :avatar do %>
-              <label class="file optional" for="avatar-btn"> <h5><i class="fas fa-camera"></i></h5></label>
-              <input class="form-control-file is-valid file optional" id="avatar-btn" type="file" name="user[avatar]">
-            <% end %>
-          </div>
-        </div>
-        <%= f.hidden_field :avatar_cache %>
 
+
+
+<!--
+        <div class= "avatar-btn">
+        <div class="form-group file optional user_avatar form-group-valid">
+           <label class="file optional" for="avatar-btn">Choose an avatar</label> <br>
+@@ -41,7 +61,7 @@
+          <input class="form-control hidden" type="hidden" name="user[avatar_cache]" id="user_avatar_cache">
+        </div>
+        </div>
+      </div>
+      </div> -->
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "crave-button-primary-lg" %>
       </div>
