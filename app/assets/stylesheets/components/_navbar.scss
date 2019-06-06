@@ -6,7 +6,7 @@
   justify-content: space-between;
   background: $blue;
   box-shadow: 0 1px 1px rgba(208, 84, 86, 0.3);
-  height: 50px;
+  height: 60px;
   width: 100%;
   flex-grow: 1;
   align-items: center;
@@ -25,14 +25,16 @@
   .avatar-bordered:hover {
     opacity: 0.6;
   }
+
 }
+
+.navbar
 
 .navbar-craving .navbar-collapse {
   flex-grow: 0;
 }
 .navbar-craving .navbar-brand img {
   width: 120px;
-
 }
 
 .dropdown-menu {
