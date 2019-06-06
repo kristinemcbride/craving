@@ -31,6 +31,26 @@
                     required: true,
                     input_html: { autocomplete: "current-password" } %>
 
+
+
+        <div class= "avatar-btn">
+          <div class="form-group file optional user_avatar form-group-valid">
+             <label class="file optional" for="user_avatar" style="margin-top: 16px;">Upload a profile picture</label> <br>
+            <label class="file optional" for="user_avatar"> <h5><i class="fas fa-camera"></i></h5></label>
+            <%= f.input :avatar,
+                        required: true, as: :file, label: false
+            %>
+            <%= f.input :avatar_cache,
+                        required: true, as: :hidden
+            %>
+        </div>
+      </div>
+
+
+
+
+<!--
+
         <div class= "avatar-btn">
         <div class="form-group file optional user_avatar form-group-valid">
            <label class="file optional" for="avatar-btn">Choose an avatar</label> <br>
@@ -41,7 +61,7 @@
           <input class="form-control hidden" type="hidden" name="user[avatar_cache]" id="user_avatar_cache">
         </div>
         </div>
-      </div>
+      </div> -->
       <div class="form-actions">
         <%= f.button :submit, "Update", class: "crave-button-primary-lg" %>
       </div>
