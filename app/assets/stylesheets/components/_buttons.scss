@@ -15,18 +15,33 @@
   }
 }
 
+.crave-button-primary:hover {
+  color: $white;
+  text-decoration: none;
+}
+
+.crave-button-secondary:hover {
+  color: $white;
+  text-decoration: none;
+}
+
 #button-resto {
   width: 50%;
   margin-right: 16px;
   margin-left: 16px;
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 
   }
 
+#button-resto:hover {
+    color:  $white;
+}
 
 .crave-button-secondary {
-
   font-weight: bold;
   background-color: $blue;
   color: $red;
@@ -60,7 +75,6 @@
     color: $white;
   }
 }
-
 .crave-button-primary-sm {
   display: flex;
   align-items: center;
@@ -80,7 +94,6 @@
 
   }
 }
-
 .crave-button-primary-lg {
   font-weight: bold;
   background-color: $red;
@@ -88,7 +101,14 @@
   border: none;
   width: 100%;
 }
-
+.crave-button-delete-lg {
+  font-weight: bold;
+  background-color: $red;
+  color: $blue;
+  border: none;
+  width: 100%;
+  padding: 6px 0;
+}
 .buttons-resto {
   bottom: 0px;
   position: fixed;
@@ -103,16 +123,17 @@
 }
 
 .el-tenedor {
+  margin-bottom: 0px;
+  color: $blue;
   img {
-    margin-right: 12px;
     width: 30px;
     width: 30px;
   }
 }
 
 .deliveroo {
+  margin-bottom: 0px;
   img {
-    margin-right: 12px;
     width: 45px;
     width: 45px;
   }

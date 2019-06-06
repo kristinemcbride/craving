@@ -10,20 +10,43 @@
 
       <div class="form-inputs">
         <%= f.input :restaurant_name,
-                    required: true, input_html: { class: "resto-input" }
+                    required: true, input_html: { class: "resto-input", autocomplete: "off" }
         %>
         <input type="hidden" name="restaurant_dish_form[restaurant_data]" value="" id="restaurant_api_data">
 
         <ul id="results">
         </ul>
         <%= f.input :dish_name,
-                    required: true
+                    required: true, input_html: {autocomplete: "off"}
         %>
         <%= f.input :dish_price,
-                    required: true
+                    required: true, input_html: {autocomplete: "off"}
         %>
+        <!-- <label for="dish_category" >Dish category</label>
+        <select class="form-control" name="restaurant_dish_form[dish_category]" id="slim-select">
+          <option value=" "></option>
+          <option value="BBQ">BBQ</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Burrito">Burrito</option>
+          <option value="Chicken">Chicken</option>
+          <option value="Curry">Curry</option>
+          <option value="Dessert">Dessert</option>
+          <option value="Pasta">Pasta</option>
+          <option value="Pizza">Pizza</option>
+          <option value="Ramen">Ramen</option>
+          <option value="Salad">Salad</option>
+          <option value="Salmon">Salmon</option>
+          <option value="Seafood">Seafood</option>
+          <option value="Shawarma">Shawarma</option>
+          <option value="Steak">Steak</option>
+          <option value="Sushi">Sushi</option>
+          <option value="Tacos">Tacos</option>
+          <option value="Tapas">Tapas</option>
+        </select> -->
         <%= f.input :dish_category,
+                    collection: ["BBQ", "Brunch", "Burrito", "Burger", "Chicken", "Curry", "Dessert", "Pasta", "Pizza", "Ramen", "Salad", "Salmon", "Seafood", "Shawarma", "Steak", "Sushi", "Tacos", "Tapas"],
                     required: true
+                    # input_html: { class: "form-control" }
         %>
 
         <div class= "avatar-btn">

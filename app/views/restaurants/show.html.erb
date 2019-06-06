@@ -3,25 +3,18 @@
       <%= render 'dishes/rating', rating: @restaurant.average_rating %>
     </p>
 </div>
-
-<div class="buttons-resto">
-  <button class="crave-button-primary" id="button-resto">
-    <a class="el-tenedor" href="/">
-      <%= image_tag "eltenedor.png" %>
+  <div class="buttons-resto">
+    <a href="https://www.eltenedor.es/ciudad/barcelona/" target="_blank" class="crave-button-primary"id="button-resto">
+      <p class="el-tenedor" >
+      <%= image_tag "eltenedor.png" %> Book a table
+    </p>
     </a>
-    <a href=https://www.eltenedor.es/ciudad/barcelona/41710 target="_blank">
-      Book a table
+    <a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank" class="crave-button-secondary"id="button-resto">
+      <p class="deliveroo" >
+      <%= image_tag "deliveroo.png" %> Order in
+    </p>
     </a>
-  </button>
-  <button class="crave-button-secondary" id="button-resto">
-    <a class="deliveroo" href="/">
-      <%= image_tag "deliveroo.png" %>
-    </a>
-    <a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank">
-      Order in
-    </a>
-  </button>
-</div>
+  </div>
 </div>
 <!-- FIN LINK TO EL TENEDOR / DELIVEROO -->
 <div class="craving-dish-info" style="margin-top: 32px;">

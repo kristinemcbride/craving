@@ -13,6 +13,7 @@
     "mapbox-gl": "^1.0.0",
     "places.js": "^1.16.4",
     "popper.js": "^1.15.0",
+    "slim-select": "^1.21.1",
     "turf-distance": "^3.0.12"
   },
   "devDependencies": {
