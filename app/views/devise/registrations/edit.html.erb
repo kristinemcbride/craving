@@ -1,7 +1,11 @@
 <div class="crave-container">
   <div class="craving-content">
     <div class="profile-container">
-    <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+    <% if current_user.avatar.url.nil? %>
+      <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
+    <% else %>
+      <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+    <% end %>
   </div>
     <div class="edit-form">
     <h2>Edit <%= resource_name.to_s.humanize %></h2>
