@@ -9,7 +9,7 @@
 
 puts "Creating 4 USERS..."
 
-admin = User.new
+admin = User.new(
 email: "admin@admin.com",
   name: "Admin",
   password: "password",
