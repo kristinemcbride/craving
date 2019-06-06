@@ -30,12 +30,24 @@
   border-radius: 4px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
   position: relative;
-
   .crave-button-primary-lg {
     margin-top: 20px;
     float: center;
   };
+}
 
+.delete-form {
+  margin-top: 40px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  h2 {
+    font-size: 16px;
+  };
+  .crave-button-delete-lg {
+    margin-top: 20px;
+    float: center;
+  };
 }
 
 .edit-form {

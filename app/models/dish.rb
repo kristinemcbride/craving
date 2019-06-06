@@ -1,7 +1,7 @@
 class Dish < ApplicationRecord
   belongs_to :restaurant
   belongs_to :user
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
   mount_uploader :photo, PhotoUploader

@@ -58,7 +58,14 @@
   <div class="top-review">
     <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
     <div class= "top-right-review">
-      <p class= "review-name"><%= review.user.name %></p>
+      <div class="review-name-delete">
+        <p class= "review-name"><%= review.user.name %></p>
+        <% if user_signed_in? && current_user.admin == true  %>
+          <%= link_to dish_review_path(@dish, review), method: :delete do %>
+            <p class="review-delete">Delete review</p>
+          <% end %>
+        <% end %>
+      </div>
       <p class="review-rate"><strong><%= review.rating.to_d.round(2, :truncate).to_f %></strong>
         <%= render 'dishes/rating', rating: review.rating %>
       </p>
@@ -81,6 +88,14 @@
     </div>
     <% end %>
   </div>
+    <% if user_signed_in? && current_user.admin == true %>
+      <div class="delete-form">
+        <h2>Dish no longer available?</h2>
+        <%= link_to '', method: :delete, confirm: "Are you sure?" do %>
+          <button class= "crave-button-delete-lg">Delete</button>
+        <% end %>
+      </div>
+    <% end %>
 </div>
 
 

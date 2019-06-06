@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-
-  before_action :set_dish
+  before_action :set_dish, only: [:create]
 
   def create
     @review = Review.new(review_params)
@@ -19,6 +18,10 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @dish = Dish.find(params[:dish_id])
+    @review = Review.find(params[:id])
+    @review.delete
+    redirect_to dish_path(@dish)
   end
 
   private

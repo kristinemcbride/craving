@@ -3,7 +3,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :dishes
-  has_many :reviews, dependent: :destroy
+  has_many :reviews
   has_many :favorites
 
   mount_uploader :avatar, PhotoUploader
