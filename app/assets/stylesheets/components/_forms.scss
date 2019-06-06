@@ -11,6 +11,19 @@
   padding: 1px 10px;
 }
 
+.input-group.help-block.existing-file {
+
+  display: none !important;
+}
+
+.input-group-addon{
+  display: none !important;
+}
+
+.fa-file {
+  display: none !important;
+}
+
 .search-form {
   background-color: $blue;
   width: 100%;

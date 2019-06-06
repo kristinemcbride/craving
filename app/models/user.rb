@@ -7,4 +7,12 @@ class User < ApplicationRecord
   has_many :favorites
 
   mount_uploader :avatar, PhotoUploader
+
+  def avatar_file_name # temp fix!!
+    begin
+      super
+    rescue
+      ""
+    end
+  end
 end

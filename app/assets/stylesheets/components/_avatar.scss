@@ -4,8 +4,11 @@
 }
 .avatar-large {
   width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 1px solid $red;
+  object-fit: cover;
+
 }
 .avatar-bordered {
   display: flex;
@@ -14,6 +17,7 @@
   justify-content: center;
   width: 40px;
   height: 40px;
+  object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
   border: rgba(255, 90, 95, 0.6) 1px solid;
