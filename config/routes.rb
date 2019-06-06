@@ -7,13 +7,13 @@ Rails.application.routes.draw do
 
   resources :restaurant_dish_forms, only: [ :new, :create ]
 
-  resources :dishes, only: [:show, :new, :create] do
+  resources :dishes, only: [:show, :new, :create, :destroy] do
     collection do
       get 'search'
       get 'map'
     end
     resources :restaurants, only: [:create]
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create, :destroy]
     resources :favorites, only: [:create, :destroy]
   end
 

@@ -55,6 +55,13 @@ class DishesController < ApplicationController
     search
   end
 
+
+  def destroy
+    # favorite = Dish.find_by(dish_id: params[:dish_id])
+    # favorite.delete
+    # redirect_to dish_path(params[:dish_id])
+  end
+
   private
 
   def filter_dishes(address, distance, dish, price)
