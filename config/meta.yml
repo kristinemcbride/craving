@@ -1,0 +1,5 @@
+meta_product_name: "Craving"
+meta_title: "Crave it. Discover it. Taste it."
+meta_description: "Craving is an app for foodies who want quality food and often know exactly what they want to eat but don’t always know where to find it. With Craving you can search for food by dish and post your own favorites with dish ratings for others to see. "
+meta_image: "bg4.jpg" # should exist in `app/assets/images/`
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards
