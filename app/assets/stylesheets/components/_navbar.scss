@@ -19,22 +19,26 @@
   a {
     color: $red;
   }
-  .avatar-bordered {
-    margin-right: 16px;
-  }
+  // .avatar-bordered {
+  //   // margin-right: 16px;
+  // }
   .avatar-bordered:hover {
     opacity: 0.6;
   }
 
 }
 
-.navbar
+.nav-item.dropdown {
+  margin-right: 5%;
+}
 
 .navbar-craving .navbar-collapse {
   flex-grow: 0;
 }
 .navbar-craving .navbar-brand img {
   width: 120px;
+  margin-left: 5%;
+
 }
 
 .dropdown-menu {

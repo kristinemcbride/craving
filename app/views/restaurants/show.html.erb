@@ -1,3 +1,4 @@
+<div class="show-page">
 <div class="craving-dish-search resto-rate-container" style="background-image: url(<%= cl_image_path @restaurant.photo %>)">
     <p><strong><%= @restaurant.average_rating.to_d.round(1, :truncate).to_f %></strong>
       <%= render 'dishes/rating', rating: @restaurant.average_rating %>
@@ -6,17 +7,17 @@
 
   <div class="buttons-resto">
     <a href="https://www.eltenedor.es/ciudad/barcelona/41710?cc=16774-c1d&gclid=CjwKCAjw8-LnBRAyEiwA6eUMGsLVuuVfmq3JWc9WGNgmHzZzNmcI1vmT4mT8ze1ziYANtLpvcfsPkxoCQGIQAvD_BwE" target="_blank" class="crave-button-primary"id="button-resto">
-      <p class="el-tenedor" >
+      <p class="el-tenedor button-restaurant" >
       <%= image_tag "eltenedor.png" %> Book a table
     </p>
     </a>
     <a href="https://deliveroo.es/es/menu/barcelona/el-barri-gotic/la-central-new" target="_blank" class="crave-button-secondary"id="button-resto">
-      <p class="deliveroo" >
+      <p class="deliveroo button-restaurant" >
       <%= image_tag "deliveroo.png" %> Order in
     </p>
     </a>
   </div>
-</div>
+
 <!-- FIN LINK TO EL TENEDOR / DELIVEROO -->
 <div class="craving-dish-info" style="margin-top: 32px;">
   <div class="info">
@@ -41,5 +42,6 @@
     <% end %>
     <% end %>
   </div>
+</div>
 </div>
 

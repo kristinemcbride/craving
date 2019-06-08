@@ -1,28 +1,44 @@
-<div class="home-container" style= "background-image: url(<%= image_path 'bg.jpg' %>) ">
+<div class="home-container" style= "  ">
+
+  <style type="text/css">
+    .home-container{
+      background-image: url(<%= image_path 'bg.jpg' %>);
+    }
+    @media (min-width: 500px) {
+      .home-container {
+        background-image:
+        linear-gradient(to bottom, rgba(17, 20, 34, 0.7), rgba(17, 20, 34, 0.8)),
+         url(<%= image_path 'bg3.jpg' %>);
+        }
+      }
+
+  </style>
   <div class="home-content" >
-    <h1 style= "margin-bottom: 40px">Crave it.<br>Discover it.<br>Taste it.</h1>
-    <p>Discover the best dishes near you.</p>
-    <%= form_tag search_dishes_path, method: :get do %>
-      <%= text_field_tag :address,
-        params[:address],
-        class: "search-bar",
-        id: "address",
-        placeholder: "Type your location",
-        value: "Barcelona"
-      %>
-      <%= text_field_tag :distance,
-        params[:distance],
-        value: 20,
-        hidden: true,
-        id: "distance"
-      %>
-      <%= text_field_tag :price,
-        params[:price],
-        value: 500,
-        hidden: true,
-        id: "price"
-      %>
-      <%= button_tag hidden:true %>
-      <% end %>
+    <div class="home-text">
+      <h1>Crave it.<br>Discover it.<br>Taste it.</h1>
+      <p>Discover the best dishes near you.</p>
+      <%= form_tag search_dishes_path, method: :get do %>
+        <%= text_field_tag :address,
+          params[:address],
+          class: "search-bar",
+          id: "address",
+          placeholder: "Type your location",
+          value: "Barcelona"
+        %>
+        <%= text_field_tag :distance,
+          params[:distance],
+          value: 20,
+          hidden: true,
+          id: "distance"
+        %>
+        <%= text_field_tag :price,
+          params[:price],
+          value: 500,
+          hidden: true,
+          id: "price"
+        %>
+        <%= button_tag hidden:true %>
+        <% end %>
+    </div>
   </div>
 </div>

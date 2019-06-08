@@ -1,3 +1,39 @@
+.map-container {
+  #map {
+    margin-bottom: 16px;
+    height: 240px;
+     z-index: 0;
+  }
+  @include not-phone {
+    display: flex;
+    margin: 0 auto;
+
+
+   .map-content{
+    width: 100%;
+    margin: 0;
+  }
+  #map {
+    margin-bottom: 16px;
+    height: 100vh;
+    z-index: 0;
+
+  }
+  .cards-carsousel {
+    position: fixed;
+    align-self: center;
+    top: 74px;
+    right: 16px;
+    width: 300px;
+    margin: 0;
+    .dish-carousel-display.carousel-item {
+      background-color: $blue;
+    }
+    }
+  }
+
+}
+
 .mapboxgl-popup {
   // max-width: 200px;
 }
@@ -100,3 +136,5 @@
 .carousel-item-hidden {
   display: none;
 }
+
+

@@ -1,63 +1,66 @@
-
-<div class="crave-container">
-  <div class="craving-content">
-    <div class="profile-container">
-    <% if current_user.avatar.url.nil? %>
-      <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
-    <% else %>
-      <%= cl_image_tag @user.avatar, class: "avatar-large" %>
-    <% end %>
-  </div>
-    <div class="edit-form">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      <%= f.error_notification %>
-
-      <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, class: "email-edit" %>
-
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-        <% end %>
-
-        <%= f.input :name,
-                    required: false,
-                    input_html: { autocomplete: "first-name" } %>
-        <%= f.input :password,
-                    hint: "leave it blank if you don't want to change it",
-                    required: false, label: "New password",
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :password_confirmation,
-                    required: false, label: "New password confirmation",
-                    input_html: { autocomplete: "new-password" } %>
-        <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
-                    required: true,
-                    input_html: { autocomplete: "current-password" } %>
-
-
-        <div class= "avatar-btn">
-          <div class="form-group file optional user_avatar form-group-valid">
-             <label class="file optional" for="user_avatar" style="margin-top: 16px;">Upload a profile picture</label> <br>
-            <label class="file optional" for="user_avatar"> <h5><i class="fas fa-camera"></i></h5></label>
-            <%= f.input :avatar,
-                        required: true, as: :file, label: false
-            %>
-            <%= f.input :avatar_cache,
-                        required: true, as: :hidden
-            %>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <%= f.button :submit, "Update", class: "crave-button-primary-lg" %>
-      </div>
-    <% end %>
-    <div class="form-links">
-    <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-    <p><%= link_to "Back", :back %></p>
+<div class="show-page">
+  <div class="crave-container">
+    <div class="craving-content">
+      <div class="profile-container">
+      <% if current_user.avatar.url.nil? %>
+        <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
+      <% else %>
+        <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+      <% end %>
     </div>
-  </div>
+      <div class="edit-form">
+      <h2>Edit <%= resource_name.to_s.humanize %></h2>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true, class: "email-edit" %>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+
+          <%= f.input :name,
+                      required: false,
+                      input_html: { autocomplete: "first-name" } %>
+          <%= f.input :password,
+                      hint: "leave it blank if you don't want to change it",
+                      required: false, label: "New password",
+                      as: :hidden,
+                      input_html: { autocomplete: "new-password" } %>
+          <%= f.input :password_confirmation,
+                      required: false, label: "New password confirmation",
+                      input_html: { autocomplete: "new-password" },
+                      as: :hidden %>
+          <%= f.input :current_password,
+                      hint: "we need your current password to confirm your changes",
+                      required: true,
+                      input_html: { autocomplete: "current-password" } %>
+
+
+          <div class= "avatar-btn">
+            <div class="form-group file optional user_avatar form-group-valid">
+               <label class="file optional" for="user_avatar" style="margin-top: 16px;">Upload a profile picture</label> <br>
+              <label class="file optional" for="user_avatar"> <h5><i class="fas fa-camera"></i></h5></label>
+              <%= f.input :avatar,
+                          required: true, as: :file, label: false
+              %>
+              <%= f.input :avatar_cache,
+                          required: true, as: :hidden
+              %>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Update", class: "crave-button-primary-lg" %>
+        </div>
+      <% end %>
+      <div class="form-links">
+      <p><%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+      <p><%= link_to "Back", :back %></p>
+      </div>
+    </div>
+    </div>
   </div>
 </div>

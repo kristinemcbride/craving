@@ -1,101 +1,103 @@
+<div class="show-page">
+  <div class="craving-dish-search large-card" style=" background-image: url(<%= cl_image_path @dish.photo %>)">
 
-<div class="craving-dish-search large-card" style=" background-image: url(<%= cl_image_path @dish.photo %>)">
-
-  <div class="dish-info-card">
-    <div>
-      <div>
-        <h5 class="dish-info"><strong><%= @dish.name %> ( <%=@dish.price %> € )</strong></h5>
+  <div class="content-show-dish" >
+      <div class="dish-info-card">
+        <div>
+          <div>
+            <h5 class="dish-info"><strong><%= @dish.name %> ( <%=@dish.price %> € )</strong></h5>
+          </div>
+          <div>
+            <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
+              <%= render 'dishes/rating', rating: @dish.rating %>
+            </p>
+          </div>
+        </div>
       </div>
+       <div class="favorite-button">
+          <% if user_signed_in? %>
+            <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
+                <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
+              <% else %>
+                <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+          <% else %>
+              <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
+              <i class="far fa-heart"></i>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+  </div>
+  <div class="craving-content">
+    <div class="resto">
+      <div class="resto-content">
+       <%= link_to restaurant_path(@dish.restaurant_id) do %>
+       <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
+       <div>
+        <p class="resto-dish-name"><strong><%= @dish.restaurant.name %></strong></p>
+        <strong><%= render 'dishes/price_range', price_range: @dish.restaurant.price_range %></strong>
+        <% end %>
+      </div>
+    </div>
       <div>
-        <p class="dish-rate"><strong><%= @dish.rating.to_d.round(1, :truncate).to_f %></strong>
-          <%= render 'dishes/rating', rating: @dish.rating %>
+        <%= link_to restaurant_path(@dish.restaurant_id) do %>
+          <button class="crave-button-primary">Get the dish</button>
+      <% end %>
+      </div>
+  </div>
+  </div>
+  <div class="craving-content">
+    <div class="review-head">
+      <p><strong>Reviews (<%= @count %>)</strong></p>
+      <a href="#review-form">Tried it? Rate it now!</a>
+    </div>
+    <% @reviews.each do |review| %>
+    <div class="top-review">
+      <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
+      <div class= "top-right-review">
+        <div class="review-name-delete">
+          <p class= "review-name"><%= review.user.name %></p>
+          <% if user_signed_in? && current_user.admin == true  %>
+            <%= link_to dish_review_path(@dish, review), method: :delete do %>
+              <p class="review-delete">Delete review</p>
+            <% end %>
+          <% end %>
+        </div>
+        <p class="review-rate"><strong><%= review.rating.to_d.round(2, :truncate).to_f %></strong>
+          <%= render 'dishes/rating', rating: review.rating %>
         </p>
       </div>
     </div>
-  </div>
-   <div class="favorite-button">
-      <% if user_signed_in? %>
-        <% if current_user.favorites.any? { |favorite|  favorite.dish == @dish } %>
-            <%= link_to dish_favorite_path(@dish, @favorite), method: :delete do %>
-              <i class="fas fa-heart"></i>
-            <% end %>
-          <% else %>
-            <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
-              <i class="far fa-heart"></i>
-            <% end %>
-          <% end %>
-      <% else %>
-          <%= link_to dish_favorites_path(@dish, @favorite), method: :post do %>
-          <i class="far fa-heart"></i>
-      <% end %>
+    <div class="review-content">
+      <p><%= review.content %></p>
+    </div>
     <% end %>
   </div>
-</div>
-<div class="craving-content">
-  <div class="resto">
-    <div class="resto-content">
-     <%= link_to restaurant_path(@dish.restaurant_id) do %>
-     <img src="<%= cl_image_path @dish.restaurant.photo %>" alt="" style= "width: 40px; height: 40px; object-fit: cover; object-position: center; margin-right: 6px;">
-     <div>
-      <p class="resto-dish-name"><strong><%= @dish.restaurant.name %></strong></p>
-      <strong><%= render 'dishes/price_range', price_range: @dish.restaurant.price_range %></strong>
+  <div class="craving-content">
+    <div class="load-form" id="review-form">
+      <h2>Add a review</h2>
+      <%= simple_form_for [@dish, @new_review] do |f| %>
+      <div class="form-inputs inline-form-checks">
+        <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
+        <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
+        <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
+        <%= f.button :submit, class: "crave-button-primary-lg" %>
+      </div>
       <% end %>
     </div>
-  </div>
-    <div>
-      <%= link_to restaurant_path(@dish.restaurant_id) do %>
-        <button class="crave-button-primary">Get the dish</button>
-    <% end %>
-    </div>
-</div>
-</div>
-<div class="craving-content">
-  <div class="review-head">
-    <p><strong>Reviews (<%= @count %>)</strong></p>
-    <a href="#review-form">Tried it? Rate it now!</a>
-  </div>
-  <% @reviews.each do |review| %>
-  <div class="top-review">
-    <img class="avatar-bordered dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= cl_image_path review.user.avatar %>" />
-    <div class= "top-right-review">
-      <div class="review-name-delete">
-        <p class= "review-name"><%= review.user.name %></p>
-        <% if user_signed_in? && current_user.admin == true  %>
-          <%= link_to dish_review_path(@dish, review), method: :delete do %>
-            <p class="review-delete">Delete review</p>
+      <% if user_signed_in? && current_user.admin == true %>
+        <div class="delete-form">
+          <h2>Dish no longer available?</h2>
+          <%= link_to '', method: :delete, confirm: "Are you sure?" do %>
+            <button class= "crave-button-delete-lg">Delete</button>
           <% end %>
-        <% end %>
-      </div>
-      <p class="review-rate"><strong><%= review.rating.to_d.round(2, :truncate).to_f %></strong>
-        <%= render 'dishes/rating', rating: review.rating %>
-      </p>
-    </div>
+        </div>
+      <% end %>
   </div>
-  <div class="review-content">
-    <p><%= review.content %></p>
-  </div>
-  <% end %>
-</div>
-<div class="craving-content">
-  <div class="load-form" id="review-form">
-    <h2>Add a review</h2>
-    <%= simple_form_for [@dish, @new_review] do |f| %>
-    <div class="form-inputs inline-form-checks">
-      <% star_collection = ([1.0, 2.0, 3.0, 4.0, 5.0]).map { |n| [n, ('<h1><i class="far fa-star"></i></h1>').html_safe] } %>
-      <%= f.input :rating, collection: star_collection,  as: :radio_buttons, input_html: { class: "hidden" }, label_method: :second, value_method: :first %>
-      <%= f.input :content, placeholder: "Add your comments here.", :input_html => {:rows => 8}, label: false, as: :text %>
-      <%= f.button :submit, class: "crave-button-primary-lg" %>
-    </div>
-    <% end %>
-  </div>
-    <% if user_signed_in? && current_user.admin == true %>
-      <div class="delete-form">
-        <h2>Dish no longer available?</h2>
-        <%= link_to '', method: :delete, confirm: "Are you sure?" do %>
-          <button class= "crave-button-delete-lg">Delete</button>
-        <% end %>
-      </div>
-    <% end %>
-</div>
 
-
+</div>

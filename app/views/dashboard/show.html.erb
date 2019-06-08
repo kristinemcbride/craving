@@ -1,48 +1,54 @@
 <div class="craving-content">
   <div class="profile-container">
     <% if current_user.avatar.url.nil? %>
-      <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
+    <h3 class="avatar-bordered-large"><i class="fas fa-user" style="font-size: 105px;"></i></h3>
     <% else %>
-      <%= cl_image_tag @user.avatar, class: "avatar-large" %>
+    <%= cl_image_tag @user.avatar, class: "avatar-large" %>
     <% end %>
     <h2><%= @user.name %></h2>
   </div>
 
   <p><%= @favorites.count %> <strong> dishes saved </strong> <br></p>
 
-<div class="saved-posts">
- <ul class="list-inline tabs-underlined">
-  <li>
-    <a href="#" class="tab-underlined active">All saved</a>
-  </li>
-  <li>
-    <a href="/my_profile/my_posts" class="tab-underlined">My posts</a>
-  </li>
-</ul>
+  <div class="saved-posts">
+   <ul class="list-inline tabs-underlined">
+    <li>
+      <a href="#" class="tab-underlined active">All saved</a>
+    </li>
+    <li>
+      <a href="/my_profile/my_posts" class="tab-underlined">My posts</a>
+    </li>
+  </ul>
 </div>
-  </div>
+</div>
+</div>
+<div class="grid-container-profile">
   <% @favorites.each do |favorite| %>
-</div>
-   <%= link_to dish_path(favorite.dish) do %>
-    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path favorite.dish.photo %>)">
-    </div>
+  <div class="grid-block">
 
+    <%= link_to dish_path(favorite.dish) do %>
+    <div class="craving-dish-search" style="background-image: url(<%= cl_image_path favorite.dish.photo %>)">
+      <img class="craving-dish-search" src="<%= cl_image_path favorite.dish.photo %>" alt="" style="height: 100; width: 100%">
+      <div class="dish-info-card">
+      </div>
+    </div>
     <div class="craving-dish-info">
       <div class= "info">
-        <h5 class= "name">
-          <strong><%= favorite.dish.name %></strong>
-        </h5>
+        <h5 class= "name"><strong><%= favorite.dish.name %> ( <%= favorite.dish.price %> € )</strong></h5>
         <p class= "name"><%= favorite.dish.restaurant.name %></p>
       </div>
       <div class= "info">
-        <p class="rating" style="font-size: 12px; text-align: right;">
-          <strong><%= favorite.dish.rating.to_d.round(1, :truncate).to_f %></strong>
-           <%= render 'dishes/rating', rating: favorite.dish.rating %>
-          <!-- YOUR RATING
-           -->
-        </p>
+        <h5 class="rating"><strong><%= favorite.dish.rating.to_d.round(1, :truncate).to_f %></strong>
+          <%= render 'dishes/rating', rating: favorite.dish.rating %>
+        </h5>
+        <h5 class="distance">
+          <%= distance_to_user(@user_location, favorite.dish.restaurant) %>
+        </h5>
         <% end %>
+
       </div>
-    <% end %>
+    </div>
   </div>
+  <% end %>
+
 </div>
