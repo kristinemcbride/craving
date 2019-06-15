@@ -1,22 +1,25 @@
-# puts "Destroying current DB"
+puts "Destroying current DB"
 
 # Favorite.destroy_all
 # Review.destroy_all
 # Restaurant.destroy_all
-# Dish.destroy_all
+Dish.find(197).destroy
+Dish.find(199).destroy
+Dish.find(194).destroy
+
 # User.destroy_all
 
 
-puts "Creating 4 USERS..."
+# puts "Creating 4 USERS..."
 
-admin = User.new(
-email: "admin@admin.com",
-  name: "Admin",
-  password: "password",
-  admin: true
-  )
-admin.remote_avatar_url = "https://cdn.shopify.com/s/files/1/2109/0527/products/Ratatouille-Skinner-Disney-Cake-Topper_1000x.jpg?v=1529042657"
-admin.save!
+# admin = User.new(
+# email: "admin@admin.com",
+#   name: "Admin",
+#   password: "password",
+#   admin: true
+#   )
+# admin.remote_avatar_url = "https://cdn.shopify.com/s/files/1/2109/0527/products/Ratatouille-Skinner-Disney-Cake-Topper_1000x.jpg?v=1529042657"
+# admin.save!
 
 # meder = User.new(
 #   email: "meder@meder.com",
